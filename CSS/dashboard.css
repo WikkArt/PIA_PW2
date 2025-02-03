@@ -1,0 +1,297 @@
+@font-face {
+  /* Tipografia del Logo */
+  font-family: "Jersey-10";
+  src: url("../Fonts/Jersey10-Regular.ttf");
+}
+
+@font-face {
+  /* Tipografia para Titulos */
+  font-family: "Pixelify-Sans";
+  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+}
+
+@font-face {
+  /* Tipografia para Subtitulos */
+  font-family: "VT323";
+  src: url("../Fonts/VT323-Regular.ttf");
+}
+
+@font-face {
+  /* Tipografia para Parrafos */
+  font-family: "Handjet";
+  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+}
+
+:root{
+  --verde-pixplore: rgb(138, 229, 89);
+  --negro-pixplore: rgb(38, 38, 38);
+  --gris-darkmode: rgb(104, 104, 104);
+  --gris-lightmode: rgb(234, 234, 234);
+}
+
+html, body{
+  background-color: var(--negro-pixplore);
+}
+
+/* Cuerpo */
+
+.cuerpo {
+  display: flex; 
+  align-items: flex-start; 
+}
+
+/* Categorias */
+
+#idCategorias{
+  color: white;
+  background-color: var(--verde-pixplore);
+}
+
+/* Dashboard */
+
+#idDashboard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Posts */
+
+/* Datos de Usuario*/
+.post-usuario{
+  background-color: var(--gris-darkmode);
+  color: white;
+  margin-left: 14px;
+  width: 70%;
+  overflow: hidden;
+  padding-block: 6px;
+  padding-inline: 8px;
+  display: flex;
+  align-items: center;
+
+  box-shadow:
+    4px 4px 0px 0px  var(--gris-darkmode),
+    9px 9px 0px 0px var(--gris-darkmode),
+    14px 14px 0px 0px var(--gris-darkmode),
+    9px 19px 0px 0 var(--gris-darkmode),
+    4px 24px 0px 0 var(--gris-darkmode),
+    -4px 4px 0px 0px  var(--gris-darkmode),
+    -9px 9px 0px 0px var(--gris-darkmode),
+    -14px 16px 0px 0px var(--gris-darkmode);
+}
+
+#idFotoUsuario{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.circular-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 5px),
+    5px calc(100% - 5px),
+    5px 100%,
+    calc(100% - 5px) 100%,
+    calc(100% - 5px) calc(100% - 5px),
+    100% calc(100% - 5px),
+    100% 5px,
+    calc(100% - 5px) 5px,
+    calc(100% - 5px) 0px,
+    5px 0px,
+    5px 5px,
+    0px 5px
+  );
+}
+
+#idNombreUsuario{
+  font-family: "Pixelify-Sans";
+  margin-left: 10px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  inline-size: 180px;
+}
+
+/* Imagen */
+.post-imagen {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.post-imagen img {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+  min-width: 280px;
+  max-width: 280px;
+  transition: 
+    min-width 0.3s ease,
+    max-width 0.3s ease, 
+    max-height 0.3s ease;
+}
+
+.post-contenedor:hover .post-imagen img {
+  min-width: 100px; 
+  max-width: 1920px;
+  max-height: 1080px;
+}
+
+/* Marcos de fotos pixelados */
+.pixel-corners,
+.pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px);
+  position: relative;
+  border: 8px solid var(--gris-darkmode);
+  background-color: var(--gris-darkmode);
+}
+
+.pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.pixel-corners--wrapper .pixel-corners {
+  display: block;
+  clip-path: polygon(8px 20px,
+    12px 20px,
+    12px 12px,
+    20px 12px,
+    20px 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 12px,
+    calc(100% - 12px) 12px,
+    calc(100% - 12px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 12px) calc(100% - 20px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 20px) calc(100% - 12px),
+    calc(100% - 20px) calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 12px),
+    12px calc(100% - 12px),
+    12px calc(100% - 20px),
+    8px calc(100% - 20px));
+}
+
+.pixel-corners::after,
+.pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px,
+    0px 50%,
+    8px 50%,
+    8px 20px,
+    12px 20px,
+    12px 12px,
+    20px 12px,
+    20px 8px,
+    calc(100% - 20px) 8px,
+    calc(100% - 20px) 12px,
+    calc(100% - 12px) 12px,
+    calc(100% - 12px) 20px,
+    calc(100% - 8px) 20px,
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 12px) calc(100% - 20px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 20px) calc(100% - 12px),
+    calc(100% - 20px) calc(100% - 8px),
+    20px calc(100% - 8px),
+    20px calc(100% - 12px),
+    12px calc(100% - 12px),
+    12px calc(100% - 20px),
+    8px calc(100% - 20px),
+    8px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--gris-darkmode);
+  display: block;
+  pointer-events: none;
+}
+
+.pixel-corners::after {
+  margin: -8px;
+}
+
+/* Hovers de los posts */
+
+.post-contenedor:hover .post-usuario,
+.post-contenedor:hover .pixel-corners::after,
+.post-contenedor:hover .pixel-corners--wrapper::after {
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+  box-shadow: 
+    4px 4px var(--verde-pixplore),
+    9px 9px var(--verde-pixplore),
+    14px 14px var(--verde-pixplore),
+    9px 19px 0px 0 var(--verde-pixplore),
+    4px 24px 0px 0 var(--verde-pixplore),
+    -4px 4px var(--verde-pixplore),
+    -9px 9px var(--verde-pixplore),
+    -14px 16px var(--verde-pixplore);
+}
+
+.post-contenedor:hover .post-imagen{
+  border: 8px solid var(--verde-pixplore);
+  background-color: var(--verde-pixplore);
+}
