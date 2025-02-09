@@ -24,13 +24,37 @@
 
 :root{
   --verde-pixplore: rgb(138, 229, 89);
-  --negro-pixplore: rgb(38, 38, 38);
+  --gris-pixplore: rgb(38, 38, 38);
+  --gris-oscuro-pixplore: rgb(30, 30, 30);
+  --negro-pixplore: rgb(20, 20, 20);
   --gris-darkmode: rgb(104, 104, 104);
   --gris-lightmode: rgb(234, 234, 234);
 }
 
 html, body{
+  background-color: var(--gris-pixplore);
+}
+
+/* Navegador */
+
+#idNavPixplore{
   background-color: var(--negro-pixplore);
+  padding-block: 10px;
+}
+
+#idNavPixplore img{
+  width: 170px;
+}
+
+#idNavPixplore a{
+  font-family: "Pixelify-Sans";
+  color: white;
+  font-size: 20px;
+}
+
+#idNavPixplore .active{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
 }
 
 /* Cuerpo */
@@ -44,12 +68,13 @@ html, body{
 
 #idCategorias{
   color: white;
-  background-color: var(--verde-pixplore);
+  background-color: var(--gris-darkmode);
 }
 
 /* Dashboard */
 
 #idDashboard{
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -65,7 +90,8 @@ html, body{
   margin-left: 14px;
   width: 70%;
   overflow: hidden;
-  padding-block: 6px;
+  padding-top: 6px;
+  padding-bottom: 2px;
   padding-inline: 8px;
   display: flex;
   align-items: center;
@@ -112,6 +138,7 @@ html, body{
   overflow: hidden;
   text-overflow: ellipsis;
   inline-size: 180px;
+  flex: 1;
 }
 
 /* Imagen */
@@ -274,12 +301,11 @@ html, body{
 }
 
 /* Hovers de los posts */
-
 .post-contenedor:hover .post-usuario,
 .post-contenedor:hover .pixel-corners::after,
 .post-contenedor:hover .pixel-corners--wrapper::after {
   background-color: var(--verde-pixplore);
-  color: var(--negro-pixplore);
+  color: var(--gris-pixplore);
   box-shadow: 
     4px 4px var(--verde-pixplore),
     9px 9px var(--verde-pixplore),
@@ -294,4 +320,629 @@ html, body{
 .post-contenedor:hover .post-imagen{
   border: 8px solid var(--verde-pixplore);
   background-color: var(--verde-pixplore);
+}
+
+/* Modals de los Posts */
+
+button.close{
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 15px;
+  font-family: "Jersey-10";
+  font-size: 30px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--gris-darkmode);
+  color: white;
+  border: none;
+  transition: 0.1s ease;
+}
+
+button.close:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+button.close label{
+  cursor: pointer;
+}
+
+#idModalPost{
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+#idModalPost .modal-dialog{
+  height: 90%;
+}
+
+.post-pixel-corners,
+.post-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px);
+  position: relative;
+  border: 8px solid var(--verde-pixplore);
+  background-color: var(--verde-pixplore);
+}
+
+.post-pixel-corners {
+  overflow: hidden;
+  border: 4px solid transparent;
+}
+
+.post-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.post-pixel-corners--wrapper .post-pixel-corners {
+  display: block;
+  clip-path: polygon(4px 20px,
+    8px 20px,
+    8px 12px,
+    12px 12px,
+    12px 8px,
+    20px 8px,
+    20px 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 20px),
+    4px calc(100% - 20px));
+}
+
+.post-pixel-corners::after,
+.post-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px,
+    0px 50%,
+    4px 50%,
+    4px 20px,
+    8px 20px,
+    8px 12px,
+    12px 12px,
+    12px 8px,
+    20px 8px,
+    20px 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--verde-pixplore);
+  display: block;
+  pointer-events: none;
+}
+
+.post-pixel-corners::after {
+  margin: -4px;
+}
+
+#idModalPost .modal-content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+/* Imagen Principal del Post */
+#idModalPost .modal-image{
+  background-color: var(--negro-pixplore);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#idModalPost #idModalImagen{
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Info del Post */
+#idModalPost .modal-info{
+  background-color: var(--gris-pixplore);
+  color: white;
+  font-family: "Handjet";
+}
+
+#idModalPost .modal-header{
+  height: 100px;
+  border-bottom: 1px solid var(--verde-pixplore);
+  display: flex;
+  justify-content: space-between;
+}
+
+#idFotoUsuarioM{
+  width: 55px;
+  height: 55px;
+}
+
+#idNombreUsuarioM{
+  color: var(--verde-pixplore);
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-family: "Pixelify-Sans";
+  width: 220px;
+  max-height: 60px;
+  text-overflow: ellipsis;
+  /* background-color: rgba(0, 255, 255, 0.358); */
+}
+
+#idHoraM{
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+#idDropdownM .dropdown-toggle{
+  border: none;
+  background-color: var(--gris-darkmode);
+  transition: 0.2s ease;
+  padding-bottom: 3px;
+}
+
+#idDropdownM .dropdown-toggle:hover,
+#idDropdownM .dropdown-toggle:focus{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+#idDropdownM .dropdown-menu{
+  background-color: var(--gris-oscuro-pixplore)
+}
+
+#idDropdownM .dropdown-item{
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 150ms ease;
+}
+
+#idDropdownM .dropdown-item:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+.dropdown-pixel-corners {
+ clip-path: polygon(
+    0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px
+  );
+
+}
+
+#idModalPost .modal-body{
+  padding: 0;
+}
+
+#idModalTitulo{
+  font-family: "VT323";
+  font-size: 22px;
+  padding: 13px 15px 2px 15px;
+  margin-bottom: 0;
+}
+
+#idModalDescripcion{
+  max-height: 17vh;
+  overflow-y: auto;
+  font-size: 18px;
+  padding: 15px;
+  margin-bottom: 0;
+}
+
+#idModalPost .modal-categorias{
+  padding: 15px 15px 0 15px;
+  font-style: italic;
+}
+
+#idModalPost .modal-categorias label:first-child::before{
+  content: "Categorías: ";
+  font-weight: 600;
+  color: var(--verde-pixplore);
+}
+
+#idModalPost .modal-categorias label:first-child::after{
+  content: ", ";
+}
+
+#idModalPost .modal-botones{
+  padding-inline: 15px;
+  padding-block: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#idModalPost .modal-botones label{
+  font-style: italic;
+}
+
+#idModalPost .modal-botones label::before{
+  content: "Formato: ";
+  font-weight: 600;
+  color: var(--verde-pixplore);
+}
+
+#idModalPost .modal-botones div{
+  font-family: "VT323";
+  font-size: 18px;
+  display: flex;
+  justify-content: end;
+  gap: 1em;
+}
+
+#idModalPost .modal-botones a{
+  color: white;
+  transition: 0.15s ease;
+}
+
+#idModalPost .modal-botones a:hover{
+  color: var(--verde-pixplore)
+}
+
+#idModalPost .modal-botones a img{
+  height: 21px;
+  width: 21px;
+  margin-right: 5px;
+}
+
+#idModalPost .modal-botones button{
+  display: flex;
+  align-items: center;
+  background-color: var(--gris-darkmode);
+  color: white;
+  border: none;
+  padding-inline: 8px;
+  transition: 0.15s ease;
+}
+
+#idModalPost .modal-botones button:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+  img {
+    filter: brightness(0.1);
+  }
+}
+
+.button-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 3px),
+    3px calc(100% - 3px),
+    3px 100%,
+    calc(100% - 3px) 100%,
+    calc(100% - 3px) calc(100% - 3px),
+    100% calc(100% - 3px),
+    100% 3px,
+    calc(100% - 3px) 3px,
+    calc(100% - 3px) 0px,
+    3px 0px,
+    3px 3px,
+    0px 3px
+  );
+}
+
+#idModalPost .modal-botones button img{
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+}
+
+#idModalPost .modal-footer{
+  border-top: 1px solid var(--verde-pixplore);
+  padding: 0;
+}
+
+#idModalPost .modal-footer img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+#idModalPost .seccion-comentarios{
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x: none;
+  padding: 12px;
+}
+
+#idModalPost .comentarios{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#idModalPost .comentarios div{
+  margin-left: 10px;
+}
+
+#idModalPost .comentarios h6{
+  font-family: "Pixelify-Sans";
+  color: var(--verde-pixplore);
+  font-size: 15px;
+  margin-left: 7px;
+}
+
+#idComentarioM{
+  width: 100%;
+  padding-inline: 7px;
+  height: max-content;
+  text-overflow: ellipsis;
+}
+
+#idHoraCM{
+  display: flex;
+  justify-content: end;
+  margin-right: 8px;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.comentario-pixel-corners,
+.comentario-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px);
+  position: relative;
+}
+.comentario-pixel-corners {
+  border: 3px solid transparent;
+}
+.comentario-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.comentario-pixel-corners--wrapper .pixel-corners {
+  display: block;
+  clip-path: polygon(3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px));
+}
+.comentario-pixel-corners::after,
+.comentario-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px,
+    0px 50%,
+    3px 50%,
+    3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--gris-darkmode);
+  display: block;
+  pointer-events: none;
+}
+.comentario-pixel-corners::after {
+  margin: -3px;
+}
+
+#idModalPost .input-comentario{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--gris-oscuro-pixplore);
+  padding-block: 10px;
+  padding-inline: 12px;
+  margin: 0;
+}
+
+#idModalPost .input-comentario div{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#idModalPost .input-comentario textarea{
+  width: 100%;
+  margin-inline: 10px;
+  line-height: 16px;
+  background-color: rgb(41, 41, 41);
+  color: white;
+}
+
+#idEnviarCM{
+  background: none;
+  border: none;
+  height: min-content;
+}
+
+#idModalPost .input-comentario div img{
+  width: 25px;
+  height: 25px;
+  filter: brightness(5) opacity(0.5);
+  transition: 0.15s ease;
+}
+
+#idModalPost .input-comentario div img:hover{
+  filter: brightness(1);
 }
