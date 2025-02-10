@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXPLORE | Dashboard</title>
+    <link rel="icon" href="Images/Favicon_Pixplore.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/dashboard.css">
 </head>
@@ -13,9 +14,26 @@
             <img src="Images/Logo_DarkMode.png" alt="">
         </a>
         <a class="nav-link active" href="dashboard.html">Inicio</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link nav-right" href="#">Iniciar Sesión</a>
+        <a class="nav-link nav-right" href="#">Registro</a>
     </nav>
+
+    <!-- <ul id="idNavPixplore" class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <img src="Images/Logo_DarkMode.png" alt="">
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="dashboard.html">Inicio</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link" href="#">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link" href="#">Registro</a>
+        </li>
+    </ul> -->
 
     <div class="cuerpo">
         <!-- Modal de Posts -->
@@ -31,7 +49,7 @@
                     </div>
                     <div class="col modal-info">
                         <div class="modal-header">
-                            <img id="idFotoUsuarioM" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
+                            <img id="idFotoUsuarioM" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
                             
                             <div>
                                 <h5 id="idNombreUsuarioM">Nombre de Usuario</h5>
@@ -62,7 +80,7 @@
                             <div class="modal-botones">
                                 <label for="">PNG/JPG/GIF</label>
                                 <div>
-                                    <a href="Images/usuario_blanco.png" download>
+                                    <a href="Images/Templates/Usuario_blanco.png" download>
                                         <img src="Images/Icons/Descarga.png" alt="">Descargar
                                     </a>
                                     <button class="button-pixel-corners">
@@ -73,7 +91,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="input-comentario">
-                                <img class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
+                                <img class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
                                 <div>
                                     <textarea id="idTextoM" class="comentario-pixel-corners"></textarea>
                                     <button id="idEnviarCM">
@@ -83,7 +101,7 @@
                             </div>
                             <div class="seccion-comentarios">
                                 <div class="comentarios">
-                                    <img class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
+                                    <img class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
@@ -95,7 +113,7 @@
                                     </div>
                                 </div>
                                 <div class="comentarios">
-                                    <img class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
+                                    <img class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
@@ -107,7 +125,7 @@
                                     </div>
                                 </div>
                                 <div class="comentarios">
-                                    <img class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
+                                    <img class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
@@ -119,8 +137,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -132,167 +148,231 @@
                 <li>Categoria 1</li>
             </ul>
         </div>
-        <div id="idDashboard" class="col">
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
+        <div class="col">
+            <div class="listas-container">
+                <button class="scroll-btn left" onclick="moveList(-1)">
+                    <img src="Images/Icons/Flecha.png" alt="">
+                </button>
+
+                <div class="listas row">
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://d2bzx2vuetkzse.cloudfront.net/unshoppable_producs/447b9e97-25d3-402e-8c04-2afb83aa1ceb.jpeg" alt="">
-                        </button>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" alt="">
-                        </button>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.pinimg.com/474x/bb/4b/f9/bb4bf930e388f34135fb121d4699d397.jpg" alt="">
-                        </button>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://media.tenor.com/J3nmTLGVPpEAAAAM/ink-sans-underverse.gif" alt="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://64.media.tumblr.com/d9061049ca28f0091cb81558c0f5d68b/91a16dde8f483b21-70/s1280x1920/1a0f85fa3e6fd0761efa1de9ee23cf2663b44577.png" alt="">
-                        </button>
+                    <div class="link-lista lista-pixel-corners">
+                        <a id="idLista" href="#">
+                            <img src="Images/Templates/Camara_GO_1-1.png"
+                            class="lista-pixel-corners"
+                            alt="Imagen de la Lista">Nombre de la Lista
+                        </a>
                     </div>
                 </div>
+
+                <button class="scroll-btn right" onclick="moveList(1)">
+                    <img src="Images/Icons/Flecha.png" alt="">
+                </button>
             </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://64.media.tumblr.com/5fef8b0595e14e128b7b8fc5944630ba/0151ac15ef188abd-ea/s1280x1920/87eddd2e79f516915adeeb43967801972f28a628.png" alt="">
-                        </button>
+
+            <div id="idDashboard">
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://d2bzx2vuetkzse.cloudfront.net/unshoppable_producs/447b9e97-25d3-402e-8c04-2afb83aa1ceb.jpeg" alt="">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.pinimg.com/736x/fa/b1/0e/fab10e567add980d592019b053455dc7.jpg" alt="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.pinimg.com/474x/fb/d9/40/fbd9404283ef620adf74c253b23fa5ae.jpg" alt="">
-                        </button>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" alt="">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.namu.wiki/i/zIkBZ06p8g36Zs1hE53iMntupTFl8h-IiE65lM7sMvZMfNT4MLyG4MS7r5EKKALd-QBpRQlwEwsz_D_57NWFTw.webp" alt="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://art.ngfiles.com/images/2058000/2058625_garbageman64_fnf-x-dusttale-remastered-2-0-mod-intro.png?f1630864370" alt="">
-                        </button>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.pinimg.com/474x/bb/4b/f9/bb4bf930e388f34135fb121d4699d397.jpg" alt="">
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.makeagif.com/media/12-25-2022/pf-HIp.gif" alt="">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div id="idPost">
-                <div class="post-contenedor">
-                    <div class="post-usuario">
-                        <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/usuario_blanco.png" alt="">
-                        <label id="idNombreUsuario" for="">Título de la imagen</label>
-                    </div>
-                    <div class="post-imagen pixel-corners">
-                        <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                            <img src="https://i.pinimg.com/236x/cb/e2/fd/cbe2fd0ae386fb6f70c3426e390a1b9e.jpg" alt="">
-                        </button>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://media.tenor.com/J3nmTLGVPpEAAAAM/ink-sans-underverse.gif" alt="">
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://64.media.tumblr.com/d9061049ca28f0091cb81558c0f5d68b/91a16dde8f483b21-70/s1280x1920/1a0f85fa3e6fd0761efa1de9ee23cf2663b44577.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://64.media.tumblr.com/5fef8b0595e14e128b7b8fc5944630ba/0151ac15ef188abd-ea/s1280x1920/87eddd2e79f516915adeeb43967801972f28a628.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.pinimg.com/736x/fa/b1/0e/fab10e567add980d592019b053455dc7.jpg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.pinimg.com/474x/fb/d9/40/fbd9404283ef620adf74c253b23fa5ae.jpg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.namu.wiki/i/zIkBZ06p8g36Zs1hE53iMntupTFl8h-IiE65lM7sMvZMfNT4MLyG4MS7r5EKKALd-QBpRQlwEwsz_D_57NWFTw.webp" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://art.ngfiles.com/images/2058000/2058625_garbageman64_fnf-x-dusttale-remastered-2-0-mod-intro.png?f1630864370" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.makeagif.com/media/12-25-2022/pf-HIp.gif" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="idPost">
+                    <div class="post-contenedor">
+                        <div class="post-usuario">
+                            <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                            <label id="idTitulo" for="">Título de la imagen</label>
+                        </div>
+                        <div class="post-imagen pixel-corners">
+                            <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <img src="https://i.pinimg.com/236x/cb/e2/fd/cbe2fd0ae386fb6f70c3426e390a1b9e.jpg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-            
-            
         </div>
+        
     </div>
     
     <!-- Archivos externos -->

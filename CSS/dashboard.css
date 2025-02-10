@@ -33,6 +33,7 @@
 
 html, body{
   background-color: var(--gris-pixplore);
+  overflow-x: hidden;
 }
 
 /* Navegador */
@@ -69,6 +70,101 @@ html, body{
 #idCategorias{
   color: white;
   background-color: var(--gris-darkmode);
+}
+
+/* Listas */
+.listas-container{
+  max-width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listas{
+  /* max-width: 74vw; */
+  max-width: 71vw;
+  display: flex;
+  gap: 10px;
+  margin-block: 10px;
+  margin-inline: 15px;
+  /* margin: 10px 15px 10px 52px; */
+  overflow-x: auto;
+  overflow: hidden; 
+  flex-wrap: nowrap;
+}
+
+.scroll-btn {
+  position: absolute;
+  background-color: var(--verde-pixplore);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  height: max-content;
+}
+
+.scroll-btn img{
+  height: 25px;
+  width: 25px;
+}
+
+.scroll-btn.right img{
+  transform: rotate(180deg);
+}
+
+.scroll-btn.right {
+  right: 25px; 
+}
+
+.scroll-btn.left {
+  position: relative;
+}
+
+.scroll-btn:hover {
+  background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+
+.link-lista{
+  background-color: white;
+  padding: 8px;
+  width: max-content;
+  transition: 0.1s ease;
+}
+
+.link-lista:hover{
+  background-color: var(--verde-pixplore);
+}
+
+.lista-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px
+  );
+}
+
+#idLista{
+  color: var(--negro-pixplore);
+  font-family: "Jersey-10";
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#idLista img{
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  margin-right: 10px;
 }
 
 /* Dashboard */
@@ -130,7 +226,7 @@ html, body{
   );
 }
 
-#idNombreUsuario{
+#idTitulo{
   font-family: "Pixelify-Sans";
   margin-left: 10px;
   line-height: 18px;
@@ -770,7 +866,7 @@ button.close label{
 }
 
 #idModalPost .seccion-comentarios{
-  max-height: 40vh;
+  max-height: 35vh;
   overflow-y: auto;
   overflow-x: none;
   padding: 12px;
