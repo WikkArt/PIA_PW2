@@ -9,23 +9,20 @@
     <link rel="stylesheet" href="CSS/dashboard.css">
 </head>
 <body>
-    <nav id="idNavPixplore" class="nav">
-        <a class="nav-link" href="#">
-            <img src="Images/Logo_DarkMode.png" alt="">
-        </a>
-        <a class="nav-link active" href="dashboard.html">Inicio</a>
-        <a class="nav-link nav-right" href="#">Iniciar Sesión</a>
-        <a class="nav-link nav-right" href="#">Registro</a>
-    </nav>
-
-    <!-- <ul id="idNavPixplore" class="nav">
+    <ul id="idNavPixplore" class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <img src="Images/Logo_DarkMode.png" alt="">
+            <a class="nav-link" href="dashboard.html">
+                <img src="Images/Logo_DarkMode.png" alt="Logo de PIXPLORE">
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link active" href="dashboard.html">Inicio</a>
+        </li>
+        <li class="nav-item nav-buscador">
+            <input type="text">
+            <button id="idNavBuscar">
+                <img src="Images/Icons/Buscar.png" alt="Buscador">
+            </button>
         </li>
         <li class="nav-item nav-right">
             <a class="nav-link" href="#">Iniciar Sesión</a>
@@ -33,7 +30,7 @@
         <li class="nav-item nav-right">
             <a class="nav-link" href="#">Registro</a>
         </li>
-    </ul> -->
+    </ul>
 
     <div class="cuerpo">
         <!-- Modal de Posts -->
@@ -105,9 +102,8 @@
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
-                                            Este es un comentario para decirles
-                                            que amo mucho a Ink aaaa como lo quierooooo, 
-                                            te amo mi vidaaaaaaaaaaaaaaaa
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
+                                            Vivamus nec nunc dui.
                                         </label>
                                         <label id="idHoraCM" for="">DD/MM/AAAA 00:00</label>
                                     </div>
@@ -117,9 +113,8 @@
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
-                                            Este es un comentario para decirles
-                                            que amo mucho a Ink aaaa como lo quierooooo, 
-                                            te amo mi vidaaaaaaaaaaaaaaaa
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
+                                            Vivamus nec nunc dui.
                                         </label>
                                         <label id="idHoraCM" for="">DD/MM/AAAA 00:00</label>
                                     </div>
@@ -129,9 +124,8 @@
                                     <div>
                                         <h6 for="">Nombre de Usuario</h6>
                                         <label class="comentario-pixel-corners" id="idComentarioM" for="">
-                                            Este es un comentario para decirles
-                                            que amo mucho a Ink aaaa como lo quierooooo, 
-                                            te amo mi vidaaaaaaaaaaaaaaaa
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
+                                            Vivamus nec nunc dui.
                                         </label>
                                         <label id="idHoraCM" for="">DD/MM/AAAA 00:00</label>
                                     </div>
@@ -144,11 +138,99 @@
         </div>
         
         <div id="idCategorias" class="col-2">
-            <ul>
-                <li>Categoria 1</li>
+            <h1>CATEGORÍAS</h1>
+            <div class="checkbox-categorias">
+                <a data-bs-toggle="collapse" href="#idListaTipos" role="button" aria-expanded="false" aria-controls="collapseExample" for="idTipo">
+                    Tipo de Arte
+                </a>
+                <input class="form-check-input" type="checkbox" id="idTipo" value="tipo" checked>
+            </div>
+            
+            <ul id="idListaTipos" class="collapse list-group list-group-flush">
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fanart</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Arte Original</label>
+                </li>
             </ul>
+
+            <div class="checkbox-categorias">
+                <a data-bs-toggle="collapse" href="#idListaFandom" role="button" aria-expanded="false" aria-controls="collapseExample" for="idTipo1">
+                    Fandom
+                </a>
+                <input class="form-check-input" type="checkbox" id="idTipo1" value="tipo1" checked>
+            </div>
+
+            <ul id="idListaFandom" class="collapse list-group list-group-flush">
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fandom 1</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fandom 2</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fandom 3</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fandom 4</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Fandom 5</label>
+                </li>
+            </ul>
+
+            <div class="checkbox-categorias">
+                <a data-bs-toggle="collapse" href="#idListaOriginal" role="button" aria-expanded="false" aria-controls="collapseExample" for="idTipo2">
+                    Original
+                </a>
+                <input class="form-check-input" type="checkbox" id="idTipo2" value="tipo2" checked>
+            </div>
+
+            <ul id="idListaOriginal" class="collapse list-group list-group-flush">
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Original 1</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Original 2</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Original 3</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Original 4</label>
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                    <label class="form-check-label" for="inlineCheckbox2">Original 5</label>
+                </li>
+            </ul>
+
+            <h1>FILTROS</h1>
+
+            <h3>Fechas</h3>
+            <div class="filtro-fechas">
+                <label class="filtro-subtitulo">Desde:</label>
+                <input class="input-fecha comentario-pixel-corners" type="date" name="TXTDate">
+                <label class="filtro-subtitulo">Hasta:</label>
+                <input class="input-fecha comentario-pixel-corners" type="date" name="TXTDate">
+            </div>
+
+            <button id="btnFiltros" type="submit" class="comentario-pixel-corners">Aplicar filtros</button>
         </div>
-        <div class="col">
+        
+        <div class="col col-derecha">
             <div class="listas-container">
                 <button class="scroll-btn left" onclick="moveList(-1)">
                     <img src="Images/Icons/Flecha.png" alt="">

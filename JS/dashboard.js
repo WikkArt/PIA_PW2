@@ -45,9 +45,8 @@ document.querySelector('.listas').addEventListener('scroll', checkScrollButtons)
 window.addEventListener('load', checkScrollButtons);
 window.addEventListener('resize', checkScrollButtons); // Revisa en caso de que el tamaño de la ventana cambie
 
-
-
 /* Mostrar Modales de los Posts */
+
 $('#idModalPost').on('shown.bs.modal', function () {
   $('#idModalPost').trigger('focus')
 })

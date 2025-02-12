@@ -33,7 +33,7 @@
 
 html, body{
   background-color: var(--gris-pixplore);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* Navegador */
@@ -41,6 +41,9 @@ html, body{
 #idNavPixplore{
   background-color: var(--negro-pixplore);
   padding-block: 10px;
+  display: flex;
+  justify-content: space-between; /* Espaciado entre los elementos */
+  align-items: center;
 }
 
 #idNavPixplore img{
@@ -51,6 +54,55 @@ html, body{
   font-family: "Pixelify-Sans";
   color: white;
   font-size: 20px;
+}
+
+#idNavPixplore .nav-right{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#idNavPixplore .nav-right:last-child{
+  margin-left: 10px;
+}
+
+#idNavPixplore .nav-right a:hover{
+  color: var(--verde-pixplore);
+}
+
+.nav-buscador{
+  display: flex;
+  justify-content: center;
+  margin-inline: 30px;
+  flex: 1;
+}
+
+.nav-buscador input{
+  width: 45vw;
+  border: none;
+  outline: none;
+  font-family: "Handjet";
+  font-size: 23px;
+  font-weight: 500;
+}
+
+#idNavBuscar{
+  width: 55px;
+  border: none;
+  background-color: var(--gris-darkmode);
+}
+
+#idNavBuscar img{
+  width: 30px;
+  filter: brightness(10);
+  transition: 0.15s ease;
+}
+
+#idNavBuscar:hover{
+  background-color: var(--verde-pixplore);
+  img{
+    filter: brightness(0);
+  }
 }
 
 #idNavPixplore .active{
@@ -69,7 +121,111 @@ html, body{
 
 #idCategorias{
   color: white;
+  background-color: var(--gris-oscuro-pixplore);
+  padding-bottom: 20px;
+  overflow-y: auto;
+  max-height: 91vh;
+}
+
+#idCategorias input{
+  background-color: var(--gris-lightmode);
+}
+
+#idCategorias input:checked{
+  background-color: var(--verde-pixplore);
+  outline: none;
+  border: none;
+}
+
+#idCategorias h1{
+  font-family: "Jersey-10";
+  font-size: 52px;
+  background-color: var(--negro-pixplore);
+  padding-block: 10px;
+}
+
+.checkbox-categorias{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.checkbox-categorias,
+#idCategorias h3{
+  background-color: var(--negro-pixplore);
+}
+
+.checkbox-categorias a,
+#idCategorias h3{
+  font-family: "Pixelify-Sans";
+  font-size: 25px;
+  color: white;
+}
+
+#idCategorias h1,
+.checkbox-categorias a,
+#idCategorias h3{
+  padding-inline: 15px;
+}
+
+#idCategorias ul{
+  list-style: none;
+}
+
+#idCategorias li{
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+#idCategorias li label{
+  font-family: "VT323";
+  font-size: 19px;
+  color: var(--gris-lightmode);
+  margin-left: 8px;
+}
+
+/* Filtros */
+.filtro-fechas{
+  display: flex;
+  flex-direction: column;
+  padding-inline: 15px;
+}
+
+.filtro-subtitulo{
+  font-family: "VT323";
+  font-size: 20px;
+}
+
+.input-fecha{
+  font-family: "Handjet";
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  padding: 5px;
+}
+
+#btnFiltros{
+  font-family: "Pixelify-Sans";
+  display: flex;
+  margin: 20px auto 0 auto;
   background-color: var(--gris-darkmode);
+  border: none;
+  padding: 10px;
+  color: white;
+  transition: 0.15s ease;
+}
+
+#btnFiltros:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+/* Columna derecha */
+
+.col-derecha{
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 /* Listas */
@@ -78,6 +234,7 @@ html, body{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 16px;
 }
 
 .listas{
@@ -112,16 +269,9 @@ html, body{
   transform: rotate(180deg);
 }
 
-.scroll-btn.right {
-  right: 25px; 
-}
-
-.scroll-btn.left {
+.scroll-btn.right,
+.scroll-btn.left{
   position: relative;
-}
-
-.scroll-btn:hover {
-  background-color: #45a049; /* Color de fondo al pasar el ratón */
 }
 
 .link-lista{
