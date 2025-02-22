@@ -1,0 +1,172 @@
+@font-face {
+  /* Tipografia del Logo */
+  font-family: "Jersey-10";
+  src: url("../Fonts/Jersey10-Regular.ttf");
+}
+
+@font-face {
+  /* Tipografia para Titulos */
+  font-family: "Pixelify-Sans";
+  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+}
+
+@font-face {
+  /* Tipografia para Subtitulos */
+  font-family: "VT323";
+  src: url("../Fonts/VT323-Regular.ttf");
+}
+
+@font-face {
+  /* Tipografia para Parrafos */
+  font-family: "Handjet";
+  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+}
+
+:root{
+  --verde-pixplore: rgb(138, 229, 89);
+  --gris-pixplore: rgb(38, 38, 38);
+  --gris-oscuro-pixplore: rgb(30, 30, 30);
+  --negro-pixplore: rgb(20, 20, 20);
+  --gris-darkmode: rgb(104, 104, 104);
+  --gris-lightmode: rgb(234, 234, 234);
+}
+
+html, body{
+  background-color: var(--gris-pixplore);
+  overflow: hidden;
+}
+
+/* Navegador */
+
+#idNavPixplore{
+  background-color: var(--negro-pixplore);
+  padding-block: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#idNavPixplore img{
+  width: 170px;
+}
+
+#idNavPixplore a{
+  font-family: "Pixelify-Sans";
+  color: white;
+  font-size: 20px;
+}
+
+#idNavPixplore .nav-right{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#idNavPixplore .nav-right:last-child{
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+#idNavPixplore a:hover{
+  color: var(--verde-pixplore);
+}
+
+#idNavPixplore .active{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+#idNavPixplore a.active:hover{
+  color: var(--negro-pixplore);
+}
+
+/* Cuerpo */
+
+.cuerpo{
+  background-color: var(--gris-oscuro-pixplore);
+}
+
+/* Login */
+
+#idLogin{
+  background-color: var(--negro-pixplore);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto;
+  padding: 20px 30px 30px 30px ;
+  width: 30vw;
+  height: 70vh;
+}
+
+#idLogin div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#idLogin h1{
+  font-family: "Jersey-10";
+  color: var(--verde-pixplore);
+  font-size: 60px;
+}
+
+#idLogin label{
+  color: white;
+  font-family: "Pixelify-Sans";
+  font-size: 24px;
+}
+
+#idLogin input{
+  font-family: "Handjet";
+  font-size: 20px;
+  font-weight: 550;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+#idLogin button{
+  background-color: var(--gris-darkmode);
+  font-family: "Pixelify-Sans";
+  font-size: 25px;
+  color: white;
+  margin-top: 15px;
+  border: none;
+  padding-inline: 15px;
+  padding-block: 8px;
+  transition: 0.15s ease;
+}
+
+#idLogin button:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+.boton-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 8px),
+    4px calc(100% - 8px),
+    4px calc(100% - 4px),
+    8px calc(100% - 4px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 4px,
+    4px 4px,
+    4px 8px,
+    0px 8px
+  );
+}

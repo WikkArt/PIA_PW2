@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXPLORE | Registro</title>
+    <link rel="icon" href="Images/Favicon_Pixplore.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/registro.css">
+</head>
+<body>
+    <ul id="idNavPixplore" class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+                <img src="Images/Logo_DarkMode.png" alt="Logo de PIXPLORE">
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Inicio</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link" href="login.html">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link active" href="registro.html">Registro</a>
+        </li>
+    </ul>
+
+    <!-- Registro -->
+    <form action="" id="idRegistro">
+        <div class="col col-izq">
+            <img id="idAvatarSample" src="Images/Templates/Usuario_blanco.png" 
+            class="avatar-pixel-corners" alt="Avatar">
+
+            <input class="form-control" type="file" id="btnAvatar" name="btnAvatar" 
+            onchange="mostrarAvatar(event, 'idAvatarSample')" accept="image/*">
+
+            <div class="datos">
+                <label for="">Rol del usuario</label>
+                <select id="idRol" name="idRol" class="form-select" aria-label="Default select example">
+                    <option class="item item-1" value="" selected>Selecciona un rol</option>
+                    <option class="item" id="dropdown" value="1">Usuario</option>
+                    <option class="item" id="dropdown"  value="2">Administrador</option>
+                </select>
+
+                <label for="">Fecha de nacimiento</label>
+                <input type="date" name="dateBirth" id="dateBirth">
+            </div>
+        </div>
+
+        <div class="col col-der">
+            <h1>Registro de Usuario</h1>
+            <div class="datos">
+                <label for="">Correo Electrónico</label>
+                <input type="email" name="txtEmail" id="txtEmail" class="cuadro-txt">
+                <label for="">Nombre de Usuario</label>
+                <input type="text" name="txtUsername" id="txtUsername" class="cuadro-txt">
+                <small class="form-text">
+                    Debe contener un mínimo de 3 carácteres.
+                </small>
+
+                <label for="">Contraseña</label>
+                <input type="text" name="txtPassword" id="txtPassword" class="cuadro-txt">
+                <small class="form-text">
+                    Debe contener un mínimo de 8 carácteres, una mayúscula,
+                    una minúscula, un número y un carácter especial.
+                </small>
+
+                <label for="">Género</label>
+                <div id="idRB" name="idRB">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="RBH" name="inlineRadioOptions" value="hombre">
+                        <label class="form-check-label" for="RBH">Hombre</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="RBM" name="inlineRadioOptions" value="mujer">
+                        <label class="form-check-label" for="RBM">Mujer</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="RBNB" name="inlineRadioOptions" value="no binario" checked>
+                        <label class="form-check-label" for="RBNB">No binario</label>
+                    </div>
+                </div>
+            </div>
+
+            <button id="btnLogin" type="submit" class="boton-pixel-corners">Registrar Usuario</button>
+        </div>
+    </form>
+
+    <!-- Archivos externos -->
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/registro.js"></script>
+</body>
+</html>

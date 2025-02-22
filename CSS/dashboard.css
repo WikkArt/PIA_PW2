@@ -64,6 +64,7 @@ html, body{
 
 #idNavPixplore .nav-right:last-child{
   margin-left: 10px;
+  margin-right: 20px;
 }
 
 #idNavPixplore .nav-right a:hover{
@@ -202,6 +203,7 @@ html, body{
   font-weight: 600;
   letter-spacing: 1px;
   border: none;
+  outline: none;
   padding: 5px;
 }
 
