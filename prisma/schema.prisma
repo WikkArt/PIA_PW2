@@ -1,0 +1,131 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id_usuario      Int       @id @default(autoincrement())
+  nombre          String
+  email           String    @unique
+  contraseña      String
+  avatar          String?
+  fecha_registro  DateTime  @default(now())
+  posts           Post[]
+  puntuaciones    Puntuacion[]
+  comentarios     Comentario[]
+  favoritos       Favoritos[]
+  historial       HistorialBusqueda[]
+  listas          Lista[]
+
+  @@index([email], name: "idx_usuario_email")
+}
+
+model Categoria {
+  id_categoria    Int       @id @default(autoincrement())
+  nombre          String    @unique
+  descripcion     String?
+  tipo_categoria  String    // ENUM se maneja como String en Prisma
+  fecha_creacion  DateTime  @default(now())
+  posts           Post[]
+
+  @@index([nombre], name: "idx_categoria_nombre")
+}
+
+model Post {
+  id_post         Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_categoria    Int?
+  titulo          String
+  descripcion     String?
+  url_archivo     String
+  tipo            String    // ENUM se maneja como String en Prisma
+  fecha_subida    DateTime  @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  categoria       Categoria? @relation(fields: [id_categoria], references: [id_categoria])
+  puntuaciones    Puntuacion[]
+  comentarios     Comentario[]
+  favoritos       Favoritos[]
+  listas          Lista_Post[]
+
+  @@index([id_usuario], name: "idx_post_usuario")
+  @@index([id_categoria], name: "idx_post_categoria")
+}
+
+model Puntuacion {
+  id_puntuacion   Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_post         Int
+  valor           Int
+  fecha_puntuacion DateTime @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+
+  @@unique([id_usuario, id_post], name: "unique_puntuacion_usuario_post")
+  @@index([id_post], name: "idx_puntuacion_post")
+}
+
+model Comentario {
+  id_comentario   Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_post         Int
+  contenido       String
+  fecha_comentario DateTime @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+
+  @@index([id_post], name: "idx_comentario_post")
+}
+
+model Favoritos {
+  id_favorito     Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_post         Int
+  fecha_guardado  DateTime  @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+
+  @@unique([id_usuario, id_post], name: "unique_favorito_usuario_post")
+  @@index([id_usuario], name: "idx_favorito_usuario")
+}
+
+model HistorialBusqueda {
+  id_busqueda     Int       @id @default(autoincrement())
+  id_usuario      Int
+  termino_busqueda String
+  fecha_busqueda  DateTime  @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+
+  @@index([id_usuario], name: "idx_busqueda_usuario")
+}
+
+model Lista {
+  id_lista        Int       @id @default(autoincrement())
+  id_usuario      Int
+  nombre          String
+  descripcion     String?
+  fecha_creacion  DateTime  @default(now())
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  posts           Lista_Post[]
+
+  @@index([id_usuario], name: "idx_lista_usuario")
+}
+
+model Lista_Post {
+  id_lista        Int
+  id_post         Int
+  lista           Lista     @relation(fields: [id_lista], references: [id_lista])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+
+  @@id([id_lista, id_post])
+  @@index([id_lista, id_post], name: "idx_lista_post")
+}
