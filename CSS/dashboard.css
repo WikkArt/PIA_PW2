@@ -130,6 +130,8 @@ html, body{
 
 #idCategorias input{
   background-color: var(--gris-lightmode);
+  border-radius: 0;
+  margin-top: 0;
 }
 
 #idCategorias input:checked{
@@ -184,6 +186,70 @@ html, body{
   font-size: 19px;
   color: var(--gris-lightmode);
   margin-left: 8px;
+}
+
+#idCategorias #idListaFandom li,
+#idCategorias #idListaOriginal li{
+  display: flex;
+  justify-content: space-between;
+}
+
+#idCategorias li div{
+  display: flex;
+  align-items: center;
+}
+
+#btnInfoCategoria{
+  margin-left: 12px;
+  background-color: transparent;
+  border: none;
+  padding: 1px;
+}
+
+#btnInfoCategoria img{
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal de la Informacion de las Categorias */
+#idCategoriaModal .modal-header{
+  border-bottom: 1px solid var(--verde-pixplore);
+  background-color: var(--gris-oscuro-pixplore);
+}
+
+#idCategoriaModal button.close{
+  margin-top: 0;
+}
+
+#idCategoriaModal .modal-content{
+  background-color: var(--gris-pixplore);
+  color: white;
+}
+
+#idCategoriaModal h5{
+  font-family: "Pixelify-Sans";
+}
+
+#idCategoriaModal small{
+  font-family: "VT323";
+  color: var(--verde-pixplore);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+#idCategoriaModal .modal-body{
+  font-size: 18px;
+  font-family: "Handjet";
+}
+
+#idCategoriaModal .modal-footer{
+  font-family: "VT323";
+  font-size: 18px;
+  border-top: 1px solid var(--verde-pixplore);
+  font-style: italic;
 }
 
 /* Filtros */
@@ -943,15 +1009,20 @@ button.close label{
 }
 
 #idModalPost .modal-botones div{
+  display: flex;
+  gap: 4px;
+}
+
+#idModalPost .modal-botones div:last-child{
   font-family: "VT323";
   font-size: 18px;
-  display: flex;
   justify-content: end;
-  gap: 1em;
+  gap: 8px;
 }
 
 #idModalPost .modal-botones a{
   color: white;
+  font-family: "VT323";
   transition: 0.15s ease;
 }
 

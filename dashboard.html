@@ -73,16 +73,22 @@
                             </p>
                             <div class="modal-categorias">
                                 <label for="">Fandom/Original</label>
-                                <label for="">Nombre Fandom/Característica</label>
+                                <label for="">Nombre Fandom/Original</label>
                             </div>
                             <div class="modal-botones">
-                                <label for="">PNG/JPG/GIF</label>
                                 <div>
+                                    <label for="">JPEG</label>
                                     <a href="Images/Templates/Usuario_blanco.png" download>
                                         <img src="Images/Icons/Descarga.png" alt="">Descargar
                                     </a>
+                                </div>
+                                
+                                <div>
                                     <button class="button-pixel-corners">
                                         <img src="Images/Icons/Like.png" alt="">Like
+                                    </button>
+                                    <button class="button-pixel-corners">
+                                        <img src="Images/Icons/Dislike.png" alt="">Dislike
                                     </button>
                                 </div>
                             </div>
@@ -138,6 +144,34 @@
             </div>
         </div>
         
+        <!-- Modal de la Informacion de las Categorias-->
+        <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="post-pixel-corners">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="idModalNombreC">Nombre de la categoría</h5>
+                            <small class="form-text">(Fandom/Original)</small>
+                            <button type="button" class="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
+                                <label for="">X</label>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="idModalDescripcionC">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
+                                Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo, sem nisi accumsan purus, tincidunt maximus est ligula id magna. 
+                                Nam at convallis nibh, in tincidunt velit. Vestibulum non scelerisque ipsum, q
+                            </p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <label id="idModalUsuarioC">Nombre de Usuario</label>
+                            <label id="idModalFechaC">DD/MM/AAAA 00:00</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Categorias y Filtros -->
         <div id="idCategorias" class="col-2">
             <h1>CATEGORÍAS</h1>
@@ -168,24 +202,49 @@
 
             <ul id="idListaFandom" class="collapse list-group list-group-flush">
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Fandom 1</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Fandom 1</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Fandom 2</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Fandom 2</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Fandom 3</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Fandom 3</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Fandom 4</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Fandom 4</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Fandom 5</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Fandom 5</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
             </ul>
 
@@ -198,24 +257,49 @@
 
             <ul id="idListaOriginal" class="collapse list-group list-group-flush">
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Original 1</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Original 1</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Original 2</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Original 2</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo1" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Original 3</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Original 3</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Original 4</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Original 4</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
-                    <label class="form-check-label" for="inlineCheckbox2">Original 5</label>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="tipo2" checked>
+                        <label class="form-check-label" for="inlineCheckbox2">Original 5</label>
+                    </div>
+                    <button id="btnInfoCategoria" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                        <img src="Images/Icons/Info.png" alt="Información de la categoría">
+                    </button>
                 </li>
             </ul>
 
