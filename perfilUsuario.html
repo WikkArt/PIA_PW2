@@ -28,6 +28,67 @@
     </ul>
 
     <div class="cuerpo row">
+        <!-- Modal para Eliminar un Post -->
+        <div class="modal fade" id="idEliminarPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="post-pixel-corners">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="idModalNombreE">Eliminar Post</h5>
+                            <button type="button" class="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
+                                <label for="">X</label>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="idModalDescripcionE">
+                                ¿Estás seguro de eliminar este post? Al presionar el 
+                                botón "Sí" ya no será posible recuperarlo de nuevo.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="dropdown-pixel-corners">
+                                Sí
+                            </button>
+                            <button type="button" class="dropdown-pixel-corners" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Eliminar un Elemento Guardado -->
+        <div class="modal fade" id="idEliminarGuardadoModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="post-pixel-corners">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="idModalNombreE">Quitar Elemento Guardado</h5>
+                            <button type="button" class="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
+                                <label for="">X</label>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="idModalDescripcionE">
+                                ¿Estás seguro de quitar este post? Al presionar el 
+                                botón "Sí" ya no aparecerá dentro de tu perfil en la 
+                                sección de "Guardados".
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="dropdown-pixel-corners">
+                                Sí
+                            </button>
+                            <button type="button" class="dropdown-pixel-corners" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal de Posts -->
         <div class="modal fade" id="idModalPost" tabindex="-1" role="dialog" aria-labelledby="idModalPostTitle" aria-hidden="true">
             <button type="button" class="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
@@ -46,6 +107,20 @@
                             <div>
                                 <h5 id="idNombreUsuarioM">Nombre de Usuario</h5>
                                 <label id="idHoraM" for="">DD/MM/AAAA 00:00</label>
+                            </div>
+                            
+                            <div id="idDropdownM" class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle dropdown-pixel-corners" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu dropdown-pixel-corners" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Guardar</a>
+                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idEliminarGuardadoModal">
+                                        Quitar Elemento Guardado
+                                    </button>
+                                    <a class="dropdown-item" href="#">Agregar a Lista</a>
+                                    <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idEliminarPostModal">
+                                        Eliminar Post
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-body">
@@ -67,6 +142,15 @@
                                     <a href="Images/Templates/Usuario_blanco.png" download>
                                         <img src="Images/Icons/Descarga.png" alt="">Descargar
                                     </a>
+                                </div>
+                                
+                                <div>
+                                    <button class="button-pixel-corners">
+                                        <img src="Images/Icons/Like.png" alt="">Like
+                                    </button>
+                                    <button class="button-pixel-corners">
+                                        <img src="Images/Icons/Dislike.png" alt="">Dislike
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -157,13 +241,13 @@
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" id="fav-tab" 
+                    <button class="nav-link" id="like-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="#idFav" 
+                        data-bs-target="#idLike" 
                         type="button" role="tab" 
-                        aria-controls="idFav" 
+                        aria-controls="idLike" 
                         aria-selected="false">
-                        Favoritos
+                        Likes
                     </button>
                 </li>
                 <li class="nav-item">
@@ -192,10 +276,20 @@
             <div class="tab-content">
                 <!-- Posts -->
                 <div class="tab-pane fade show active" id="idPosts" role="tabpanel" aria-labelledby="posts-tab">
-                    <h2>Posts</h2>
+                    <div class="tab-subtitulo">
+                        <h2>Posts creados por ti</h2>
+                        <a href="#" class="agregar-elemento boton-pixel-corners">
+                            +
+                            <button>Nuevo Post</button>
+                        </a>
+                    </div>
+                    
                     <div id="idTabPost">
                         <div id="idPost">
                             <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_1-1.png" alt="">
@@ -205,6 +299,9 @@
                         </div>
                         <div id="idPost">
                             <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_9-16.png" alt="">
@@ -214,6 +311,9 @@
                         </div>
                         <div id="idPost">
                             <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_16-9.png" alt="">
@@ -223,6 +323,9 @@
                         </div>
                         <div id="idPost">
                             <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_1-1.png" alt="">
@@ -232,6 +335,9 @@
                         </div>
                         <div id="idPost">
                             <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_9-16.png" alt="">
@@ -241,33 +347,9 @@
                         </div>
                         <div id="idPost">
                             <div class="post-contenedor">
-                                <div class="post-imagen pixel-corners">
-                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                                        <img src="Images/Templates/Post_16-9.png" alt="">
-                                    </button>
+                                <div class="post-usuario">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
                                 </div>
-                            </div>
-                        </div>
-                        <div id="idPost">
-                            <div class="post-contenedor">
-                                <div class="post-imagen pixel-corners">
-                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                                        <img src="Images/Templates/Post_1-1.png" alt="">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="idPost">
-                            <div class="post-contenedor">
-                                <div class="post-imagen pixel-corners">
-                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                                        <img src="Images/Templates/Post_9-16.png" alt="">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="idPost">
-                            <div class="post-contenedor">
                                 <div class="post-imagen pixel-corners">
                                     <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
                                         <img src="Images/Templates/Post_16-9.png" alt="">
@@ -280,25 +362,156 @@
 
                 <!-- Listas -->
                 <div class="tab-pane fade" id="idListas" role="tabpanel" aria-labelledby="listas-tab">
-                    <h2>Listas</h2>
-                    
+                    <div class="tab-subtitulo">
+                        <h2>Listas</h2>
+                        <a href="#" class="agregar-elemento boton-pixel-corners">
+                            +
+                            <button>Nueva Lista</button>
+                        </a>
+                    </div>
+
+                    <div id="idTabListas">
+                        <div id="idLista">
+                            <button class="lista-pixel-corners">
+                                <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" class="lista-img-pixel-corners" alt="">
+                                <div>
+                                    <h3>Título de la Lista</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
+                                        Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo sem nisi accumsan 
+                                        purus tincidunt maximus. 
+                                    </p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Favoritos -->
-                <div class="tab-pane fade" id="idFav" role="tabpanel" aria-labelledby="fav-tab">
-                    <h2>Favoritos</h2>
+                <!-- Likes -->
+                <div class="tab-pane fade" id="idLike" role="tabpanel" aria-labelledby="like-tab">
+                    <h2>Tus likes</h2>
                     
+                    <div id="idTabLike">
+                        <div id="idLike">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_1-1.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idLike">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_9-16.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idLike">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_16-9.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idLike">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_1-1.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- Elementos Guardados -->
-                <div class="tab-pane fade" id="idGuardados" role="tabpanel" aria-labelledby="fav-tab">
-                    <h2>Favoritos</h2>
+                <div class="tab-pane fade" id="idGuardados" role="tabpanel" aria-labelledby="guardados-tab">
+                    <h2>Elementos guardados</h2>
                     
+                    <div id="idTabGuardado">
+                        <div id="idGuardado">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_1-1.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idGuardado">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_9-16.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idGuardado">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_16-9.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="idGuardado">
+                            <div class="post-contenedor">
+                                <div class="post-usuario">
+                                    <img id="idFotoUsuario" class="circular-pixel-corners" src="Images/Templates/Usuario_blanco.png" alt="">
+                                    <label id="idTitulo" for="">Título de la imagen</label>
+                                </div>
+                                <div class="post-imagen pixel-corners">
+                                    <button id="idModalPost" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                        <img src="Images/Templates/Post_1-1.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <!-- Historial -->
-                 <div class="tab-pane fade" id="idHistorial" role="tabpanel" aria-labelledby="fav-tab">
-                    <h2>Favoritos</h2>
+                 <div class="tab-pane fade" id="idHistorial" role="tabpanel" aria-labelledby="historial-tab">
+                    <h2>Historial</h2>
                     
                 </div>
             </div>

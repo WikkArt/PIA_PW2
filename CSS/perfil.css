@@ -306,7 +306,7 @@ html, body{
   color: var(--negro-pixplore);
 }
 
-/* Contenido de las pestanias */
+/* Contenido general de las pestanias */
 .tab-content{
   color: white;
   padding: 20px;
@@ -320,17 +320,98 @@ html, body{
 .tab-pane h2{
   font-family: "VT323";
   font-size: 35px;
-
 }
 
-/* Posts */
+.tab-subtitulo{
+  display: flex;
+}
 
-#idTabPost{
+.agregar-elemento{
+  background-color: white;
+  padding-inline: 10px;
+  padding-block: 3px;
+  text-decoration: none;
+  color: var(--negro-pixplore);
+  font-family: "Pixelify-Sans";
+  font-size: 18px;
+  height: fit-content;
+  min-width: 30px;
+  width: max-content;
+  margin-left: 15px;
+  transition: 0.15s ease;
+}
+
+.agregar-elemento.boton-pixel-corners::after,
+.agregar-elemento.boton-pixel-corners--wrapper::after{
+  background: white;
+}
+
+.agregar-elemento:hover,
+.agregar-elemento:hover.boton-pixel-corners::after,
+.agregar-elemento:hover.boton-pixel-corners--wrapper::after{
+  background-color: var(--verde-pixplore);
+}
+
+.agregar-elemento button{
+  background-color: transparent;
+  border: none;
+  display: none;
+  transition: 0.15s ease;
+}
+
+.agregar-elemento:hover button{
+  display: contents;
+}
+
+#idTabPost,
+#idTabLike,
+#idTabGuardado{
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+
+/* Posts */
+
+/* Datos de Usuario*/
+.post-usuario{
+  background-color: var(--gris-darkmode);
+  color: white;
+  margin-left: 14px;
+  width: 70%;
+  overflow: hidden;
+  padding-top: 6px;
+  padding-bottom: 2px;
+  padding-inline: 8px;
+  display: flex;
+  align-items: center;
+
+  box-shadow:
+    4px 4px 0px 0px  var(--gris-darkmode),
+    9px 9px 0px 0px var(--gris-darkmode),
+    14px 14px 0px 0px var(--gris-darkmode),
+    9px 19px 0px 0 var(--gris-darkmode),
+    4px 24px 0px 0 var(--gris-darkmode),
+    -4px 4px 0px 0px  var(--gris-darkmode),
+    -9px 9px 0px 0px var(--gris-darkmode),
+    -14px 16px 0px 0px var(--gris-darkmode);
+}
+
+#idTitulo{
+  font-family: "Pixelify-Sans";
+  margin-left: 10px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  inline-size: 180px;
+  flex: 1;
+}
+
+#idTabPost #idTitulo{
+  margin-left: 0;
 }
 
 /* Imagen */
@@ -495,6 +576,7 @@ html, body{
 }
 
 /* Hovers de los posts */
+.post-contenedor:hover .post-usuario,
 .post-contenedor:hover .pixel-corners::after,
 .post-contenedor:hover .pixel-corners--wrapper::after {
   background-color: var(--verde-pixplore);
@@ -539,32 +621,6 @@ button.close:hover{
 
 button.close label{
   cursor: pointer;
-}
-
-.dropdown-pixel-corners {
- clip-path: polygon(
-    0px calc(100% - 6px),
-    3px calc(100% - 6px),
-    3px calc(100% - 3px),
-    6px calc(100% - 3px),
-    6px 100%,
-    calc(100% - 6px) 100%,
-    calc(100% - 6px) calc(100% - 3px),
-    calc(100% - 3px) calc(100% - 3px),
-    calc(100% - 3px) calc(100% - 6px),
-    100% calc(100% - 6px),
-    100% 6px,
-    calc(100% - 3px) 6px,
-    calc(100% - 3px) 3px,
-    calc(100% - 6px) 3px,
-    calc(100% - 6px) 0px,
-    6px 0px,
-    6px 3px,
-    3px 3px,
-    3px 6px,
-    0px 6px
-  );
-
 }
 
 #idModalPost{
@@ -754,6 +810,23 @@ button.close label{
   height: 100%;
 }
 
+.circular-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 5px),
+    5px calc(100% - 5px),
+    5px 100%,
+    calc(100% - 5px) 100%,
+    calc(100% - 5px) calc(100% - 5px),
+    100% calc(100% - 5px),
+    100% 5px,
+    calc(100% - 5px) 5px,
+    calc(100% - 5px) 0px,
+    5px 0px,
+    5px 5px,
+    0px 5px
+  );
+}
+
 /* Imagen Principal del Post */
 #idModalPost .modal-image{
   background-color: var(--negro-pixplore);
@@ -781,32 +854,12 @@ button.close label{
   height: 100px;
   border-bottom: 1px solid var(--verde-pixplore);
   display: flex;
-}
-
-#idModalPost .modal-header div{
-  margin-left: 18px;
+  justify-content: space-between;
 }
 
 #idFotoUsuarioM{
   width: 55px;
   height: 55px;
-}
-
-.circular-pixel-corners {
-  clip-path: polygon(
-    0px calc(100% - 5px),
-    5px calc(100% - 5px),
-    5px 100%,
-    calc(100% - 5px) 100%,
-    calc(100% - 5px) calc(100% - 5px),
-    100% calc(100% - 5px),
-    100% 5px,
-    calc(100% - 5px) 5px,
-    calc(100% - 5px) 0px,
-    5px 0px,
-    5px 5px,
-    0px 5px
-  );
 }
 
 #idNombreUsuarioM{
@@ -818,12 +871,68 @@ button.close label{
   width: 220px;
   max-height: 60px;
   text-overflow: ellipsis;
+  /* background-color: rgba(0, 255, 255, 0.358); */
 }
 
 #idHoraM{
   font-weight: 600;
   letter-spacing: 3px;
   font-size: 14px;
+}
+
+#idDropdownM .dropdown-toggle{
+  border: none;
+  background-color: var(--gris-darkmode);
+  transition: 0.2s ease;
+  padding-bottom: 3px;
+}
+
+#idDropdownM .dropdown-toggle:hover,
+#idDropdownM .dropdown-toggle:focus{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+#idDropdownM .dropdown-menu{
+  background-color: var(--gris-oscuro-pixplore)
+}
+
+#idDropdownM .dropdown-item{
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 150ms ease;
+}
+
+#idDropdownM .dropdown-item:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+.dropdown-pixel-corners {
+ clip-path: polygon(
+    0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px
+  );
+
 }
 
 #idModalPost .modal-body{
@@ -880,6 +989,13 @@ button.close label{
 #idModalPost .modal-botones div{
   display: flex;
   gap: 4px;
+}
+
+#idModalPost .modal-botones div:last-child{
+  font-family: "VT323";
+  font-size: 18px;
+  justify-content: end;
+  gap: 8px;
 }
 
 #idModalPost .modal-botones a{
@@ -1126,4 +1242,199 @@ button.close label{
 
 #idModalPost .input-comentario div img:hover{
   filter: brightness(1);
+}
+
+/* Listas */
+
+#idLista{
+  display: flex;
+}
+
+#idLista button{
+  display: flex;
+  align-items: center;
+  text-align: start;
+  width: 500px;
+  padding-inline: 15px;
+  padding-block: 8px;
+  border: none;
+  background-color: var(--gris-darkmode);
+  color: white;
+  transition: 0.15s ease;
+}
+
+#idLista button:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+.lista-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
+}
+
+#idLista button div{
+  margin-left: 12px;
+}
+
+#idLista img{
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+}
+
+.lista-img-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 12px),
+    3px calc(100% - 12px),
+    3px calc(100% - 6px),
+    6px calc(100% - 6px),
+    6px calc(100% - 3px),
+    12px calc(100% - 3px),
+    12px 100%,
+    calc(100% - 12px) 100%,
+    calc(100% - 12px) calc(100% - 3px),
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 3px) calc(100% - 12px),
+    100% calc(100% - 12px),
+    100% 12px,
+    calc(100% - 3px) 12px,
+    calc(100% - 3px) 6px,
+    calc(100% - 6px) 6px,
+    calc(100% - 6px) 3px,
+    calc(100% - 12px) 3px,
+    calc(100% - 12px) 0px,
+    12px 0px,
+    12px 3px,
+    6px 3px,
+    6px 6px,
+    3px 6px,
+    3px 12px,
+    0px 12px
+  );
+}
+
+/* Likes */
+
+.post-usuario{
+  background-color: var(--gris-darkmode);
+  color: white;
+  margin-left: 14px;
+  width: 70%;
+  overflow: hidden;
+  padding-top: 6px;
+  padding-bottom: 2px;
+  padding-inline: 8px;
+  display: flex;
+  align-items: center;
+
+  box-shadow:
+    4px 4px 0px 0px  var(--gris-darkmode),
+    9px 9px 0px 0px var(--gris-darkmode),
+    14px 14px 0px 0px var(--gris-darkmode),
+    9px 19px 0px 0 var(--gris-darkmode),
+    4px 24px 0px 0 var(--gris-darkmode),
+    -4px 4px 0px 0px  var(--gris-darkmode),
+    -9px 9px 0px 0px var(--gris-darkmode),
+    -14px 16px 0px 0px var(--gris-darkmode);
+}
+
+#idFotoUsuario{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+/* Modales para eliminar elementos */ 
+#idEliminarPostModal .modal-header,
+#idEliminarGuardadoModal .modal-header{
+  border-bottom: 1px solid var(--verde-pixplore);
+  background-color: var(--gris-oscuro-pixplore);
+}
+
+#idEliminarPostModal button.close,
+#idEliminarGuardadoModal button.close{
+  margin-top: 0;
+}
+
+#idEliminarPostModal .modal-content,
+#idEliminarGuardadoModal .modal-content{
+  background-color: var(--gris-pixplore);
+  color: white;
+}
+
+#idEliminarPostModal h5,
+#idEliminarGuardadoModal h5{
+  font-family: "Pixelify-Sans";
+}
+
+#idEliminarPostModal small{
+  font-family: "VT323";
+  color: var(--verde-pixplore);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+#idEliminarPostModal .modal-body,
+#idEliminarGuardadoModal .modal-body{
+  font-size: 18px;
+  font-family: "Handjet";
+}
+
+#idEliminarPostModal .modal-footer,
+#idEliminarGuardadoModal .modal-footer{
+  font-family: "VT323";
+  font-size: 20px;
+  border-top: 1px solid var(--verde-pixplore);
+  gap: 5px;
+}
+
+#idEliminarPostModal .modal-footer button,
+#idEliminarGuardadoModal .modal-footer button{
+  padding-inline: 12px;
+  border: none;
+  transition: 0.3s all ease;
+}
+
+#idEliminarPostModal .modal-footer button:hover,
+#idEliminarGuardadoModal .modal-footer button:hover{
+  background-color: var(--verde-pixplore);
 }
