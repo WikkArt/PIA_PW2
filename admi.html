@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXPLORE | Publicaciones</title>
+    <link rel="icon" href="Images/Favicon_Pixplore.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="CSS/admi.css">
+</head>
+
+<body>
+    <!-- Navegador -->
+    <ul id="idNavPixplore" class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+                <img src="Images/Logo_DarkMode.png" alt="Logo de PIXPLORE">
+            </a>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Inicio</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link active" href="perfilUsuario.html">Perfil</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link" href="login.html">Cerrar Sesión</a>
+        </li>
+    </ul>
+
+    <!-- Sección de Tabs -->
+    <div class="col col-der">
+        <h1>Administrador</h1>
+        <div class="tabs-container">
+            <!-- Pestanias -->
+            <ul class="nav nav-tabs" id="adminTabs">
+                <li class="nav-item">
+                    <button class="nav-link active" id="usuarios-tab" data-bs-toggle="tab" data-bs-target="#idUsuarios"
+                        type="button" role="tab" aria-controls="idUsuarios" aria-selected="true">
+                        Usuarios
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="categorias-tab" data-bs-toggle="tab" data-bs-target="#idCategorias"
+                        type="button" role="tab" aria-controls="idCategorias" aria-selected="false">
+                        Categorías
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Contenido de las pestanias -->
+            <div class="tab-content">
+                <!-- Usuarios -->
+                <div class="tab-pane fade show active" id="idUsuarios" role="tabpanel" aria-labelledby="usuarios-tab">
+                    <div class="tab-subtitulo">
+                        <h3>Gestión de Usuarios</h3>
+                    </div>
+                    <div id="idTabUsuarios">
+                        <table class="table pixel-corners">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Juan Pérez</td>
+                                    <td>juan@example.com</td>
+                                    <td>
+                                        <button class="btn btn-danger pixel-corners" data-bs-toggle="modal"
+                                            data-bs-target="#modalDesactivarUsuario">Inactivar</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>María López</td>
+                                    <td>maria@example.com</td>
+                                    <td>
+                                        <button class="btn btn-danger pixel-corners">Inactivar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Categorías -->
+                <div class="tab-pane fade" id="idCategorias" role="tabpanel" aria-labelledby="categorias-tab">
+                    <div class="tab-subtitulo">
+                        <h2>Gestión de Categorías</h2>
+                        <a href="#" class="agregar-elemento">
+                            +
+                            <button data-bs-toggle="modal" data-bs-target="#modalAgregarCategoria">
+                                Agregar Categoría
+                            </button>
+                        </a>
+                    </div>
+
+                    <div id="idTabCategorias">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex  pixel-corners">
+                                <div class="categoria-info d-flex">
+                                    <strong class="categoria-titulo">Tecnología</strong>
+                                    <p class="categoria-descripcion">Novedades y avances en el mundo tecnológico.</p>
+                                </div>
+                                <span>
+                                    <button class="btn btn-warning pixel-corners" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarCategoria">Editar</button>
+                                    <button class="btn btn-danger2 pixel-corners" data-bs-toggle="modal"
+                                        data-bs-target="#modalDesactivarCategoria">Eliminar</button>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex pixel-corners">
+                                <div class="categoria-info d-flex">
+                                    <strong class="categoria-titulo">Ciencia:</strong>
+                                    <p class="categoria-descripcion">Descubrimientos y estudios científicos recientes.
+                                    </p>
+                                </div>
+                                <span>
+                                    <button class="btn btn-warning pixel-corners">Editar</button>
+                                    <button class="btn btn-danger2 pixel-corners">Eliminar</button>
+                                </span>
+                            </li>
+                            <li class="list-group-item d-flex  pixel-corners">
+                                <div class="categoria-info d-flex">
+                                    <strong class="categoria-titulo">Entretenimiento:</strong>
+                                    <p class="categoria-descripcion">Noticias y tendencias del cine, música y más.</p>
+                                </div>
+                                <span>
+                                    <button class="btn btn-warning pixel-corners">Editar</button>
+                                    <button class="btn btn-danger2 pixel-corners">Eliminar</button>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Agregar Categoría -->
+    <div class="modal fade" id="modalAgregarCategoria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content pixel-corners">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="categoriaNombre">Nombre de la Categoría</label>
+                    <input type="text" id="categoriaNombre" class="form-control pixel-corners"
+                        placeholder="Ej: Tecnología">
+
+                    <label for="categoriaDescripcion" class="mt-3">Descripción</label>
+                    <textarea id="categoriaDescripcion" class="form-control pixel-corners" rows="3"
+                        placeholder="Breve descripción..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn pixel-corners btn-secondary"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn pixel-corners btn-warning">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Categoría -->
+    <div class="modal fade" id="modalEditarCategoria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content pixel-corners">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="editarCategoriaNombre">Nombre de la Categoría</label>
+                    <input type="text" id="editarCategoriaNombre" class="form-control pixel-corners"
+                        placeholder="Ej: Tecnología">
+
+                    <label for="editarCategoriaDescripcion" class="mt-3">Descripción</label>
+                    <textarea id="editarCategoriaDescripcion" class="form-control pixel-corners" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn pixel-corners btn-secondary"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn pixel-corners btn-warning">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Desactivar Categoría -->
+    <div class="modal fade" id="modalDesactivarCategoria" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="post-pixel-corners">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Desactivar Categoría</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            ¿Estás seguro de desactivar esta categoría? Al presionar "Sí", ya no estará disponible en el
+                            sistema.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary pixel-corners ">Sí</button>
+                        <button type="button" class="btn-secondary pixel-corners " data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Desactivar Usuario -->
+    <div class="modal fade" id="modalDesactivarUsuario" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="post-pixel-corners">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Desactivar Usuario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            ¿Estás seguro de desactivar este usuario? Al presionar "Sí", el usuario ya no podrá acceder
+                            a la plataforma.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary pixel-corners">Sí</button>
+                        <button type="button" class="btn-secondary pixel-corners" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
