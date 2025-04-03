@@ -6,10 +6,10 @@ async function main() {
   // Ejemplo 1: Insertar un nuevo usuario
   const newUser = await prisma.usuario.create({
     data: {
-      nombre: "Ana López",
-      email: "ana@example.com",
+      nombre: "Andrea Mendoza",
+      email: "andy@gmail.com",
       contraseña: "claveSegura123",
-      avatar: "/avatars/ana.jpg"
+      avatar: "/avatars/andrea.jpg"
     }
   })
   console.log('Usuario creado:', newUser)
@@ -17,9 +17,9 @@ async function main() {
   // Ejemplo 2: Insertar una categoría
   const newCategory = await prisma.categoria.create({
     data: {
-      nombre: "Tutoriales",
-      descripcion: "Categoría para tutoriales educativos",
-      tipo_categoria: "educacion"
+      nombre: "Flores",
+      descripcion: "Categoría para ver ilustraciones de flores",
+      tipo_categoria: "Original"
     }
   })
   console.log('Categoría creada:', newCategory)
@@ -27,10 +27,10 @@ async function main() {
   // Ejemplo 3: Insertar un post relacionado con el usuario y categoría
   const newPost = await prisma.post.create({
     data: {
-      titulo: "Mi primer tutorial",
-      descripcion: "Aprendiendo a usar Prisma con SQLite",
-      url_archivo: "/uploads/tutorial-prisma.pdf",
-      tipo: "documento",
+      titulo: "Mi pixel art",
+      descripcion: "Aprendiendo a dibujar margaritas",
+      url_archivo: "/uploads/margarita.png",
+      tipo: "PNG",
       id_usuario: newUser.id_usuario,
       id_categoria: newCategory.id_categoria
     }
