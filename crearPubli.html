@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIXPLORE | Publicaciones</title>
+    <link rel="icon" href="Images/Favicon_Pixplore.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/crearPubli.css">
+</head>
+<body>
+     <!-- Navegador -->
+     <ul id="idNavPixplore" class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+                <img src="Images/Logo_DarkMode.png" alt="Logo de PIXPLORE">
+            </a>
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">Inicio</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link active" href="perfilUsuario.html">Perfil</a>
+        </li>
+        <li class="nav-item nav-right">
+            <a class="nav-link" href="login.html">Cerrar Sesión</a>
+        </li>
+    </ul>
+
+    <form action="" id="idPublicacion">
+        <div class="col col-izq">
+            <img id="idImagenSample" src="Images/Templates/Usuario_blanco.png" 
+            class="avatar-pixel-corners pixel-corners" alt="Vista previa">
+           
+
+            <input class="form-control" type="file" id="btnImagen" name="btnImagen" 
+            onchange="mostrarImagen(event, 'idImagenSample')" accept="image/*">
+        </div>
+
+        <div class="col col-der">
+            <h1>Nueva Publicación</h1>
+            <div class="datos">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" class="form-control">
+                    <option value="arte">Arte</option>
+                    <option value="fotografia">Fotografía</option>
+                    <option value="musica">Música</option>
+                </select>
+
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" class="cuadro-txt">
+
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" class="cuadro-txt" rows="4"></textarea>
+            </div>
+
+            <button id="btnPublicar" type="submit" class="boton-pixel-corners">Publicar</button>
+        </div>
+    </form>
+
+    <script>
+        function mostrarImagen(event, id){
+            const output = document.getElementById(id);
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+   
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
