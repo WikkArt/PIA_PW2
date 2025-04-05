@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';  // Importa Link
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './CSS/bootstrap.min.css'
 import './CSS/dashboard.css'
@@ -7,6 +7,7 @@ import './JS/bootstrap.bundle.min.js'
 import './JS/jquery-3.7.1.min.js'
 
 function Dashboard() {
+
     // Checkboxes
     const [checkedState, setCheckedState] = useState({
         tipo0: true, // Estado del checkbox principal
@@ -93,8 +94,8 @@ function Dashboard() {
 
         // Mover el contenedor en la dirección indicada
         listContainer.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
+            left: direction * scrollAmount,
+            behavior: 'smooth'
         });
     };
 
@@ -105,19 +106,19 @@ function Dashboard() {
         const rightBtn = document.querySelector('.scroll-btn.right');
         
         if (listContainer.scrollWidth > listContainer.clientWidth) {
-        leftBtn.style.display = 'block';
-        rightBtn.style.display = 'block';
+            leftBtn.style.display = 'block';
+            rightBtn.style.display = 'block';
 
-        if (listContainer.scrollLeft <= 0) {
-            leftBtn.style.display = 'none';
-        }
+            if (listContainer.scrollLeft <= 0) {
+                leftBtn.style.display = 'none';
+            }
 
-        if (listContainer.scrollLeft + listContainer.clientWidth >= listContainer.scrollWidth) {
-            rightBtn.style.display = 'none';
-        }
+            if (listContainer.scrollLeft + listContainer.clientWidth >= listContainer.scrollWidth) {
+                rightBtn.style.display = 'none';
+            }
         } else {
-        leftBtn.style.display = 'none';
-        rightBtn.style.display = 'none';
+            leftBtn.style.display = 'none';
+            rightBtn.style.display = 'none';
         }
     };
 
@@ -126,16 +127,17 @@ function Dashboard() {
         const listContainer = document.querySelector('.listas');
         
         if (listContainer) {
-        listContainer.addEventListener('scroll', checkScrollButtons);
+            listContainer.addEventListener('scroll', checkScrollButtons);
         }
 
         window.addEventListener('load', checkScrollButtons);
         window.addEventListener('resize', checkScrollButtons);
 
         return () => {
-        window.removeEventListener('load', checkScrollButtons);
-        window.removeEventListener('resize', checkScrollButtons);
+            window.removeEventListener('load', checkScrollButtons);
+            window.removeEventListener('resize', checkScrollButtons);
         };
+
     }, []);
 
     $('#idModalPost').on('shown.bs.modal', function () {
@@ -147,12 +149,12 @@ function Dashboard() {
             {/* Navegador */}
             <ul id="idNavPixplore" className="nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard">
+                    <Link className="nav-link" to="/">
                         <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to="/dashboard">Inicio</Link>
+                    <Link className="nav-link active" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item nav-buscador">
                     <input type="text"></input>

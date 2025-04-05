@@ -11,12 +11,12 @@ function Login() {
             {/* Navegador */}
             <ul id="idNavPixplore" className="nav">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard">
+                    <Link className="nav-link" to="/">
                         <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard">Inicio</Link>
+                    <Link className="nav-link" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item nav-buscador">
                     <input type="text"></input>
