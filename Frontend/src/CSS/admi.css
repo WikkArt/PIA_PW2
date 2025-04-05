@@ -1,0 +1,406 @@
+@font-face {
+    /* Tipografia del Logo */
+    font-family: "Jersey-10";
+    src: url("../Fonts/Jersey10-Regular.ttf");
+}
+
+@font-face {
+    /* Tipografia para Titulos */
+    font-family: "Pixelify-Sans";
+    src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    /* Tipografia para Subtitulos */
+    font-family: "VT323";
+    src: url("../Fonts/VT323-Regular.ttf");
+}
+
+@font-face {
+    /* Tipografia para Parrafos */
+    font-family: "Handjet";
+    src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+}
+
+:root {
+    --verde-pixplore: rgb(138, 229, 89);
+    --gris-pixplore: rgb(38, 38, 38);
+    --gris-oscuro-pixplore: rgb(30, 30, 30);
+    --negro-pixplore: rgb(20, 20, 20);
+    --gris-darkmode: rgb(104, 104, 104);
+    --gris-lightmode: rgb(234, 234, 234);
+}
+
+html,
+body {
+    background-color: var(--gris-pixplore);
+    overflow: hidden;
+}
+
+/* Navegador */
+
+#idNavPixplore {
+    background-color: var(--negro-pixplore);
+    padding-block: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#idNavPixplore img {
+    width: 170px;
+}
+
+#idNavPixplore a {
+    font-family: "Pixelify-Sans";
+    color: white;
+    font-size: 20px;
+}
+
+#idNavPixplore .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+#idNavPixplore .nav-right:last-child {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#idNavPixplore a:hover {
+    color: var(--verde-pixplore);
+}
+
+#idNavPixplore .active {
+    background-color: var(--verde-pixplore);
+    color: var(--negro-pixplore);
+}
+
+#idNavPixplore a.active:hover {
+    color: var(--negro-pixplore);
+}
+
+
+/* Sección de Tabs */
+
+.col-der h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Pixelify-Sans";
+    font-size: 50px;
+    color: var(--verde-pixplore);
+}
+.tabs-container {
+    background-color: var(--gris-oscuro-pixplore);
+    padding: 10px; 
+    border-radius: 8px;
+    text-align: center; 
+  }
+
+#adminTabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#adminTabs {
+    border-bottom: 3px solid var(--verde-pixplore);
+    font-family: "Pixelify-Sans";
+    font-size: 18px;
+  }
+  
+  #adminTabs .nav-link {
+    color: white;
+    border: none;
+    border-radius: 0;
+  }
+  
+  #adminTabs .nav-link:hover {
+    color: var(--verde-pixplore);
+  }
+  
+  #adminTabs .nav-link.active {
+    background-color: var(--verde-pixplore);
+    border-radius: 0;
+    color: var(--negro-pixplore);
+    border: none;
+  }
+  
+  #adminTabs .nav-link.active:hover {
+    color: var(--negro-pixplore);
+  }
+  .tab-content {
+    padding: 20px;
+  }
+/* Títulos dentro de las pestañas */
+.tab-subtitulo h3, .tab-subtitulo h2 {
+    font-family: "Pixelify-Sans";
+    font-size: 24px;
+    text-align: center;
+    color: var(--verde-pixplore);
+}
+
+/* Estilo de la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--negro-pixplore);
+    color: white;
+}
+
+.table th {
+    background-color: var(--verde-pixplore);
+    color: var(--negro-pixplore);
+    padding: 10px;
+    text-align: center;
+    font-family: "Pixelify-Sans";
+    font-size: 18px;
+}
+
+.table td {
+    padding: 10px;
+    border: 1px solid var(--gris-lightmode);
+    font-family: "Pixelify-Sans";
+    font-size: 16px;
+}
+
+
+/* Botones dentro de las tablas y listas */
+.btn-warning, .btn-danger, .btn-danger2 {
+    font-family: "Pixelify-Sans";
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.btn-warning {
+    background-color: var(--verde-pixplore);
+    color: var(--negro-pixplore);
+    
+}
+
+.btn-warning:hover {
+    background-color: var(--gris-lightmode);
+    color: var(--negro-pixplore);
+}
+
+.btn-danger {
+  background-color: var(--gris-darkmode);
+    color: white;
+    border: 1px solid var(--gris-lightmode);
+}
+
+.btn-danger:hover {
+    border: 1px solid var(--gris-lightmode);
+    background-color: var(--gris-lightmode);
+    color: var(--negro-pixplore);
+}
+
+.btn-danger2 {
+    background-color: white;
+      color: black;
+      border: 1px solid var(--gris-lightmode);
+  }
+  
+  .btn-danger2:hover {
+      border: 1px solid var(--gris-lightmode);
+      background-color: var(--gris-lightmode);
+      color: var(--negro-pixplore);
+  }
+/* Listas de categorías */
+.list-group{
+    margin-top: 15px;
+}
+.list-group-item {
+    justify-content: space-between;
+    
+    font-family: "Pixelify-Sans";
+    font-size: 16px;
+    background-color: var(--gris-darkmode);
+    color: white;
+    border: 1px solid var(--gris-lightmode);
+}
+
+.list-group-item button {
+    margin-left: 5px;
+}
+
+.categoria-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el título y la descripción */
+}
+
+.categoria-titulo {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap; 
+}
+
+.categoria-descripcion {
+    font-size: 16px;
+    color: var(--gris-lightmode);
+    margin: 0;
+}
+
+
+
+/* Botón agregar categoría */
+.agregar-elemento{
+    background-color: white;
+    padding-inline: 10px;
+    padding-block: 3px;
+    text-decoration: none;
+    color: var(--negro-pixplore);
+    font-family: "Pixelify-Sans";
+    font-size: 18px;
+    height: fit-content;
+    min-width: 30px;
+    width: max-content;
+    margin-left: 15px;
+    transition: 0.15s ease;
+  }
+  
+  .agregar-elemento.boton-pixel-corners::after,
+  .agregar-elemento.boton-pixel-corners--wrapper::after{
+    background: white;
+  }
+  
+  .agregar-elemento:hover,
+  .agregar-elemento:hover.boton-pixel-corners::after,
+  .agregar-elemento:hover.boton-pixel-corners--wrapper::after{
+    background-color: var(--verde-pixplore);
+  }
+  
+  .agregar-elemento button{
+    background-color: transparent;
+    border: none;
+    display: none;
+    transition: 0.15s ease;
+  }
+  
+  .agregar-elemento:hover button{
+    display: contents;
+  }
+  
+
+  .pixel-corners {
+    clip-path: polygon(
+      0px calc(100% - 4px),
+      4px calc(100% - 4px),
+      4px 100%,
+      calc(100% - 4px) 100%,
+      calc(100% - 4px) calc(100% - 4px),
+      100% calc(100% - 4px),
+      100% 4px,
+      calc(100% - 4px) 4px,
+      calc(100% - 4px) 0px,
+      4px 0px,
+      4px 4px,
+      0px 4px
+    );
+  }
+
+
+/* Estilo general de los modales */
+#modalAgregarCategoria .modal-header,
+#modalEditarCategoria .modal-header {
+    border-bottom: 2px solid var(--verde-pixplore);
+    background-color: var(--gris-oscuro-pixplore);
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+#modalAgregarCategoria .modal-content,
+#modalEditarCategoria .modal-content {
+    background-color: var(--gris-pixplore);
+    color: white;
+}
+
+/* Estilo del título */
+#modalAgregarCategoria h5,
+#modalEditarCategoria h5 {
+    font-family: "Pixelify-Sans";
+    color:var(--verde-pixplore);
+}
+
+
+#modalAgregarCategoria .modal-body,
+#modalEditarCategoria .modal-body {
+    font-size: 18px;
+    font-family: "Pixelify-Sans";
+}
+
+
+#modalAgregarCategoria .modal-footer,
+#modalEditarCategoria .modal-footer {
+    font-family: "Pixelify-Sans";
+    font-size: 20px;
+    border-top: 1px solid var(--verde-pixplore);
+    gap: 5px;
+}
+
+
+#modalAgregarCategoria .modal-footer button,
+#modalEditarCategoria .modal-footer button {
+    padding-inline: 12px;
+    border: none;
+    transition: 0.3s all ease;
+}
+
+
+#modalAgregarCategoria .modal-footer button:hover,
+#modalEditarCategoria .modal-footer button:hover {
+    background-color: var(--verde-pixplore);
+}
+
+/* Modales para desactivar elementos */
+#modalDesactivarCategoria .modal-header,
+#modalDesactivarUsuario .modal-header {
+    border-bottom: 1px solid var(--verde-pixplore);
+    background-color: var(--gris-oscuro-pixplore);
+}
+
+#modalDesactivarCategoria .modal-content,
+#modalDesactivarUsuario .modal-content {
+    background-color: var(--gris-pixplore);
+    color: white;
+}
+
+#modalDesactivarCategoria h5,
+#modalDesactivarUsuario h5 {
+    font-family: "Pixelify-Sans";
+}
+
+#modalDesactivarCategoria .modal-body,
+#modalDesactivarUsuario .modal-body {
+    font-size: 18px;
+    font-family: "Handjet";
+}
+
+#modalDesactivarCategoria .modal-footer,
+#modalDesactivarUsuario .modal-footer {
+    font-family: "VT323";
+    font-size: 20px;
+    border-top: 1px solid var(--verde-pixplore);
+    gap: 5px;
+}
+
+#modalDesactivarCategoria .modal-footer button,
+#modalDesactivarUsuario .modal-footer button {
+    padding-inline: 12px;
+    border: none;
+    transition: 0.3s all ease;
+}
+
+#modalDesactivarCategoria .modal-footer button:hover,
+#modalDesactivarUsuario .modal-footer button:hover {
+    background-color: var(--verde-pixplore);
+}
