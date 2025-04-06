@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import './CSS/bootstrap.min.css'
-import './CSS/dashboard.css'
-import './JS/bootstrap.bundle.min.js'
-import './JS/jquery-3.7.1.min.js'
+import './CSS/bootstrap.min.css';
+import './CSS/dashboard.css';
+import './JS/bootstrap.bundle.min.js';
+import './JS/jquery-3.7.1.min.js';
+import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
+import ModalCateComponent from './Components/Modals/modalCateComponent.jsx';
+import ListaCateComponent from './Components/listaCateComponent.jsx';
+import ListasSComponent from './Components/listaSComponent.jsx';
+import PostComponent from './Components/postComponent.jsx';
 
 function Dashboard() {
 
@@ -140,10 +145,6 @@ function Dashboard() {
 
     }, []);
 
-    $('#idModalPost').on('shown.bs.modal', function () {
-        $('#idModalPost').trigger('focus')
-    })
-
     return (
         <>
             {/* Navegador */}
@@ -173,120 +174,22 @@ function Dashboard() {
             <div className="cuerpo">
                 
                 {/* Modal de Posts */}
-                <div className="modal fade" id="idModalPost" tabIndex="-1" role="dialog" aria-labelledby="idModalPostTitle" aria-hidden="true">
-                    <button type="button" className="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
-                        <label>X</label>
-                    </button>
-
-                    <div className="modal-dialog modal-dialog-centered modal-xl post-pixel-corners" role="document">
-                        <div className="modal-content">
-                            <div className="col-8 modal-image">
-                                <img id="idModalImagen" src="/Images/Templates/Post_Gray_1-1.png" alt="Template del Post"></img>
-                            </div>
-                            <div className="col modal-info">
-                                <div className="modal-header">
-                                    <img id="idFotoUsuarioM" className="circular-pixel-corners" src="/Images/Templates/Usuario_blanco.png" alt="Foto de Perfil"></img>
-                                    
-                                    <div>
-                                        <h5 id="idNombreUsuarioM">Nombre de Usuario</h5>
-                                        <label id="idHoraM" htmlFor="">DD/MM/AAAA 00:00</label>
-                                    </div>
-                                    
-                                    <div id="idDropdownM" className="dropdown">
-                                        <button className="btn btn-secondary dropdown-toggle dropdown-pixel-corners" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                        <div className="dropdown-menu dropdown-pixel-corners" aria-labelledby="dropdownMenuButton">
-                                            <a className="dropdown-item" href="#">Guardar</a>
-                                            <a className="dropdown-item" href="#">Agregar a Lista</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="modal-body">
-                                    <h6 id="idModalTitulo">Título de la imagen</h6>
-                                    <p id="idModalDescripcion">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
-                                        Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo, sem nisi accumsan purus, tincidunt maximus est ligula id magna. 
-                                        Nam at convallis nibh, in tincidunt velit. Vestibulum non scelerisque ipsum, quis molestie turpis. Pellentesque iaculis fringilla justo, 
-                                        ac hendrerit ex accumsan sit amet. Phasellus dignissim velit iaculis, consequat lacus sed, bibendum felis. Sed vulputate in enim ut 
-                                        ultricies. Aliquam ut justo lacus. Donec id tortor neque.
-                                    </p>
-                                    <div className="modal-categorias">
-                                        <label htmlFor="">Fandom/Original</label>
-                                        <label htmlFor="">Nombre Fandom/Original</label>
-                                    </div>
-                                    <div className="modal-botones">
-                                        <div>
-                                            <label htmlFor="">JPEG</label>
-                                            <a href="/Images/Templates/Usuario_blanco.png" download>
-                                                <img src="/Images/Icons/Descarga.png" alt="Descarga" /> Descargar
-                                            </a>
-                                        </div>
-                                        
-                                        <div>
-                                            <button className="button-pixel-corners">
-                                                <img src="/Images/Icons/Like.png" alt="Like" /> Like
-                                            </button>
-                                            <button className="button-pixel-corners">
-                                                <img src="/Images/Icons/Dislike.png" alt="Dislike" /> Dislike
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <div className="input-comentario">
-                                        <img className="circular-pixel-corners" src="/Images/Templates/Usuario_blanco.png" alt="Foto de Perfil"></img>
-                                        <div>
-                                            <textarea id="idTextoM" className="comentario-pixel-corners"></textarea>
-                                            <button id="idEnviarCM">
-                                                <img src="/Images/Icons/Enviar.png" alt="Enviar comentario"></img>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="seccion-comentarios">
-                                        <div className="comentarios">
-                                            <img className="circular-pixel-corners" src="/Images/Templates/Usuario_blanco.png" alt="Foto de Perfil"></img>
-                                            <div>
-                                                <h6 htmlFor="">Nombre de Usuario</h6>
-                                                <label className="comentario-pixel-corners" id="idComentarioM" htmlFor="">
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
-                                                    Vivamus nec nunc dui.
-                                                </label>
-                                                <label id="idHoraCM" htmlFor="">DD/MM/AAAA 00:00</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ModalPostComponent
+                    className="modal fade"
+                    id="idModalPost"
+                    tabIndex="-1"
+                    role="dialog"
+                    aria-hidden="true"
+                ></ModalPostComponent>
                 
                 {/* Modal de la Informacion de las Categorias */}
-                <div className="modal fade" id="idCategoriaModal" tabIndex="-1" role="dialog" aria-hidden="true">
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="post-pixel-corners">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="idModalNombreC">Nombre de la categoría</h5>
-                                    <small className="form-text">(Fandom/Original)</small>
-                                    <button type="button" className="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
-                                        <label>X</label>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                    <p id="idModalDescripcionC">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
-                                        Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo, sem nisi accumsan purus, tincidunt maximus est ligula id magna. 
-                                        Nam at convallis nibh, in tincidunt velit. Vestibulum non scelerisque ipsum, q
-                                    </p>
-                                </div>
-                                <div className="modal-footer justify-content-between">
-                                    <label id="idModalFechaC">DD/MM/AAAA</label>
-                                    <label id="idModalFechaC">00:00</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ModalCateComponent
+                    className="modal fade"
+                    id="idCategoriaModal"
+                    tabIndex="-1"
+                    role="dialog"
+                    aria-hidden="true"
+                ></ModalCateComponent>
 
                 {/* Categorias y Filtros */}
                 <div id="idCategorias" className="col-2">
@@ -329,18 +232,15 @@ function Dashboard() {
                     </div>
 
                     <ul id="idListaFandom" className="collapse list-group list-group-flush">
-                        <li className="list-group-item">
-                            <div>
-                                <input className="form-check-input" type="checkbox" id="inlineCheckbox2" name='fandom1' value="tipo1"
-                                    checked={checkedState.fandom.fandom1} 
-                                    onChange={handleChange} >
-                                </input>
-                                <label className="form-check-label" htmlFor="inlineCheckbox2">Fandom 1</label>
-                            </div>
-                            <button id="btnInfoCategoria" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                                <img src="Images/Icons/Info.png" alt="Información de la categoría"></img>
-                            </button>
-                        </li>
+                        <ListaCateComponent
+                            label="Fandom 1"
+                            name="fandom1"
+                            value="tipo1"
+                            checked={checkedState.fandom.fandom1}
+                            onChange={handleChange}
+                            dataBsToggle="modal"
+                            dataBsTarget="#idCategoriaModal"
+                        ></ListaCateComponent>
                     </ul>
 
                     <div className="checkbox-categorias">
@@ -354,18 +254,15 @@ function Dashboard() {
                     </div>
 
                     <ul id="idListaOriginal" className="collapse list-group list-group-flush">
-                        <li className="list-group-item">
-                            <div>
-                                <input className="form-check-input" type="checkbox" id="inlineCheckbox2" name='original1' value="tipo2"
-                                    checked={checkedState.original.original1} 
-                                    onChange={handleChange} >
-                                </input>
-                                <label className="form-check-label" htmlFor="inlineCheckbox2">Original 1</label>
-                            </div>
-                            <button id="btnInfoCategoria" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                                <img src="Images/Icons/Info.png" alt="Información de la categoría"></img>
-                            </button>
-                        </li>
+                        <ListaCateComponent
+                            label="Original 1"
+                            name="original1"
+                            value="tipo2"
+                            checked={checkedState.original.original1}
+                            onChange={handleChange}
+                            dataBsToggle="modal"
+                            dataBsTarget="#idCategoriaModal"
+                        ></ListaCateComponent>
                     </ul>
 
                     <h1>FILTROS</h1>
@@ -389,13 +286,11 @@ function Dashboard() {
                         </button>
 
                         <div className="listas row">
-                            <div className="link-lista lista-pixel-corners">
-                                <a id="idLista" href="#">
-                                    <img src="/Images/Templates/Camara_GO_1-1.png"
-                                    className="lista-pixel-corners"
-                                    alt="Imagen de la Lista" /> Nombre de la Lista
-                                </a>
-                            </div>
+                            <ListasSComponent
+                                className="link-lista lista-pixel-corners"
+                                id="idLista"
+                                src="/Images/Templates/Camara_GO_1-1.png"
+                            ></ListasSComponent>
                         </div>
 
                         <button className="scroll-btn right" onClick={() => moveList(1)}>
@@ -405,19 +300,11 @@ function Dashboard() {
                     
                     {/* Posts */}
                     <div id="idDashboard">
-                        <div id="idPost">
-                            <div className="post-contenedor">
-                                <div className="post-usuario">
-                                    <img id="idFotoUsuario" className="circular-pixel-corners" src="/Images/Templates/Usuario_blanco.png" alt="Foto de Perfil"></img>
-                                    <label id="idTitulo" htmlFor="">Título de la imagen</label>
-                                </div>
-                                <div className="post-imagen pixel-corners">
-                                    <button id="idModalPost" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idModalPost">
-                                        <img src="/Images/Templates/Post_1-1.png" alt="Template del Post"></img>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>             
+                        <PostComponent
+                            id="idPost"
+                            dataBsToggle="modal"
+                            dataBsTarget="#idModalPost"
+                        ></PostComponent>
                     </div>
                 </div>
                 

@@ -1,25 +1,25 @@
 @font-face {
   /* Tipografia del Logo */
   font-family: "Jersey-10";
-  src: url("../Fonts/Jersey10-Regular.ttf");
+  src: url("/Fonts/Jersey10-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Titulos */
   font-family: "Pixelify-Sans";
-  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+  src: url("/Fonts/PixelifySans-VariableFont_wght.ttf");
 }
 
 @font-face {
   /* Tipografia para Subtitulos */
   font-family: "VT323";
-  src: url("../Fonts/VT323-Regular.ttf");
+  src: url("/Fonts/VT323-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Parrafos */
   font-family: "Handjet";
-  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+  src: url("/Fonts/Handjet-VariableFont_wght.ttf");
 }
 
 :root{
@@ -31,7 +31,13 @@
   --gris-lightmode: rgb(234, 234, 234);
 }
 
-html, body{
+/* Index.html */
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+body{
   background-color: var(--gris-pixplore);
   overflow: hidden;
 }
@@ -80,126 +86,45 @@ html, body{
   color: var(--negro-pixplore);
 }
 
-/* Registro */
+/* Cuerpo */
 
-#idRegistro{
-  margin: 60px auto;
-  display: flex;
-  height: max-content;
+.cuerpo{
+  background-color: var(--gris-oscuro-pixplore);
 }
 
-/* Columna izquierda */
+/* Login */
 
-.col-izq{
+.login{
   background-color: var(--negro-pixplore);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 40px 30px;
+  justify-content: center;
+  margin: 60px auto;
+  padding: 20px 30px 30px 30px ;
+  width: 30vw;
+  height: 70vh;
 }
 
-#idAvatarSample{
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-.avatar-pixel-corners {
-  clip-path: polygon(
-    0px calc(100% - 40px),
-    10px calc(100% - 40px),
-    10px calc(100% - 20px),
-    20px calc(100% - 20px),
-    20px calc(100% - 10px),
-    40px calc(100% - 10px),
-    40px 100%,
-    calc(100% - 40px) 100%,
-    calc(100% - 40px) calc(100% - 10px),
-    calc(100% - 20px) calc(100% - 10px),
-    calc(100% - 20px) calc(100% - 20px),
-    calc(100% - 10px) calc(100% - 20px),
-    calc(100% - 10px) calc(100% - 40px),
-    100% calc(100% - 40px),
-    100% 40px,
-    calc(100% - 10px) 40px,
-    calc(100% - 10px) 20px,
-    calc(100% - 20px) 20px,
-    calc(100% - 20px) 10px,
-    calc(100% - 40px) 10px,
-    calc(100% - 40px) 0px,
-    40px 0px,
-    40px 10px,
-    20px 10px,
-    20px 20px,
-    10px 20px,
-    10px 40px,
-    0px 40px
-  );
-}
-
-.form-control,
-.form-control:focus{
-  background-color: var(--verde-pixplore);
-}
-
-#idRol:focus{
-  background-color: var(--verde-pixplore);
-}
-
-#idRol option{
-  background-color: var(--gris-oscuro-pixplore);
-  color: white;
-}
-
-#idRol .item-1{
-  background-color: var(--gris-darkmode);
-}
-
-#dateBirth{
-  letter-spacing: 1px;
-  padding: 5px 8px;
-}
-
-.form-control,
-#idRol,
-#dateBirth{
-  font-family: "Handjet";
-  font-weight: 600;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  border-radius: 0;
-  margin-bottom: 15px;
-}
-
-/* Columna derecha */
-
-.col-der{
-  background-color: var(--gris-oscuro-pixplore);
-  padding: 20px 30px;
-}
-
-#idRegistro .col-izq,
-#idRegistro .col-der,
-#idRegistro .datos{
+.login div{
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-#idRegistro h1{
+.login h1{
   font-family: "Jersey-10";
   color: var(--verde-pixplore);
   font-size: 60px;
 }
 
-#idRegistro label[for=""]{
+.login label{
   color: white;
   font-family: "Pixelify-Sans";
   font-size: 24px;
 }
 
-#idRegistro input.cuadro-txt{
+.login input{
   font-family: "Handjet";
   font-size: 20px;
   font-weight: 550;
@@ -210,20 +135,10 @@ html, body{
   outline: none;
 }
 
-small.form-text{
-  font-family: "Handjet";
-  font-size: 16px;
-  font-weight: 650;
-  letter-spacing: 1px;
-  color: var(--gris-darkmode);
-  margin-top: -7px;
-  margin-bottom: 5px;
-}
-
-#idRegistro button{
+.login button{
   background-color: var(--gris-darkmode);
   font-family: "Pixelify-Sans";
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   margin-top: 15px;
   border: none;
@@ -232,7 +147,7 @@ small.form-text{
   transition: 0.15s ease;
 }
 
-#idRegistro button:hover{
+.login button:hover{
   background-color: var(--verde-pixplore);
   color: var(--negro-pixplore);
 }

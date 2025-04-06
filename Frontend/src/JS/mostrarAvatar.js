@@ -1,4 +1,4 @@
-function mostrarAvatar(event, elementId) {
+export function mostrarAvatar(event, elementId) {
     const selectedImage = document.getElementById(elementId);
     const fileInput = event.target;
 

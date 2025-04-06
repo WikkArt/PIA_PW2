@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from './dashboard';
 import Login from './login';
 import Registro from './registro';
+import PerfilUsuario from './perfilUsuario';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
+            <Route path="/perfilUsuario" element={<PerfilUsuario />} />
         </Routes>
     );
 

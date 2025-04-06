@@ -1,25 +1,25 @@
 @font-face {
   /* Tipografia del Logo */
   font-family: "Jersey-10";
-  src: url("../Fonts/Jersey10-Regular.ttf");
+  src: url("/Fonts/Jersey10-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Titulos */
   font-family: "Pixelify-Sans";
-  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+  src: url("/Fonts/PixelifySans-VariableFont_wght.ttf");
 }
 
 @font-face {
   /* Tipografia para Subtitulos */
   font-family: "VT323";
-  src: url("../Fonts/VT323-Regular.ttf");
+  src: url("/Fonts/VT323-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Parrafos */
   font-family: "Handjet";
-  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+  src: url("/Fonts/Handjet-VariableFont_wght.ttf");
 }
 
 :root{
@@ -31,7 +31,13 @@
   --gris-lightmode: rgb(234, 234, 234);
 }
 
-html, body{
+/* Index.html */
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+body{
   background-color: var(--gris-pixplore);
   overflow: hidden;
 }

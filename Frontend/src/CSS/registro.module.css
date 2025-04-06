@@ -1,25 +1,25 @@
 @font-face {
   /* Tipografia del Logo */
   font-family: "Jersey-10";
-  src: url("/Fonts/Jersey10-Regular.ttf");
+  src: url("../Fonts/Jersey10-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Titulos */
   font-family: "Pixelify-Sans";
-  src: url("/Fonts/PixelifySans-VariableFont_wght.ttf");
+  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
 }
 
 @font-face {
   /* Tipografia para Subtitulos */
   font-family: "VT323";
-  src: url("/Fonts/VT323-Regular.ttf");
+  src: url("../Fonts/VT323-Regular.ttf");
 }
 
 @font-face {
   /* Tipografia para Parrafos */
   font-family: "Handjet";
-  src: url("/Fonts/Handjet-VariableFont_wght.ttf");
+  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
 }
 
 :root{
@@ -31,13 +31,7 @@
   --gris-lightmode: rgb(234, 234, 234);
 }
 
-/* Index.html */
-#root {
-  width: 100vw;
-  height: 100vh;
-}
-
-body{
+html, body{
   background-color: var(--gris-pixplore);
   overflow: hidden;
 }
@@ -86,45 +80,117 @@ body{
   color: var(--negro-pixplore);
 }
 
-/* Cuerpo */
+/* Registro */
 
-.cuerpo{
-  background-color: var(--gris-oscuro-pixplore);
+.registro{
+  margin: 60px auto;
+  display: flex;
+  height: max-content;
 }
 
-/* Login */
+/* Columna izquierda */
 
-#idLogin{
+.col-izq{
   background-color: var(--negro-pixplore);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 60px auto;
-  padding: 20px 30px 30px 30px ;
-  width: 30vw;
-  height: 70vh;
+  padding: 40px 30px;
 }
 
-#idLogin div{
+.avatar-pixel-corners{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.avatar-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 40px),
+    10px calc(100% - 40px),
+    10px calc(100% - 20px),
+    20px calc(100% - 20px),
+    20px calc(100% - 10px),
+    40px calc(100% - 10px),
+    40px 100%,
+    calc(100% - 40px) 100%,
+    calc(100% - 40px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 10px),
+    calc(100% - 20px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 20px),
+    calc(100% - 10px) calc(100% - 40px),
+    100% calc(100% - 40px),
+    100% 40px,
+    calc(100% - 10px) 40px,
+    calc(100% - 10px) 20px,
+    calc(100% - 20px) 20px,
+    calc(100% - 20px) 10px,
+    calc(100% - 40px) 10px,
+    calc(100% - 40px) 0px,
+    40px 0px,
+    40px 10px,
+    20px 10px,
+    20px 20px,
+    10px 20px,
+    10px 40px,
+    0px 40px
+  );
+}
+
+.form-control{
+  width: 100%;
+}
+
+.form-control,
+.form-control:focus{
+  background-color: var(--verde-pixplore);
+}
+
+.date-birth{
+  letter-spacing: 1px;
+  padding: 5px 8px;
+}
+
+.form-control,
+#idRol,
+.date-birth{
+  font-family: "Handjet";
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  margin-bottom: 15px;
+}
+
+/* Columna derecha */
+
+.col-der{
+  background-color: var(--gris-oscuro-pixplore);
+  padding: 20px 30px;
+}
+
+.registro .col-izq,
+.registro .col-der,
+.registro .datos{
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-#idLogin h1{
+.registro h1{
   font-family: "Jersey-10";
   color: var(--verde-pixplore);
   font-size: 60px;
 }
 
-#idLogin label{
+.registro label[for=""]{
   color: white;
   font-family: "Pixelify-Sans";
   font-size: 24px;
 }
 
-#idLogin input{
+.registro input.cuadro-txt{
   font-family: "Handjet";
   font-size: 20px;
   font-weight: 550;
@@ -135,10 +201,20 @@ body{
   outline: none;
 }
 
-#idLogin button{
+small.form-text{
+  font-family: "Handjet";
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  color: var(--gris-darkmode);
+  margin-top: -7px;
+  margin-bottom: 5px;
+}
+
+.registro button{
   background-color: var(--gris-darkmode);
   font-family: "Pixelify-Sans";
-  font-size: 25px;
+  font-size: 20px;
   color: white;
   margin-top: 15px;
   border: none;
@@ -147,7 +223,7 @@ body{
   transition: 0.15s ease;
 }
 
-#idLogin button:hover{
+.registro button:hover{
   background-color: var(--verde-pixplore);
   color: var(--negro-pixplore);
 }
