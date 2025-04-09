@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
-import PerfilCSS from './CSS/perfil.module.css'
+import PerfilUsuarioCSS from './CSS/perfilUsuario.module.css'
 import './JS/bootstrap.bundle.min.js';
 import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
 
 function PerfilUsuario() {
 
-    const [activeTab, setActiveTab] = useState('posts'); // 'posts' es la tab activa por defecto
+    // 'posts' es la tab activa por defecto
+    const [activeTab, setActiveTab] = useState('posts');
 
     // Función para cambiar las pestañas
     const handleTabChange = (tabName) => {
@@ -35,7 +36,8 @@ function PerfilUsuario() {
                 </li>
             </ul>
 
-            <div className={`${PerfilCSS.cuerpo} row`}>
+            {/* Perfil del Usuario */}
+            <div className={`${PerfilUsuarioCSS.cuerpo} row`}>
                 {/* Modal de Posts */}
                 <ModalPostComponent
                     className="modal fade"
@@ -46,22 +48,22 @@ function PerfilUsuario() {
                 ></ModalPostComponent>
 
                 {/* Informacion del usuario */}
-                <div className={`${PerfilCSS["perfil-usuario"]} col-4`}>
+                <div className={`${PerfilUsuarioCSS["perfil-usuario"]} col-4`}>
                     <img id="idAvatarSample" src="Images/Templates/Usuario_blanco.png" 
-                    className={PerfilCSS["avatar-pixel-corners"]} alt="Avatar"></img>
+                    className={PerfilUsuarioCSS["avatar-pixel-corners"]} alt="Avatar"></img>
                     <h2>Nombre de Usuario</h2>
                     <label id="idCorreo">ejemploCorreo@gmail.com</label>
                     <label>X publicacion(es)</label>
                     <a href="#">
-                        <button className={PerfilCSS["boton-pixel-corners"]}>Editar Perfil</button>
+                        <button className={PerfilUsuarioCSS["boton-pixel-corners"]}>Editar Perfil</button>
                     </a>
                 </div>
 
-                <div className={`col ${PerfilCSS["col-der"]}`}>
+                <div className={`col ${PerfilUsuarioCSS["col-der"]}`}>
                     {/* Pestanias */}
-                    <ul className="nav nav-tabs" id={PerfilCSS.idTabs}>
+                    <ul className="nav nav-tabs" id={PerfilUsuarioCSS.idTabs}>
                         <li className="nav-item">
-                            <button className={`${PerfilCSS["nav-link"]} ${activeTab === 'posts' ? PerfilCSS.active : ''}`}
+                            <button className={`${PerfilUsuarioCSS["nav-link"]} ${activeTab === 'posts' ? PerfilUsuarioCSS.active : ''}`}
                                 onClick={() => handleTabChange('posts')}
                                 id="posts-tab" 
                                 databstoggle="tab" 
@@ -73,7 +75,7 @@ function PerfilUsuario() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className={`${PerfilCSS["nav-link"]} ${activeTab === 'listas' ? PerfilCSS.active : ''}`}
+                            <button className={`${PerfilUsuarioCSS["nav-link"]} ${activeTab === 'listas' ? PerfilUsuarioCSS.active : ''}`}
                                 onClick={() => handleTabChange('listas')}
                                 id="listas-tab" 
                                 databstoggle="tab" 
@@ -85,7 +87,7 @@ function PerfilUsuario() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className={`${PerfilCSS["nav-link"]} ${activeTab === 'likes' ? PerfilCSS.active : ''}`}
+                            <button className={`${PerfilUsuarioCSS["nav-link"]} ${activeTab === 'likes' ? PerfilUsuarioCSS.active : ''}`}
                                 onClick={() => handleTabChange('likes')}
                                 id="like-tab" 
                                 databstoggle="tab" 
@@ -97,7 +99,7 @@ function PerfilUsuario() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className={`${PerfilCSS["nav-link"]} ${activeTab === 'guardados' ? PerfilCSS.active : ''}`}
+                            <button className={`${PerfilUsuarioCSS["nav-link"]} ${activeTab === 'guardados' ? PerfilUsuarioCSS.active : ''}`}
                                 onClick={() => handleTabChange('guardados')}
                                 id="guardados-tab" 
                                 databstoggle="tab" 
@@ -109,7 +111,7 @@ function PerfilUsuario() {
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className={`${PerfilCSS["nav-link"]} ${activeTab === 'historial' ? PerfilCSS.active : ''}`}
+                            <button className={`${PerfilUsuarioCSS["nav-link"]} ${activeTab === 'historial' ? PerfilUsuarioCSS.active : ''}`}
                                 onClick={() => handleTabChange('historial')}
                                 id="historial-tab" 
                                 databstoggle="tab" 
@@ -122,19 +124,19 @@ function PerfilUsuario() {
                         </li>
                     </ul>
 
-                    <div className={PerfilCSS["tab-content"]}>
+                    <div className={PerfilUsuarioCSS["tab-content"]}>
                         {/* Posts */}
                         {activeTab === 'posts' && (
-                            <div className={`${PerfilCSS["tab-pane"]} fade ${activeTab === 'posts' ? 'show active' : ''}`} id="idPosts" role="tabpanel" aria-labelledby="posts-tab">
-                                <div className={PerfilCSS["tab-subtitulo"]}>
+                            <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'posts' ? 'show active' : ''}`} id="idPosts" role="tabpanel" aria-labelledby="posts-tab">
+                                <div className={PerfilUsuarioCSS["tab-subtitulo"]}>
                                     <h2>Posts creados por ti</h2>
-                                    <Link to="/crearPost" className={`${PerfilCSS["agregar-elemento"]} ${PerfilCSS["boton-pixel-corners"]}`}>
+                                    <Link to="/crearPost" className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
                                         +
                                         <button> Nuevo Post</button>
                                     </Link>
                                 </div>
                                 
-                                <div id={PerfilCSS.idTabPost}>
+                                <div id={PerfilUsuarioCSS.idTabPost}>
                                     <PostComponent
                                         id="idPost"
                                         dataBsToggle="modal"
@@ -146,16 +148,16 @@ function PerfilUsuario() {
 
                         {/* Listas */}
                         {activeTab === 'listas' && (
-                            <div className={`${PerfilCSS["tab-pane"]} fade ${activeTab === 'listas' ? 'show active' : ''}`} id="idListas" role="tabpanel" aria-labelledby="listas-tab">
-                                <div className={PerfilCSS["tab-subtitulo"]}>
+                            <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'listas' ? 'show active' : ''}`} id="idListas" role="tabpanel" aria-labelledby="listas-tab">
+                                <div className={PerfilUsuarioCSS["tab-subtitulo"]}>
                                     <h2>Listas</h2>
-                                    <a href="#" className={`${PerfilCSS["agregar-elemento"]} ${PerfilCSS["boton-pixel-corners"]}`}>
+                                    <a href="#" className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
                                         +
                                         <button> Nueva Lista</button>
                                     </a>
                                 </div>
 
-                                <div id={PerfilCSS.idTabListas}>
+                                <div id={PerfilUsuarioCSS.idTabListas}>
                                     <div id="idListaG">
                                         <button className="lista-pixel-corners">
                                             <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" className="lista-img-pixel-corners" alt=""></img>
@@ -175,10 +177,10 @@ function PerfilUsuario() {
 
                         {/* Likes */}
                         {activeTab === 'likes' && (
-                            <div class={`${PerfilCSS["tab-pane"]} fade ${activeTab === 'likes' ? 'show active' : ''}`} id="idLike" role="tabpanel" aria-labelledby="like-tab">
+                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'likes' ? 'show active' : ''}`} id="idLike" role="tabpanel" aria-labelledby="like-tab">
                                 <h2>Tus likes</h2>
                                 
-                                <div id={PerfilCSS.idTabLike}>
+                                <div id={PerfilUsuarioCSS.idTabLike}>
                                     <PostComponent
                                         id="idLike"
                                         dataBsToggle="modal"
@@ -190,10 +192,10 @@ function PerfilUsuario() {
 
                         {/* Guardados */}
                         {activeTab === 'guardados' && (
-                            <div class={`${PerfilCSS["tab-pane"]} fade ${activeTab === 'guardados' ? 'show active' : ''}`} id="idGuardados" role="tabpanel" aria-labelledby="guardados-tab">
+                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'guardados' ? 'show active' : ''}`} id="idGuardados" role="tabpanel" aria-labelledby="guardados-tab">
                                 <h2>Elementos guardados</h2>
                                 
-                                <div id={PerfilCSS.idTabGuardado}>
+                                <div id={PerfilUsuarioCSS.idTabGuardado}>
                                     <PostComponent
                                         id="idGuardado"
                                         dataBsToggle="modal"
@@ -205,10 +207,10 @@ function PerfilUsuario() {
 
                         {/* Historial */}
                         {activeTab === 'historial' && (
-                            <div class={`${PerfilCSS["tab-pane"]} fade ${activeTab === 'historial' ? 'show active' : ''}`} id="idHistorial" role="tabpanel" aria-labelledby="historial-tab">
+                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'historial' ? 'show active' : ''}`} id="idHistorial" role="tabpanel" aria-labelledby="historial-tab">
                                 <h2>Historial</h2>
                                 
-                                <div id={PerfilCSS.idTabHistorial}>
+                                <div id={PerfilUsuarioCSS.idTabHistorial}>
                                     
                                 </div>
                             </div>

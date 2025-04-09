@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from './dashboard';
 import Login from './login';
 import Registro from './registro';
+import PerfilAdmin from './perfilAdmin'
 import PerfilUsuario from './perfilUsuario';
 import CrearPost from "./crearPost";
 
@@ -13,6 +14,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
+            <Route path="/perfilAdmin" element={<PerfilAdmin />} />
             <Route path="/perfilUsuario" element={<PerfilUsuario />} />
             <Route path="/crearPost" element={<CrearPost />} />
         </Routes>

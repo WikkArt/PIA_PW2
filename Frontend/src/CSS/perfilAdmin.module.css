@@ -1,40 +1,45 @@
 @font-face {
-    /* Tipografia del Logo */
-    font-family: "Jersey-10";
-    src: url("../Fonts/Jersey10-Regular.ttf");
+  /* Tipografia del Logo */
+  font-family: "Jersey-10";
+  src: url("/Fonts/Jersey10-Regular.ttf");
 }
 
 @font-face {
-    /* Tipografia para Titulos */
-    font-family: "Pixelify-Sans";
-    src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+  /* Tipografia para Titulos */
+  font-family: "Pixelify-Sans";
+  src: url("/Fonts/PixelifySans-VariableFont_wght.ttf");
 }
 
 @font-face {
-    /* Tipografia para Subtitulos */
-    font-family: "VT323";
-    src: url("../Fonts/VT323-Regular.ttf");
+  /* Tipografia para Subtitulos */
+  font-family: "VT323";
+  src: url("/Fonts/VT323-Regular.ttf");
 }
 
 @font-face {
-    /* Tipografia para Parrafos */
-    font-family: "Handjet";
-    src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+  /* Tipografia para Parrafos */
+  font-family: "Handjet";
+  src: url("/Fonts/Handjet-VariableFont_wght.ttf");
 }
 
-:root {
-    --verde-pixplore: rgb(138, 229, 89);
-    --gris-pixplore: rgb(38, 38, 38);
-    --gris-oscuro-pixplore: rgb(30, 30, 30);
-    --negro-pixplore: rgb(20, 20, 20);
-    --gris-darkmode: rgb(104, 104, 104);
-    --gris-lightmode: rgb(234, 234, 234);
+:root{
+  --verde-pixplore: rgb(138, 229, 89);
+  --gris-pixplore: rgb(38, 38, 38);
+  --gris-oscuro-pixplore: rgb(30, 30, 30);
+  --negro-pixplore: rgb(20, 20, 20);
+  --gris-darkmode: rgb(104, 104, 104);
+  --gris-lightmode: rgb(234, 234, 234);
 }
 
-html,
-body {
-    background-color: var(--gris-pixplore);
-    overflow: hidden;
+/* Index.html */
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+body{
+  background-color: var(--gris-pixplore);
+  overflow: hidden;
 }
 
 /* Navegador */
@@ -84,7 +89,7 @@ body {
 
 /* Sección de Tabs */
 
-.col-der h1 {
+.cuerpo h1 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -92,62 +97,73 @@ body {
     font-size: 50px;
     color: var(--verde-pixplore);
 }
+
 .tabs-container {
     background-color: var(--gris-oscuro-pixplore);
-    padding: 10px; 
-    border-radius: 8px;
     text-align: center; 
-  }
+}
 
 #adminTabs {
     display: flex;
     justify-content: center;
     gap: 10px;
-}
-
-#adminTabs {
     border-bottom: 3px solid var(--verde-pixplore);
     font-family: "Pixelify-Sans";
     font-size: 18px;
-  }
+}
   
-  #adminTabs .nav-link {
+#adminTabs .nav-link {
     color: white;
     border: none;
     border-radius: 0;
-  }
-  
-  #adminTabs .nav-link:hover {
+    background-color: transparent;
+    padding-inline: 16px;
+    padding-block: 8px;
+    transition: 200ms ease-in-out;
+}
+
+#adminTabs .nav-link:hover {
     color: var(--verde-pixplore);
-  }
-  
-  #adminTabs .nav-link.active {
+}
+
+#adminTabs .nav-link.active {
     background-color: var(--verde-pixplore);
     border-radius: 0;
     color: var(--negro-pixplore);
     border: none;
-  }
-  
-  #adminTabs .nav-link.active:hover {
+}
+
+#adminTabs .nav-link.active:hover {
     color: var(--negro-pixplore);
-  }
-  .tab-content {
-    padding: 20px;
-  }
+}
+
+.tab-content {
+    padding-inline: 30px;
+    padding-block: 20px;
+}
+
+.tab-content #idTabUsuarios{
+    overflow-y: auto;
+    max-height: 55vh;
+}
+
 /* Títulos dentro de las pestañas */
-.tab-subtitulo h3, .tab-subtitulo h2 {
+.tab-subtitulo{
+  display: flex;
+  justify-content: center;
+}
+
+.tab-content h2 {
     font-family: "Pixelify-Sans";
-    font-size: 24px;
-    text-align: center;
-    color: var(--verde-pixplore);
+    color: white;
+    margin-bottom: 15px;
 }
 
 /* Estilo de la tabla */
 .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--negro-pixplore);
-    color: white;
+    background-color: white;
 }
 
 .table th {
@@ -165,7 +181,6 @@ body {
     font-family: "Pixelify-Sans";
     font-size: 16px;
 }
-
 
 /* Botones dentro de las tablas y listas */
 .btn-warning, .btn-danger, .btn-danger2 {
@@ -189,35 +204,39 @@ body {
 }
 
 .btn-danger {
-  background-color: var(--gris-darkmode);
+    background-color: var(--gris-darkmode);
     color: white;
-    border: 1px solid var(--gris-lightmode);
 }
 
 .btn-danger:hover {
+    background-color: var(--gris-oscuro-pixplore);
+}
+
+.btn-danger2 {
+    background-color: white;
+    color: black;
+    border: 1px solid var(--gris-lightmode);
+}
+  
+.btn-danger2:hover {
     border: 1px solid var(--gris-lightmode);
     background-color: var(--gris-lightmode);
     color: var(--negro-pixplore);
 }
 
-.btn-danger2 {
-    background-color: white;
-      color: black;
-      border: 1px solid var(--gris-lightmode);
-  }
-  
-  .btn-danger2:hover {
-      border: 1px solid var(--gris-lightmode);
-      background-color: var(--gris-lightmode);
-      color: var(--negro-pixplore);
-  }
 /* Listas de categorías */
+
+#idTabCategorias{
+    overflow-y: auto;
+    max-height: 55vh;
+}
+
 .list-group{
     margin-top: 15px;
 }
+
 .list-group-item {
     justify-content: space-between;
-    
     font-family: "Pixelify-Sans";
     font-size: 16px;
     background-color: var(--gris-darkmode);
@@ -248,8 +267,6 @@ body {
     margin: 0;
 }
 
-
-
 /* Botón agregar categoría */
 .agregar-elemento{
     background-color: white;
@@ -264,47 +281,47 @@ body {
     width: max-content;
     margin-left: 15px;
     transition: 0.15s ease;
-  }
+}
   
-  .agregar-elemento.boton-pixel-corners::after,
-  .agregar-elemento.boton-pixel-corners--wrapper::after{
+.agregar-elemento.boton-pixel-corners::after,
+.agregar-elemento.boton-pixel-corners--wrapper::after{
     background: white;
-  }
-  
-  .agregar-elemento:hover,
-  .agregar-elemento:hover.boton-pixel-corners::after,
-  .agregar-elemento:hover.boton-pixel-corners--wrapper::after{
+}
+
+.agregar-elemento:hover,
+.agregar-elemento:hover.boton-pixel-corners::after,
+.agregar-elemento:hover.boton-pixel-corners--wrapper::after{
     background-color: var(--verde-pixplore);
-  }
-  
-  .agregar-elemento button{
+}
+
+.agregar-elemento button{
     background-color: transparent;
     border: none;
     display: none;
     transition: 0.15s ease;
-  }
-  
-  .agregar-elemento:hover button{
+}
+
+.agregar-elemento:hover button{
     display: contents;
-  }
+}
   
 
-  .pixel-corners {
+.pixel-corners {
     clip-path: polygon(
-      0px calc(100% - 4px),
-      4px calc(100% - 4px),
-      4px 100%,
-      calc(100% - 4px) 100%,
-      calc(100% - 4px) calc(100% - 4px),
-      100% calc(100% - 4px),
-      100% 4px,
-      calc(100% - 4px) 4px,
-      calc(100% - 4px) 0px,
-      4px 0px,
-      4px 4px,
-      0px 4px
+    0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px
     );
-  }
+}
 
 
 /* Estilo general de los modales */
