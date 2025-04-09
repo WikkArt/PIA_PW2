@@ -1,243 +1,285 @@
 @font-face {
-    /* Tipografia del Logo */
-    font-family: "Jersey-10";
-    src: url("../Fonts/Jersey10-Regular.ttf");
-  }
-  
-  @font-face {
-    /* Tipografia para Titulos */
-    font-family: "Pixelify-Sans";
-    src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
-  }
-  
-  @font-face {
-    /* Tipografia para Subtitulos */
-    font-family: "VT323";
-    src: url("../Fonts/VT323-Regular.ttf");
-  }
-  
-  @font-face {
-    /* Tipografia para Parrafos */
-    font-family: "Handjet";
-    src: url("../Fonts/Handjet-VariableFont_wght.ttf");
-  }
-  
-  :root{
-    --verde-pixplore: rgb(138, 229, 89);
-    --gris-pixplore: rgb(38, 38, 38);
-    --gris-oscuro-pixplore: rgb(30, 30, 30);
-    --negro-pixplore: rgb(20, 20, 20);
-    --gris-darkmode: rgb(104, 104, 104);
-    --gris-lightmode: rgb(234, 234, 234);
-  }
-  
-  html, body{
-    background-color: var(--gris-pixplore);
-    overflow: hidden;
-  }
-  
-  /* Navegador */
-  
-  #idNavPixplore{
-    background-color: var(--negro-pixplore);
-    padding-block: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  #idNavPixplore img{
-    width: 170px;
-  }
-  
-  #idNavPixplore a{
-    font-family: "Pixelify-Sans";
-    color: white;
-    font-size: 20px;
-  }
-  
-  #idNavPixplore .nav-right{
-    display: flex;
-    justify-content: flex-end;
-    margin-left: auto;
-  }
-  
-  #idNavPixplore .nav-right:last-child{
-    margin-left: 10px;
-    margin-right: 20px;
-  }
-  
-  #idNavPixplore a:hover{
-    color: var(--verde-pixplore);
-  }
-  
-  #idNavPixplore .active{
-    background-color: var(--verde-pixplore);
-    color: var(--negro-pixplore);
-  }
-  
-  #idNavPixplore a.active:hover{
-    color: var(--negro-pixplore);
-  }
+  /* Tipografia del Logo */
+  font-family: "Jersey-10";
+  src: url("../Fonts/Jersey10-Regular.ttf");
+}
 
+@font-face {
+  /* Tipografia para Titulos */
+  font-family: "Pixelify-Sans";
+  src: url("../Fonts/PixelifySans-VariableFont_wght.ttf");
+}
 
-/* Publicaciones */
-#idPublicacion {
-    margin: 33px auto;
-    display: flex;
-    height: max-content;
-    background-color: var(--gris-oscuro-pixplore);
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  /* Columna izquierda (imagen) */
-  .col-izq {
-    width: 50%; /* Reduce el ancho */
-    max-width: 500px; 
-    background-color: var(--negro-pixplore);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px;
-    border-radius: 10px;
-  }
+@font-face {
+  /* Tipografia para Subtitulos */
+  font-family: "VT323";
+  src: url("../Fonts/VT323-Regular.ttf");
+}
 
-  #idImagenSample {
-    width: 100%; 
-    max-width: 400px; 
-    height: auto;
-    max-height: 400px; 
-    object-fit: contain;
-   
-    margin-bottom: 15px;
-    border: 5px solid var(--verde-pixplore);
-    border-radius: 10px;
-  }
- 
+@font-face {
+  /* Tipografia para Parrafos */
+  font-family: "Handjet";
+  src: url("../Fonts/Handjet-VariableFont_wght.ttf");
+}
 
-  .form-control {
-    background-color: var(--verde-pixplore);
-    font-family: "Handjet";
-    font-size: 18px;
-    font-weight: 600;
-    border: none;
-    outline: none;
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 5px;
-  }
-  
-  /* Columna derecha (datos) */
-  .col-der {
-    padding: 20px;
-    width: 100%;
-  }
- 
-  #idPublicacion h1 {
-    font-family: "Jersey-10";
-    color: var(--verde-pixplore);
-    font-size: 40px;
-    text-align: center;
-  }
-  
-  #idPublicacion label {
-    color: white;
-    font-family: "Pixelify-Sans";
-    font-size: 20px;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  #idPublicacion input,
-  #idPublicacion textarea,
-  #idPublicacion select {
-    font-family: "Handjet";
-    font-size: 18px;
-    padding: 10px;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    margin-bottom: 15px;
-    background-color: var(--gris-darkmode);
-    color: white;
-  }
-  
-  /* Botón de publicar */
-  #btnPublicar {
-    background-color: var(--gris-darkmode);
-    font-family: "Pixelify-Sans";
-    font-size: 20px;
-    color: white;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.15s ease;
-  }
-  
-  #btnPublicar:hover {
-    background-color: var(--verde-pixplore);
-    color: var(--negro-pixplore);
-  }
-    
-  .pixel-corners {
-    clip-path: polygon(0px calc(100% - 16px),
-      4px calc(100% - 16px),
-      4px calc(100% - 8px),
-      8px calc(100% - 8px),
-      8px calc(100% - 4px),
-      16px calc(100% - 4px),
-      16px 100%,
-      calc(100% - 16px) 100%,
-      calc(100% - 16px) calc(100% - 4px),
-      calc(100% - 8px) calc(100% - 4px),
-      calc(100% - 8px) calc(100% - 8px),
-      calc(100% - 4px) calc(100% - 8px),
-      calc(100% - 4px) calc(100% - 16px),
-      100% calc(100% - 16px),
-      100% 16px,
-      calc(100% - 4px) 16px,
-      calc(100% - 4px) 8px,
-      calc(100% - 8px) 8px,
-      calc(100% - 8px) 4px,
-      calc(100% - 16px) 4px,
-      calc(100% - 16px) 0px,
-      16px 0px,
-      16px 4px,
-      8px 4px,
-      8px 8px,
-      4px 8px,
-      4px 16px,
-      0px 16px);
-    position: relative;
-    border: 8px solid var(--gris-darkmode);
-    background-color: var(--gris-darkmode);
-  }
-  
-  .boton-pixel-corners {
-    clip-path: polygon(
-      0px calc(100% - 8px),
-      4px calc(100% - 8px),
-      4px calc(100% - 4px),
-      8px calc(100% - 4px),
-      8px 100%,
-      calc(100% - 8px) 100%,
-      calc(100% - 8px) calc(100% - 4px),
-      calc(100% - 4px) calc(100% - 4px),
-      calc(100% - 4px) calc(100% - 8px),
-      100% calc(100% - 8px),
-      100% 8px,
-      calc(100% - 4px) 8px,
-      calc(100% - 4px) 4px,
-      calc(100% - 8px) 4px,
-      calc(100% - 8px) 0px,
-      8px 0px,
-      8px 4px,
-      4px 4px,
-      4px 8px,
-      0px 8px
-    );
-  }
+:root{
+  --verde-pixplore: rgb(138, 229, 89);
+  --gris-pixplore: rgb(38, 38, 38);
+  --gris-oscuro-pixplore: rgb(30, 30, 30);
+  --negro-pixplore: rgb(20, 20, 20);
+  --gris-darkmode: rgb(104, 104, 104);
+  --gris-lightmode: rgb(234, 234, 234);
+}
+
+html, body{
+  background-color: var(--gris-pixplore);
+  overflow: hidden;
+}
+
+/* Navegador */
+
+#idNavPixplore{
+  background-color: var(--negro-pixplore);
+  padding-block: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#idNavPixplore img{
+  width: 170px;
+}
+
+#idNavPixplore a{
+  font-family: "Pixelify-Sans";
+  color: white;
+  font-size: 20px;
+}
+
+#idNavPixplore .nav-right{
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#idNavPixplore .nav-right:last-child{
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+#idNavPixplore a:hover{
+  color: var(--verde-pixplore);
+}
+
+#idNavPixplore .active{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+#idNavPixplore a.active:hover{
+  color: var(--negro-pixplore);
+}
+
+/* Crear Post */
+
+.crear-post{
+  margin: 60px auto;
+  display: flex;
+  height: max-content;
+}
+
+/* Columna izquierda */
+
+.col-izq{
+  background-color: var(--negro-pixplore);
+  display: flex;
+  align-items: center;
+  padding: 40px 30px;
+}
+
+.crear-post-pixel-corners{
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.crear-post-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px
+  );
+}
+
+.form-control{
+  width: 100%;
+}
+
+.form-control,
+.form-control:focus{
+  background-color: var(--verde-pixplore);
+}
+
+.form-control{
+  font-family: "Handjet";
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  margin-bottom: 15px;
+}
+
+/* Columna derecha */
+
+.col-der{
+  background-color: var(--gris-oscuro-pixplore);
+  padding: 20px 30px;
+}
+
+.crear-post .col-izq,
+.crear-post .col-der,
+.crear-post .datos{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.crear-post .regresar-titulo{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.regresar-elemento{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  transition: 0.15s ease;
+}
+
+.regresar-elemento:hover{
+  background-color: var(--verde-pixplore);
+}
+
+.regresar-elemento img{
+  height: 35px;
+  background-color: transparent;
+}
+
+.crear-post h1{
+  font-family: "Jersey-10";
+  color: var(--verde-pixplore);
+  font-size: 60px;
+}
+
+.categorias{
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.categorias div{
+  width: 100%;
+}
+
+.categorias select{
+  border-radius: 0;
+  font-size: 18px;
+}
+
+.categorias select option:first-child{
+  background-color: var(--gris-lightmode);
+}
+
+.crear-post .datos label{
+  color: white;
+  font-family: "Pixelify-Sans";
+  font-size: 24px;
+}
+
+.categorias select,
+.crear-post input.cuadro-txt{
+  font-family: "Handjet";
+  font-weight: 550;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.crear-post input.cuadro-txt{
+  font-size: 20px;
+}
+
+.crear-post button{
+  background-color: var(--gris-darkmode);
+  font-family: "Pixelify-Sans";
+  font-size: 20px;
+  color: white;
+  margin-top: 15px;
+  border: none;
+  padding-inline: 15px;
+  padding-block: 8px;
+  transition: 0.15s ease;
+}
+
+.crear-post button:hover{
+  background-color: var(--verde-pixplore);
+  color: var(--negro-pixplore);
+}
+
+.boton-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 8px),
+    4px calc(100% - 8px),
+    4px calc(100% - 4px),
+    8px calc(100% - 4px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 4px,
+    4px 4px,
+    4px 8px,
+    0px 8px
+  );
+}

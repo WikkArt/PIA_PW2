@@ -102,7 +102,7 @@ body{
   height: 100vh;
 }
 
-#idAvatarSample{
+.avatar-pixel-corners{
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -295,6 +295,10 @@ body{
   color: white;
   border: none;
   border-radius: 0;
+  background-color: transparent;
+  padding-inline: 16px;
+  padding-block: 8px;
+  transition: 200ms ease-in-out;
 }
 
 #idTabs .nav-link:hover{
@@ -1252,11 +1256,11 @@ button.close label{
 
 /* Listas */
 
-#idLista{
+#idListaG{
   display: flex;
 }
 
-#idLista button{
+#idListaG button{
   display: flex;
   align-items: center;
   text-align: start;
@@ -1269,7 +1273,7 @@ button.close label{
   transition: 0.15s ease;
 }
 
-#idLista button:hover{
+#idListaG button:hover{
   background-color: var(--verde-pixplore);
   color: var(--negro-pixplore);
 }
@@ -1315,11 +1319,11 @@ button.close label{
   );
 }
 
-#idLista button div{
+#idListaG button div{
   margin-left: 12px;
 }
 
-#idLista img{
+#idListaG img{
   width: 190px;
   height: 190px;
   object-fit: cover;

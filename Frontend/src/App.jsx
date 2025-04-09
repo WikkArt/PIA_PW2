@@ -4,6 +4,7 @@ import Dashboard from './dashboard';
 import Login from './login';
 import Registro from './registro';
 import PerfilUsuario from './perfilUsuario';
+import CrearPost from "./crearPost";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
             <Route path="/perfilUsuario" element={<PerfilUsuario />} />
+            <Route path="/crearPost" element={<CrearPost />} />
         </Routes>
     );
 
