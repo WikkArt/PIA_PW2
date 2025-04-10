@@ -23,10 +23,10 @@ function ModalDesacUserComponent(props) {
                                 </p>
                             </div>
                             <div className={`modal-footer ${PerfilAdminCSS["eliminar-footer"]}`}>
-                                <button type="button" className={`btn ${PerfilAdminCSS["pixel-corners"]} ${PerfilAdminCSS["btn-secondary"]}`}>
+                                <button type="button" className={`btn dropdown-pixel-corners ${PerfilAdminCSS["btn-secondary"]}`}>
                                     Sí
                                 </button>
-                                <button type="button" className={`btn ${PerfilAdminCSS["pixel-corners"]} ${PerfilAdminCSS["btn-secondary"]}`}
+                                <button type="button" className={`btn dropdown-pixel-corners ${PerfilAdminCSS["btn-secondary"]}`}
                                     data-bs-dismiss="modal">
                                     No
                                 </button>

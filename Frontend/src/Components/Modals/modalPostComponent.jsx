@@ -1,4 +1,6 @@
 import ComentarioComponent from "../comentarioComponent"
+import ModalElimGuardadoComponent from "./modalElimGuardadoComponent"
+import ModalElimPostComponent from "./modalElimPostComponent"
 
 function ModalPostComponent(props) {
     
@@ -6,6 +8,24 @@ function ModalPostComponent(props) {
     
     return(
         <>
+            {/* Modal para Eliminar un Elemento Guardado */}
+            <ModalElimGuardadoComponent
+                className="modal fade"
+                id="idModalElimGuardado"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimGuardadoComponent>
+
+            {/* Modal para Eliminar el Post */}
+            <ModalElimPostComponent
+                className="modal fade"
+                id="idModalElimPost"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimPostComponent>
+
             <div className={className} id={id} tabIndex={tabIndex} role={role} aria-hidden={ariaHidden}>
                 <button type="button" className="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
                     <label>X</label>
@@ -29,7 +49,13 @@ function ModalPostComponent(props) {
                                     <button className="btn btn-secondary dropdown-toggle dropdown-pixel-corners" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                                     <div className="dropdown-menu dropdown-pixel-corners" aria-labelledby="dropdownMenuButton">
                                         <a className="dropdown-item" href="#">Guardar</a>
+                                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimGuardado">
+                                            Quitar Elemento Guardado
+                                        </button>
                                         <a className="dropdown-item" href="#">Agregar a Lista</a>
+                                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimPost">
+                                            Eliminar Post
+                                        </button>
                                     </div>
                                 </div>
                             </div>

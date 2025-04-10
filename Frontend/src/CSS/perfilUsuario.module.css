@@ -1256,11 +1256,11 @@ button.close label{
 
 /* Listas */
 
-#idListaG{
+.lista-grande{
   display: flex;
 }
 
-#idListaG button{
+.lista-grande button{
   display: flex;
   align-items: center;
   text-align: start;
@@ -1273,7 +1273,7 @@ button.close label{
   transition: 0.15s ease;
 }
 
-#idListaG button:hover{
+.lista-grande button:hover{
   background-color: var(--verde-pixplore);
   color: var(--negro-pixplore);
 }
@@ -1319,11 +1319,11 @@ button.close label{
   );
 }
 
-#idListaG button div{
+.lista-grande button div{
   margin-left: 12px;
 }
 
-#idListaG img{
+.lista-grande img{
   width: 190px;
   height: 190px;
   object-fit: cover;
@@ -1391,60 +1391,4 @@ button.close label{
   width: 30px;
   height: 30px;
   object-fit: cover;
-}
-
-/* Modales para eliminar elementos */ 
-#idEliminarPostModal .modal-header,
-#idEliminarGuardadoModal .modal-header{
-  border-bottom: 1px solid var(--verde-pixplore);
-  background-color: var(--gris-oscuro-pixplore);
-}
-
-#idEliminarPostModal button.close,
-#idEliminarGuardadoModal button.close{
-  margin-top: 0;
-}
-
-#idEliminarPostModal .modal-content,
-#idEliminarGuardadoModal .modal-content{
-  background-color: var(--gris-pixplore);
-  color: white;
-}
-
-#idEliminarPostModal h5,
-#idEliminarGuardadoModal h5{
-  font-family: "Pixelify-Sans";
-}
-
-#idEliminarPostModal small{
-  font-family: "VT323";
-  color: var(--verde-pixplore);
-  margin-left: 5px;
-  font-size: 16px;
-}
-
-#idEliminarPostModal .modal-body,
-#idEliminarGuardadoModal .modal-body{
-  font-size: 18px;
-  font-family: "Handjet";
-}
-
-#idEliminarPostModal .modal-footer,
-#idEliminarGuardadoModal .modal-footer{
-  font-family: "VT323";
-  font-size: 20px;
-  border-top: 1px solid var(--verde-pixplore);
-  gap: 5px;
-}
-
-#idEliminarPostModal .modal-footer button,
-#idEliminarGuardadoModal .modal-footer button{
-  padding-inline: 12px;
-  border: none;
-  transition: 0.3s all ease;
-}
-
-#idEliminarPostModal .modal-footer button:hover,
-#idEliminarGuardadoModal .modal-footer button:hover{
-  background-color: var(--verde-pixplore);
 }

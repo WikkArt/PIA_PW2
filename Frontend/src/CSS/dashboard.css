@@ -1274,3 +1274,59 @@ button.close label{
 #idModalPost .input-comentario div img:hover{
   filter: brightness(1);
 }
+
+/* Modales para Eliminar Elementos */ 
+#idModalElimPost .modal-header,
+#idModalElimGuardado .modal-header{
+  border-bottom: 1px solid var(--verde-pixplore);
+  background-color: var(--gris-oscuro-pixplore);
+}
+
+#idModalElimPost button.close,
+#idModalElimGuardado button.close{
+  margin-top: 0;
+}
+
+#idModalElimPost .modal-content,
+#idModalElimGuardado .modal-content{
+  background-color: var(--gris-pixplore);
+  color: white;
+}
+
+#idModalElimPost h5,
+#idModalElimGuardado h5{
+  font-family: "Pixelify-Sans";
+}
+
+#idModalElimPost small{
+  font-family: "VT323";
+  color: var(--verde-pixplore);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+#idModalElimPost .modal-body,
+#idModalElimGuardado .modal-body{
+  font-size: 18px;
+  font-family: "Handjet";
+}
+
+#idModalElimPost .modal-footer,
+#idModalElimGuardado .modal-footer{
+  font-family: "VT323";
+  font-size: 20px;
+  border-top: 1px solid var(--verde-pixplore);
+  gap: 5px;
+}
+
+#idModalElimPost .modal-footer button,
+#idModalElimGuardado .modal-footer button{
+  padding-inline: 12px;
+  border: none;
+  transition: 0.3s all ease;
+}
+
+#idModalElimPost .modal-footer button:hover,
+#idModalElimGuardado .modal-footer button:hover{
+  background-color: var(--verde-pixplore);
+}

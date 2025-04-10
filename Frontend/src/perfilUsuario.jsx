@@ -158,9 +158,9 @@ function PerfilUsuario() {
                                 </div>
 
                                 <div id={PerfilUsuarioCSS.idTabListas}>
-                                    <div id="idListaG">
-                                        <button className="lista-pixel-corners">
-                                            <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" className="lista-img-pixel-corners" alt=""></img>
+                                    <div id="idListaG" className={PerfilUsuarioCSS["lista-grande"]}>
+                                        <button className={PerfilUsuarioCSS["lista-pixel-corners"]}>
+                                            <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" className={PerfilUsuarioCSS["lista-img-pixel-corners"]} alt="Imagen de la Lista"></img>
                                             <div>
                                                 <h3>Título de la Lista</h3>
                                                 <p>
