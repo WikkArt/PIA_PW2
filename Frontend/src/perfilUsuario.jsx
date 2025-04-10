@@ -36,17 +36,17 @@ function PerfilUsuario() {
                 </li>
             </ul>
 
+            {/* Modal de Posts */}
+            <ModalPostComponent
+                className="modal fade"
+                id="idModalPost"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalPostComponent>
+
             {/* Perfil del Usuario */}
             <div className={`${PerfilUsuarioCSS.cuerpo} row`}>
-                {/* Modal de Posts */}
-                <ModalPostComponent
-                    className="modal fade"
-                    id="idModalPost"
-                    tabIndex="-1"
-                    role="dialog"
-                    aria-hidden="true"
-                ></ModalPostComponent>
-
                 {/* Informacion del usuario */}
                 <div className={`${PerfilUsuarioCSS["perfil-usuario"]} col-4`}>
                     <img id="idAvatarSample" src="Images/Templates/Usuario_blanco.png" 

@@ -22,7 +22,7 @@ function ModalPostComponent(props) {
                                 
                                 <div>
                                     <h5 id="idNombreUsuarioM">Nombre de Usuario</h5>
-                                    <label id="idHoraM" htmlFor="">DD/MM/AAAA 00:00</label>
+                                    <label id="idHoraM">DD/MM/AAAA 00:00</label>
                                 </div>
                                 
                                 <div id="idDropdownM" className="dropdown">
@@ -43,12 +43,12 @@ function ModalPostComponent(props) {
                                     ultricies. Aliquam ut justo lacus. Donec id tortor neque.
                                 </p>
                                 <div className="modal-categorias">
-                                    <label htmlFor="">Fandom/Original</label>
-                                    <label htmlFor="">Nombre Fandom/Original</label>
+                                    <label>Fandom/Original</label>
+                                    <label>Nombre Fandom/Original</label>
                                 </div>
                                 <div className="modal-botones">
                                     <div>
-                                        <label htmlFor="">JPEG</label>
+                                        <label>JPEG</label>
                                         <a href="/Images/Templates/Usuario_blanco.png" download>
                                             <img src="/Images/Icons/Descarga.png" alt="Descarga" /> Descargar
                                         </a>

@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
 import PerfilAdminCSS from './CSS/perfilAdmin.module.css';
 import './JS/bootstrap.bundle.min.js';
+import ModalDesacUserComponent from './Components/Modals/modalDesacUserComponent.jsx';
+import ModalCrearCateComponent from './Components/Modals/modalCrearCateComponent.jsx';
+import ModalEditarCateComponent from './Components/Modals/modalEditarCateComponent.jsx';
+import ModalElimCateComponent from './Components/Modals/modalElimCateComponent.jsx';
 
 function PerfilAdmin() {
     
@@ -34,8 +38,43 @@ function PerfilAdmin() {
                 </li>
             </ul>
 
-            {/* Perfil del Administrador */}
+            {/* Modal para Desactivar Usuario */}
+            <ModalDesacUserComponent
+                className={`modal fade ${PerfilAdminCSS["modal-editar-cate"]}`}
+                id="idModalDesacUser"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalDesacUserComponent>
+            
+            {/* Modal para Crear Categoria */}
+            <ModalCrearCateComponent
+                className={`modal fade ${PerfilAdminCSS["modal-crear-cate"]}`}
+                id="idModalCrearCate"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalCrearCateComponent>
 
+            {/* Modal para Editar Categoria */}
+            <ModalEditarCateComponent
+                className={`modal fade ${PerfilAdminCSS["modal-editar-cate"]}`}
+                id="idModalEditarCate"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalEditarCateComponent>
+
+            {/* Modal para Eliminar Categoria */}
+            <ModalElimCateComponent
+                className={`modal fade ${PerfilAdminCSS["modal-editar-cate"]}`}
+                id="idModalElimCate"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimCateComponent>
+
+            {/* Perfil del Administrador */}
             <div className={PerfilAdminCSS.cuerpo}>
                 <h1>Administrador</h1>
 
@@ -92,7 +131,7 @@ function PerfilAdmin() {
                                                 <td>juan@example.com</td>
                                                 <td>
                                                     <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
-                                                    data-bs-target="#modalDesactivarUsuario">
+                                                    data-bs-target="#idModalDesacUser">
                                                         Inactivar
                                                     </button>
                                                 </td>
@@ -101,8 +140,6 @@ function PerfilAdmin() {
                                         </tbody>
                                     </table>
                                 </div>
-                                
-                                
                             </div>
                         )}
                         
@@ -111,33 +148,54 @@ function PerfilAdmin() {
                             <div className={`${PerfilAdminCSS["tab-pane"]} fade ${activeTab === 'categorias' ? 'show active' : ''}`} id="idCategorias" role="tabpanel" aria-labelledby="categorias-tab">
                                 <div className={PerfilAdminCSS["tab-subtitulo"]}>
                                     <h2>Gestión de Categorías</h2>
-                                    <a href="#" className={`${PerfilAdminCSS["agregar-elemento"]} ${PerfilAdminCSS["boton-pixel-corners"]}`}>
-                                        +
-                                        <button data-bs-toggle="modal" data-bs-target="#modalAgregarCategoria">
+                                    <label className={`${PerfilAdminCSS["agregar-elemento"]} ${PerfilAdminCSS["boton-pixel-corners"]}`}>
+                                        + 
+                                        <button data-bs-toggle="modal" data-bs-target="#idModalCrearCate">
                                             Agregar Categoría
                                         </button>
-                                    </a>
+                                    </label>
                                 </div>
 
-                                <div id={PerfilAdminCSS.idTabCategorias}>
-                                    <ul className={PerfilAdminCSS["list-group"]}>
-                                        <li className={`${PerfilAdminCSS["list-group-item"]} ${PerfilAdminCSS["pixel-corners"]}`}>
-                                            <div className={PerfilAdminCSS["categoria-info"]}>
-                                                <strong className="categoria-titulo">Tecnología</strong>
-                                                <p className="categoria-descripcion">Novedades y avances en el mundo tecnológico.</p>
-                                            </div>
-                                            <span>
-                                                <button className="btn btn-warning pixel-corners" data-bs-toggle="modal"
-                                                    data-bs-target="#modalEditarCategoria">Editar</button>
-                                                <button className="btn btn-danger2 pixel-corners" data-bs-toggle="modal"
-                                                    data-bs-target="#modalDesactivarCategoria">Eliminar</button>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div className={`${PerfilAdminCSS["tab-categorias"]} row`}>
+                                    <div className={`${PerfilAdminCSS["cate-fandom"]} col`}>
+                                        <h3>Fandoms</h3>
+                                        <ul className="list-group">
+                                            <li className={`${PerfilAdminCSS["list-group-item"]} ${PerfilAdminCSS["tabla-categorias-pixel-corners"]}`}>
+                                                <div className={PerfilAdminCSS["categoria-info"]}>
+                                                    <strong>Fandom 1</strong>
+                                                    <p>Pixelarts sobre X fandom en específico.</p>
+                                                </div>
+                                                <span>
+                                                    <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-warning"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
+                                                        data-bs-target="#idModalEditarCate">Editar</button>
+                                                    <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger2"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
+                                                        data-bs-target="#modalDesactivarCategoria">Eliminar</button>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
 
+                                    <div className={`${PerfilAdminCSS["cate-original"]} col`}>
+                                        <h3>Original</h3>
+                                        <ul className="list-group">
+                                            <li className={`${PerfilAdminCSS["list-group-item"]} ${PerfilAdminCSS["tabla-categorias-pixel-corners"]}`}>
+                                                <div className={PerfilAdminCSS["categoria-info"]}>
+                                                    <strong>Original 1</strong>
+                                                    <p>Pixelarts acerca de cierto tema muy específico.</p>
+                                                </div>
+                                                <span>
+                                                    <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-warning"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
+                                                        data-bs-target="#idModalEditarCate">Editar</button>
+                                                    <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger2"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
+                                                        data-bs-target="#idModalElimCate">Eliminar</button>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         )}
+
                     </div>
                 </div>
                 

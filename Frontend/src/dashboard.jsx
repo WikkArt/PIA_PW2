@@ -171,26 +171,25 @@ function Dashboard() {
                 </li>
             </ul>
 
-            <div className="cuerpo">
-                
-                {/* Modal de Posts */}
-                <ModalPostComponent
-                    className="modal fade"
-                    id="idModalPost"
-                    tabIndex="-1"
-                    role="dialog"
-                    aria-hidden="true"
-                ></ModalPostComponent>
-                
-                {/* Modal de la Informacion de las Categorias */}
-                <ModalCateComponent
-                    className="modal fade"
-                    id="idCategoriaModal"
-                    tabIndex="-1"
-                    role="dialog"
-                    aria-hidden="true"
-                ></ModalCateComponent>
+            {/* Modal de Posts */}
+            <ModalPostComponent
+                className="modal fade"
+                id="idModalPost"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalPostComponent>
+            
+            {/* Modal de la Informacion de las Categorias */}
+            <ModalCateComponent
+                className="modal fade"
+                id="idCategoriaModal"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalCateComponent>
 
+            <div className="cuerpo">
                 {/* Categorias y Filtros */}
                 <div id="idCategorias" className="col-2">
                     <h1>CATEGORÍAS</h1>

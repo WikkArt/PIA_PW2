@@ -93,8 +93,8 @@ body{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: "Pixelify-Sans";
-    font-size: 50px;
+    font-family: "Jersey-10";
+    font-size: 60px;
     color: var(--verde-pixplore);
 }
 
@@ -142,9 +142,25 @@ body{
     padding-block: 20px;
 }
 
+.tab-categorias{
+    overflow-x: hidden !important;
+    width: 100%;
+}
+
 .tab-content #idTabUsuarios{
-    overflow-y: auto;
     max-height: 55vh;
+}
+
+.cate-fandom,
+.cate-original{
+    max-height: 45vh;
+}
+
+.tab-content #idTabUsuarios,
+.cate-fandom,
+.cate-original{
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* Títulos dentro de las pestañas */
@@ -157,6 +173,104 @@ body{
     font-family: "Pixelify-Sans";
     color: white;
     margin-bottom: 15px;
+}
+
+.boton-pixel-corners,
+.boton-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px);
+  position: relative;
+}
+.boton-pixel-corners {
+  border: 3px solid transparent;
+}
+.boton-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.boton-pixel-corners--wrapper .pixel-corners {
+  display: block;
+  clip-path: polygon(3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px));
+}
+.boton-pixel-corners::after,
+.boton-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px,
+    0px 50%,
+    3px 50%,
+    3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--gris-darkmode);
+  display: block;
+  pointer-events: none;
+}
+.boton-pixel-corners::after {
+  margin: -3px;
 }
 
 /* Estilo de la tabla */
@@ -182,6 +296,23 @@ body{
     font-size: 16px;
 }
 
+.pixel-corners {
+    clip-path: polygon(
+    0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px
+    );
+}
+
 /* Botones dentro de las tablas y listas */
 .btn-warning, .btn-danger, .btn-danger2 {
     font-family: "Pixelify-Sans";
@@ -194,13 +325,11 @@ body{
 
 .btn-warning {
     background-color: var(--verde-pixplore);
-    color: var(--negro-pixplore);
-    
 }
 
 .btn-warning:hover {
     background-color: var(--gris-lightmode);
-    color: var(--negro-pixplore);
+    color: black;
 }
 
 .btn-danger {
@@ -215,37 +344,46 @@ body{
 .btn-danger2 {
     background-color: white;
     color: black;
-    border: 1px solid var(--gris-lightmode);
 }
   
 .btn-danger2:hover {
-    border: 1px solid var(--gris-lightmode);
+    background-color: var(--gris-pixplore);
+    color: white;
+}
+
+.btn-secondary{
     background-color: var(--gris-lightmode);
+    color: black;
+}
+
+.eliminar-footer .btn-secondary:hover{
+    background-color: var(--verde-pixplore);
     color: var(--negro-pixplore);
 }
 
+.crear-footer .btn-secondary:hover,
+.editar-footer .btn-secondary:hover{
+    background-color: var(--gris-darkmode);
+    color: white;
+}
+
 /* Listas de categorías */
-
-#idTabCategorias{
-    overflow-y: auto;
-    max-height: 55vh;
-}
-
-.list-group{
-    margin-top: 15px;
-}
 
 .list-group-item {
     justify-content: space-between;
     font-family: "Pixelify-Sans";
     font-size: 16px;
-    background-color: var(--gris-darkmode);
     color: white;
-    border: 1px solid var(--gris-lightmode);
+    padding-inline: 15px;
+    padding-block: 10px;
+}
+
+.list-group-item span{
+    display: flex;
 }
 
 .list-group-item button {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .categoria-info {
@@ -254,17 +392,24 @@ body{
     gap: 10px; /* Espacio entre el título y la descripción */
 }
 
-.categoria-titulo {
+.categoria-info strong {
     font-size: 18px;
     color: white;
     font-weight: bold;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
-.categoria-descripcion {
+.categoria-info strong::after{
+    content: ":";
+}
+
+.categoria-info p {
     font-size: 16px;
     color: var(--gris-lightmode);
-    margin: 0;
+    text-align: start;
+    margin-bottom: 0;
+    max-width: 78%;
+    word-wrap: break-word;
 }
 
 /* Botón agregar categoría */
@@ -305,119 +450,355 @@ body{
     display: contents;
 }
   
-
-.pixel-corners {
-    clip-path: polygon(
-    0px calc(100% - 4px),
-    4px calc(100% - 4px),
-    4px 100%,
-    calc(100% - 4px) 100%,
-    calc(100% - 4px) calc(100% - 4px),
-    100% calc(100% - 4px),
-    100% 4px,
-    calc(100% - 4px) 4px,
-    calc(100% - 4px) 0px,
-    4px 0px,
-    4px 4px,
-    0px 4px
-    );
+.tabla-categorias-pixel-corners,
+.tabla-categorias-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 3px),
+    3px calc(100% - 3px),
+    3px 100%,
+    calc(100% - 3px) 100%,
+    calc(100% - 3px) calc(100% - 3px),
+    100% calc(100% - 3px),
+    100% 3px,
+    calc(100% - 3px) 3px,
+    calc(100% - 3px) 0px,
+    3px 0px,
+    3px 3px,
+    0px 3px);
+  position: relative;
 }
 
+.tabla-categorias-pixel-corners {
+  border: 3px solid transparent;
+}
+
+.tabla-categorias-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.tabla-categorias-pixel-corners--wrapper .pixel-corners {
+  display: block;
+  clip-path: polygon(3px 3px,
+    calc(100% - 3px) 3px,
+    calc(100% - 3px) calc(100% - 3px),
+    3px calc(100% - 3px));
+}
+
+.tabla-categorias-pixel-corners::after,
+.tabla-categorias-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 3px),
+    3px calc(100% - 3px),
+    3px 100%,
+    calc(100% - 3px) 100%,
+    calc(100% - 3px) calc(100% - 3px),
+    100% calc(100% - 3px),
+    100% 3px,
+    calc(100% - 3px) 3px,
+    calc(100% - 3px) 0px,
+    3px 0px,
+    3px 3px,
+    0px 3px,
+    0px 50%,
+    3px 50%,
+    3px 3px,
+    calc(100% - 3px) 3px,
+    calc(100% - 3px) calc(100% - 3px),
+    3px calc(100% - 3px),
+    3px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--gris-darkmode);
+  display: block;
+  pointer-events: none;
+}
+.tabla-categorias-pixel-corners::after {
+  margin: -3px;
+}
 
 /* Estilo general de los modales */
-#modalAgregarCategoria .modal-header,
-#modalEditarCategoria .modal-header {
+.modal-eliminar-cate .modal-header,
+.modal-crear-cate .modal-header,
+.modal-editar-cate .modal-header {
     border-bottom: 2px solid var(--verde-pixplore);
     background-color: var(--gris-oscuro-pixplore);
 }
 
-.modal-lg {
-    max-width: 800px;
+.post-pixel-corners,
+.post-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px);
+  position: relative;
+  border: 8px solid var(--verde-pixplore);
+  background-color: var(--verde-pixplore);
 }
 
-#modalAgregarCategoria .modal-content,
-#modalEditarCategoria .modal-content {
+.post-pixel-corners {
+  overflow: hidden;
+  border: 4px solid transparent;
+}
+
+.post-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+
+.post-pixel-corners--wrapper .post-pixel-corners {
+  display: block;
+  clip-path: polygon(4px 20px,
+    8px 20px,
+    8px 12px,
+    12px 12px,
+    12px 8px,
+    20px 8px,
+    20px 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 20px),
+    4px calc(100% - 20px));
+}
+
+.post-pixel-corners::after,
+.post-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px,
+    0px 50%,
+    4px 50%,
+    4px 20px,
+    8px 20px,
+    8px 12px,
+    12px 12px,
+    12px 8px,
+    20px 8px,
+    20px 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 20px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 8px),
+    calc(100% - 20px) calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--verde-pixplore);
+  display: block;
+  pointer-events: none;
+}
+
+.post-pixel-corners::after {
+  margin: -4px;
+}
+
+.post-pixel-corners{
+  width: 100%;
+}
+
+.eliminar-content,
+.crear-content,
+.editar-content{
     background-color: var(--gris-pixplore);
     color: white;
 }
 
 /* Estilo del título */
-#modalAgregarCategoria h5,
-#modalEditarCategoria h5 {
+
+.eliminar-header,
+.crear-header,
+.editar-header{
     font-family: "Pixelify-Sans";
     color:var(--verde-pixplore);
+    background-color: var(--gris-oscuro-pixplore);
+    border-bottom: 1px solid var(--verde-pixplore);
 }
 
+.eliminar-header button,
+.crear-header button,
+.editar-header button{
+    margin-top: 0;
+}
 
-#modalAgregarCategoria .modal-body,
-#modalEditarCategoria .modal-body {
+.eliminar-body,
+.crear-body,
+.editar-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-rb{
+    display: flex;
+    justify-content: space-between;
+}
+
+label[for=""]{
+  color: white;
+  font-family: "Pixelify-Sans";
+  font-size: 18px;
+}
+
+input.cuadro-txt,
+textarea.cuadro-txt{
+  font-family: "Handjet";
+  font-size: 20px;
+  font-weight: 550;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border: none;
+  margin-bottom: 5px;
+  outline: none;
+  width: 100%;
+}
+
+label[for="RBF"],
+label[for="RBO"]{
+    font-family: "Handjet";
     font-size: 18px;
-    font-family: "Pixelify-Sans";
+    font-weight: 500;
+    color: var(--gris-lightmode);
+    letter-spacing: 1px;
 }
 
+.subcategoria:checked{
+    margin-top: 5px;
+    background-color: var(--verde-pixplore);
+    border: none;
+    outline: none;
+}
 
-#modalAgregarCategoria .modal-footer,
-#modalEditarCategoria .modal-footer {
+.eliminar-footer,
+.crear-footer,
+.editar-footer{
     font-family: "Pixelify-Sans";
     font-size: 20px;
     border-top: 1px solid var(--verde-pixplore);
     gap: 5px;
 }
 
-
-#modalAgregarCategoria .modal-footer button,
-#modalEditarCategoria .modal-footer button {
+.eliminar-footer button,
+.crear-footer button,
+.editar-footer button {
     padding-inline: 12px;
     border: none;
     transition: 0.3s all ease;
 }
 
-
-#modalAgregarCategoria .modal-footer button:hover,
-#modalEditarCategoria .modal-footer button:hover {
+.modal-editar-cate .modal-footer button:hover,
+.modal-crear-cate .modal-footer button:hover,
+.modal-editar-cate .modal-footer button:hover {
     background-color: var(--verde-pixplore);
 }
 
 /* Modales para desactivar elementos */
-#modalDesactivarCategoria .modal-header,
-#modalDesactivarUsuario .modal-header {
-    border-bottom: 1px solid var(--verde-pixplore);
-    background-color: var(--gris-oscuro-pixplore);
-}
 
-#modalDesactivarCategoria .modal-content,
-#modalDesactivarUsuario .modal-content {
-    background-color: var(--gris-pixplore);
-    color: white;
-}
-
-#modalDesactivarCategoria h5,
-#modalDesactivarUsuario h5 {
-    font-family: "Pixelify-Sans";
-}
-
-#modalDesactivarCategoria .modal-body,
-#modalDesactivarUsuario .modal-body {
+.eliminar-body p {
     font-size: 18px;
     font-family: "Handjet";
-}
-
-#modalDesactivarCategoria .modal-footer,
-#modalDesactivarUsuario .modal-footer {
-    font-family: "VT323";
-    font-size: 20px;
-    border-top: 1px solid var(--verde-pixplore);
-    gap: 5px;
-}
-
-#modalDesactivarCategoria .modal-footer button,
-#modalDesactivarUsuario .modal-footer button {
-    padding-inline: 12px;
-    border: none;
-    transition: 0.3s all ease;
-}
-
-#modalDesactivarCategoria .modal-footer button:hover,
-#modalDesactivarUsuario .modal-footer button:hover {
-    background-color: var(--verde-pixplore);
 }
