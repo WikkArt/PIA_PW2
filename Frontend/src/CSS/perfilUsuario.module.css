@@ -374,6 +374,7 @@ body{
 }
 
 #idTabPost,
+#idTabListas,
 #idTabLike,
 #idTabGuardado{
   margin-top: 10px;
@@ -1256,17 +1257,13 @@ button.close label{
 
 /* Listas */
 
-.lista-grande{
-  display: flex;
-}
-
 .lista-grande button{
   display: flex;
   align-items: center;
   text-align: start;
-  width: 500px;
+  width: 470px;
   padding-inline: 15px;
-  padding-block: 8px;
+  padding-block: 12px;
   border: none;
   background-color: var(--gris-darkmode);
   color: white;
@@ -1275,7 +1272,19 @@ button.close label{
 
 .lista-grande button:hover{
   background-color: var(--verde-pixplore);
-  color: var(--negro-pixplore);
+  p, h3{
+    color: var(--negro-pixplore);
+  }
+}
+
+.lista-grande h3{
+  font-family: "VT323";
+}
+
+.lista-grande p{
+  font-family: "Handjet";
+  font-weight: 600;
+  color: var(--gris-lightmode);
 }
 
 .lista-pixel-corners {

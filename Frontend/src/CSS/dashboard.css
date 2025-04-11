@@ -382,6 +382,8 @@ body{
   font-size: 22px;
   font-weight: 600;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
 }
 
 #idLista img{
@@ -1329,4 +1331,96 @@ button.close label{
 #idModalElimPost .modal-footer button:hover,
 #idModalElimGuardado .modal-footer button:hover{
   background-color: var(--verde-pixplore);
+}
+
+/* Modales para Listas */ 
+#idModalLista .modal-content{
+  background-color: var(--gris-pixplore);
+  display: flex;
+}
+
+.lista-header{
+  border-bottom: 2px solid var(--verde-pixplore);
+  background-color: var(--negro-pixplore);
+}
+
+.fotos-container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#idPortadaLista{
+  width: 100%;
+  display: block;
+  height: 214px;
+  object-fit: cover;
+}
+
+#idFotoPerfilL{
+  width: 80px;
+  position: absolute;
+  object-fit: cover;
+  margin-top: 173px;
+  border: 5px solid var(--negro-pixplore);
+}
+
+.texto-container{
+  margin-top: 45px;
+  text-align: center;
+}
+
+.texto-container h3{
+  color: var(--verde-pixplore);
+  font-family: "Pixelify-Sans";
+}
+
+.texto-container h6{
+  color: white;
+  font-family: "VT323";
+  font-size: 19px;
+  font-style: italic;
+}
+
+.texto-container p{
+  margin-bottom: 5px;
+  font-family: "Handjet";
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: var(--gris-lightmode);
+}
+
+.lista-body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  overflow-y: auto;
+  max-height: 77vh;
+}
+
+.lista-body .post-usuario{
+  width: 60%;
+}
+
+.lista-body #idFotoUsuario{
+  width: 25px;
+  height: 25px;
+}
+
+.lista-body #idTitulo{
+  font-size: 15px;
+}
+
+.lista-body .post-imagen img{
+  height: 220px;
+  min-width: 220px;
+  max-width: 220px;
+}
+
+.lista-body .post-contenedor:hover .post-imagen img {
+  min-width: 100px; 
+  max-width: 220px;
 }

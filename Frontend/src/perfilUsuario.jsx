@@ -4,7 +4,9 @@ import './CSS/bootstrap.min.css';
 import PerfilUsuarioCSS from './CSS/perfilUsuario.module.css'
 import './JS/bootstrap.bundle.min.js';
 import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
+import ModalListaComponent from './Components/Modals/modalListaComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
+import ListaGComponent from './Components/listaGComponent.jsx';
 
 function PerfilUsuario() {
 
@@ -44,6 +46,15 @@ function PerfilUsuario() {
                 role="dialog"
                 aria-hidden="true"
             ></ModalPostComponent>
+
+            {/* Modal de Listas */}
+            <ModalListaComponent
+                className="modal fade"
+                id="idModalLista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalListaComponent>
 
             {/* Perfil del Usuario */}
             <div className={`${PerfilUsuarioCSS.cuerpo} row`}>
@@ -150,7 +161,7 @@ function PerfilUsuario() {
                         {activeTab === 'listas' && (
                             <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'listas' ? 'show active' : ''}`} id="idListas" role="tabpanel" aria-labelledby="listas-tab">
                                 <div className={PerfilUsuarioCSS["tab-subtitulo"]}>
-                                    <h2>Listas</h2>
+                                    <h2>Mis Listas</h2>
                                     <a href="#" className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
                                         +
                                         <button> Nueva Lista</button>
@@ -158,19 +169,11 @@ function PerfilUsuario() {
                                 </div>
 
                                 <div id={PerfilUsuarioCSS.idTabListas}>
-                                    <div id="idListaG" className={PerfilUsuarioCSS["lista-grande"]}>
-                                        <button className={PerfilUsuarioCSS["lista-pixel-corners"]}>
-                                            <img src="https://i.pinimg.com/736x/15/12/ae/1512aee1518cf7cc17f870e76fd657dc.jpg" className={PerfilUsuarioCSS["lista-img-pixel-corners"]} alt="Imagen de la Lista"></img>
-                                            <div>
-                                                <h3>Título de la Lista</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
-                                                    Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo sem nisi accumsan 
-                                                    purus tincidunt maximus. 
-                                                </p>
-                                            </div>
-                                        </button>
-                                    </div>
+                                    <ListaGComponent
+                                        id="idListaG"
+                                        dataBsToggle="modal"
+                                        dataBsTarget="#idModalLista"
+                                    ></ListaGComponent>
                                 </div>
                             </div>
                         )}

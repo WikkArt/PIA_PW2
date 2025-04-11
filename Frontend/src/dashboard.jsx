@@ -5,8 +5,9 @@ import './CSS/bootstrap.min.css';
 import './CSS/dashboard.css';
 import './JS/bootstrap.bundle.min.js';
 import './JS/jquery-3.7.1.min.js';
-import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
 import ModalCateComponent from './Components/Modals/modalCateComponent.jsx';
+import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
+import ModalListaComponent from './Components/Modals/modalListaComponent.jsx';
 import ListaCateComponent from './Components/listaCateComponent.jsx';
 import ListasSComponent from './Components/listaSComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
@@ -170,15 +171,6 @@ function Dashboard() {
                     <Link className="nav-link" to="/registro">Registro</Link>
                 </li>
             </ul>
-
-            {/* Modal de Posts */}
-            <ModalPostComponent
-                className="modal fade"
-                id="idModalPost"
-                tabIndex="-1"
-                role="dialog"
-                aria-hidden="true"
-            ></ModalPostComponent>
             
             {/* Modal de la Informacion de las Categorias */}
             <ModalCateComponent
@@ -188,6 +180,24 @@ function Dashboard() {
                 role="dialog"
                 aria-hidden="true"
             ></ModalCateComponent>
+
+            {/* Modal de Posts */}
+            <ModalPostComponent
+                className="modal fade"
+                id="idModalPost"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalPostComponent>
+
+            {/* Modal de Listas */}
+            <ModalListaComponent
+                className="modal fade"
+                id="idModalLista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalListaComponent>
 
             <div className="cuerpo">
                 {/* Categorias y Filtros */}
@@ -289,6 +299,8 @@ function Dashboard() {
                                 className="link-lista lista-pixel-corners"
                                 id="idLista"
                                 src="/Images/Templates/Camara_GO_1-1.png"
+                                dataBsToggle="modal"
+                                dataBsTarget="#idModalLista"
                             ></ListasSComponent>
                         </div>
 

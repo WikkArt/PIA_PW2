@@ -1,15 +1,15 @@
 function ListasSComponent(props) {
     
-    const { className, id, src } = props
+    const { className, id, src, dataBsToggle, dataBsTarget } = props
     
     return(
         <>
             <div className={className}>
-                <a id={id} href="#">
+                <button id={id} data-bs-toggle={dataBsToggle} data-bs-target={dataBsTarget}>
                     <img src={src}
                     className="lista-pixel-corners"
                     alt="Imagen de la Lista" /> Nombre de la Lista
-                </a>
+                </button>
             </div>
         </>
     )
