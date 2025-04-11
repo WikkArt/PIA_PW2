@@ -293,6 +293,7 @@ body{
 .table td {
     padding: 10px;
     border: 1px solid var(--gris-lightmode);
+    border-right: none;
     font-family: "Pixelify-Sans";
     font-size: 16px;
 }

@@ -25,7 +25,7 @@ function ModalElimPostComponent(props) {
                                     Sí
                                 </button>
                                 <button type="button" className="dropdown-pixel-corners"
-                                    data-bs-dismiss="modal">
+                                    data-bs-toggle="modal" data-bs-target="#idModalPost">
                                     No
                                 </button>
                             </div>

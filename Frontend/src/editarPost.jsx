@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
-import CrearPostCSS from './CSS/post.module.css';
+import EditarPostCSS from './CSS/post.module.css';
 import './JS/bootstrap.bundle.min.js';
 import { mostrarAvatar } from './JS/mostrarAvatar.js'
 import InputComponent from './Components/inputComponent.jsx';
 
-function CrearPost() {
+function EditarPost() {
     
     return (
         <>
@@ -28,27 +28,27 @@ function CrearPost() {
                 </li>
             </ul>
 
-            {/* Crear Post */}
-            <form action="" id="idCrearPost" className={CrearPostCSS["crear-post"]}>
-                <div className={`${CrearPostCSS.col} ${CrearPostCSS["col-izq"]}`}>
+            {/* Editar Post */}
+            <form action="" id="idEditarPost" className={EditarPostCSS["crear-post"]}>
+                <div className={`${EditarPostCSS.col} ${EditarPostCSS["col-izq"]}`}>
                     <img id="idPostSample" src="/Images/Templates/Post_Gray_16-9.png" 
-                    className={CrearPostCSS["crear-post-pixel-corners"]} alt="Avatar"></img>
+                    className={EditarPostCSS["crear-post-pixel-corners"]} alt="Avatar"></img>
 
-                    <input className={CrearPostCSS["form-control"]} type="file" id="btnAvatar" name="btnAvatar" 
+                    <input className={EditarPostCSS["form-control"]} type="file" id="btnAvatar" name="btnAvatar" 
                     onChange={(event) => mostrarAvatar(event, 'idPostSample')} accept="image/*"></input>
                 </div>
                 
-                <div className={`${CrearPostCSS.col} ${CrearPostCSS["col-der"]}`}>
-                    <div className={CrearPostCSS["regresar-titulo"]}>
-                        <Link to="/perfilUsuario" className={`${CrearPostCSS["regresar-elemento"]} ${CrearPostCSS["boton-pixel-corners"]}`}>
+                <div className={`${EditarPostCSS.col} ${EditarPostCSS["col-der"]}`}>
+                    <div className={EditarPostCSS["regresar-titulo"]}>
+                        <Link to="/perfilUsuario" className={`${EditarPostCSS["regresar-elemento"]} ${EditarPostCSS["boton-pixel-corners"]}`}>
                             <img src="/Images/Icons/Flecha.png" alt="Botón para Regeresar"></img>
                         </Link>
-                        <h1>Nueva Publicación</h1>
+                        <h1>Editar Publicación</h1>
                     </div>
 
-                    <div className={CrearPostCSS.datos}>
+                    <div className={EditarPostCSS.datos}>
                         
-                        <div className={CrearPostCSS.categorias}>
+                        <div className={EditarPostCSS.categorias}>
                             <div className="cate-1">
                                 <label>Categoría</label>
                                 <select id="idCate1" className="form-control">
@@ -73,13 +73,13 @@ function CrearPost() {
                             type="text"
                             name="txtTitle"
                             id="txtTitle"
-                            className={CrearPostCSS["cuadro-txt"]}
+                            className={EditarPostCSS["cuadro-txt"]}
                         />
 
                         <label>Descripción</label>
-                        <textarea name="txtDesc" id="txtDesc" class={CrearPostCSS["cuadro-txt"]} rows="5"></textarea>
+                        <textarea name="txtDesc" id="txtDesc" class={EditarPostCSS["cuadro-txt"]} rows="5"></textarea>
 
-                        <button id="btnPublicar" type="submit" className={CrearPostCSS["boton-pixel-corners"]}>Publicar</button>
+                        <button id="btnEditPost" type="submit" className={EditarPostCSS["boton-pixel-corners"]}>Guardar Cambios</button>
                     </div>
                 </div>
             </form>
@@ -87,4 +87,4 @@ function CrearPost() {
     )
 }
 
-export default CrearPost
+export default EditarPost

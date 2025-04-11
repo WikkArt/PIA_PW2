@@ -5,7 +5,9 @@ import Login from './login';
 import Registro from './registro';
 import PerfilAdmin from './perfilAdmin'
 import PerfilUsuario from './perfilUsuario';
+import EditarPerfil from './editarPerfil';
 import CrearPost from "./crearPost";
+import EditarPost from "./editarPost"
 
 function App() {
 
@@ -16,7 +18,9 @@ function App() {
             <Route path="/registro" element={<Registro />} />
             <Route path="/perfilAdmin" element={<PerfilAdmin />} />
             <Route path="/perfilUsuario" element={<PerfilUsuario />} />
+            <Route path="/editarPerfil" element={<EditarPerfil />} />
             <Route path="/crearPost" element={<CrearPost />} />
+            <Route path="/editarPost" element={<EditarPost />} />
         </Routes>
     );
 

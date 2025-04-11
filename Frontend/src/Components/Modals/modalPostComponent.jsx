@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ComentarioComponent from "../comentarioComponent"
 import ModalElimGuardadoComponent from "./modalElimGuardadoComponent"
 import ModalElimPostComponent from "./modalElimPostComponent"
@@ -48,12 +49,19 @@ function ModalPostComponent(props) {
                                 <div id="idDropdownM" className="dropdown">
                                     <button className="btn btn-secondary dropdown-toggle dropdown-pixel-corners" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                                     <div className="dropdown-menu dropdown-pixel-corners" aria-labelledby="dropdownMenuButton">
-                                        <a className="dropdown-item" href="#">Guardar</a>
-                                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimGuardado">
+                                        <Link className="dropdown-item" to="/editarPost" onClick={"data-bs-dismiss=modal"}>
+                                            Editar Post
+                                        </Link>
+                                        <a className="dropdown-item" href="#">
+                                            Guardar
+                                        </a>
+                                        <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimGuardado">
                                             Quitar Elemento Guardado
                                         </button>
-                                        <a className="dropdown-item" href="#">Agregar a Lista</a>
-                                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimPost">
+                                        <a className="dropdown-item" href="#">
+                                            Agregar a Lista
+                                        </a>
+                                        <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimPost">
                                             Eliminar Post
                                         </button>
                                     </div>

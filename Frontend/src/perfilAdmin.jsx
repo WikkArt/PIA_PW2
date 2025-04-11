@@ -169,7 +169,7 @@ function PerfilAdmin() {
                                                     <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-warning"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
                                                         data-bs-target="#idModalEditarCate">Editar</button>
                                                     <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger2"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
-                                                        data-bs-target="#modalDesactivarCategoria">Eliminar</button>
+                                                        data-bs-target="#idModalElimCate">Eliminar</button>
                                                 </span>
                                             </li>
                                         </ul>

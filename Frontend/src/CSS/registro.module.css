@@ -252,3 +252,30 @@ small.form-text{
     0px 8px
   );
 }
+
+/* Editar Usuario */
+
+.col-der .regresar-titulo{
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.regresar-elemento{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  transition: 0.15s ease;
+}
+
+.regresar-elemento:hover{
+  background-color: var(--verde-pixplore);
+}
+
+.regresar-elemento img{
+  height: 35px;
+  background-color: transparent;
+}

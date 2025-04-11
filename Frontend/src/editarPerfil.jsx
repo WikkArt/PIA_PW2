@@ -7,7 +7,7 @@ import './JS/jquery-3.7.1.min.js';
 import { mostrarAvatar } from './JS/mostrarAvatar.js'
 import InputComponent from './Components/inputComponent'
 
-function Registro() {
+function EditarPerfil() {
 
     return (
         <>
@@ -29,7 +29,7 @@ function Registro() {
                 </li>
             </ul>
 
-            {/* Registro */}
+            {/* Editar Usuario */}
             <form action="" id="idRegistro" className={RegistroCSS.registro}>
                 <div className={`${RegistroCSS.col} ${RegistroCSS["col-izq"]}`}>
                     <img id="idAvatarSample" src="Images/Templates/Usuario_blanco.png" 
@@ -50,7 +50,13 @@ function Registro() {
                 </div>
                 
                 <div className={`${RegistroCSS.col} ${RegistroCSS["col-der"]}`}>
-                    <h1>Registro de Usuario</h1>
+                    <div className={RegistroCSS["regresar-titulo"]}>
+                        <Link to="/perfilUsuario" className={`${RegistroCSS["regresar-elemento"]} ${RegistroCSS["boton-pixel-corners"]}`}>
+                            <img src="/Images/Icons/Flecha.png" alt="Botón para Regeresar"></img>
+                        </Link>
+                        <h1>Editar Usuario</h1>
+                    </div>
+                    
                     <div className={RegistroCSS.datos}>
                         <InputComponent 
                             label="Correo Electrónico" 
@@ -81,7 +87,7 @@ function Registro() {
                             una minúscula, un número y un carácter especial.
                         </small>
 
-                        <button id="btnRegistro" type="submit" className={RegistroCSS["boton-pixel-corners"]}>Registrar Usuario</button>
+                        <button id="btnEditUsuario" type="submit" className={RegistroCSS["boton-pixel-corners"]}>Guardar Cambios</button>
                     </div>
                 </div>
             </form>
@@ -89,4 +95,4 @@ function Registro() {
     )
 }
 
-export default Registro
+export default EditarPerfil

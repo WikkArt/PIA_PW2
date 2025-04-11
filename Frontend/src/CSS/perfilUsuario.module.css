@@ -1401,3 +1401,62 @@ button.close label{
   height: 30px;
   object-fit: cover;
 }
+
+/* Historial */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table th {
+  background-color: var(--verde-pixplore);
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-family: "Pixelify-Sans";
+  font-size: 18px;
+}
+
+.table td {
+  padding: 10px;
+  font-family: "Pixelify-Sans";
+  border: 1px solid var(--gris-lightmode);
+  border-left: none;
+  color: var(--negro-pixplore);
+  text-align: center;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.table td img{
+  width: 200px;
+  height: 112px;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+#id1stTD{
+  width: 30%;
+}
+
+#id2ndTD{
+  width: 20%;
+}
+
+.table-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px
+  );
+}

@@ -65,9 +65,9 @@ function PerfilUsuario() {
                     <h2>Nombre de Usuario</h2>
                     <label id="idCorreo">ejemploCorreo@gmail.com</label>
                     <label>X publicacion(es)</label>
-                    <a href="#">
+                    <Link to="/editarPerfil">
                         <button className={PerfilUsuarioCSS["boton-pixel-corners"]}>Editar Perfil</button>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className={`col ${PerfilUsuarioCSS["col-der"]}`}>
@@ -161,7 +161,7 @@ function PerfilUsuario() {
                         {activeTab === 'listas' && (
                             <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'listas' ? 'show active' : ''}`} id="idListas" role="tabpanel" aria-labelledby="listas-tab">
                                 <div className={PerfilUsuarioCSS["tab-subtitulo"]}>
-                                    <h2>Mis Listas</h2>
+                                    <h2>Tus Listas</h2>
                                     <a href="#" className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
                                         +
                                         <button> Nueva Lista</button>
@@ -180,7 +180,7 @@ function PerfilUsuario() {
 
                         {/* Likes */}
                         {activeTab === 'likes' && (
-                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'likes' ? 'show active' : ''}`} id="idLike" role="tabpanel" aria-labelledby="like-tab">
+                            <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'likes' ? 'show active' : ''}`} id="idLike" role="tabpanel" aria-labelledby="like-tab">
                                 <h2>Tus likes</h2>
                                 
                                 <div id={PerfilUsuarioCSS.idTabLike}>
@@ -195,7 +195,7 @@ function PerfilUsuario() {
 
                         {/* Guardados */}
                         {activeTab === 'guardados' && (
-                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'guardados' ? 'show active' : ''}`} id="idGuardados" role="tabpanel" aria-labelledby="guardados-tab">
+                            <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'guardados' ? 'show active' : ''}`} id="idGuardados" role="tabpanel" aria-labelledby="guardados-tab">
                                 <h2>Elementos guardados</h2>
                                 
                                 <div id={PerfilUsuarioCSS.idTabGuardado}>
@@ -210,11 +210,32 @@ function PerfilUsuario() {
 
                         {/* Historial */}
                         {activeTab === 'historial' && (
-                            <div class={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'historial' ? 'show active' : ''}`} id="idHistorial" role="tabpanel" aria-labelledby="historial-tab">
+                            <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'historial' ? 'show active' : ''}`} id="idHistorial" role="tabpanel" aria-labelledby="historial-tab">
                                 <h2>Historial</h2>
                                 
                                 <div id={PerfilUsuarioCSS.idTabHistorial}>
-                                    
+                                    <table className={`${PerfilUsuarioCSS.table} ${PerfilUsuarioCSS["table-pixel-corners"]}`}>
+                                        <thead>
+                                            <tr>
+                                                <th>Post</th>
+                                                <th>Título</th>
+                                                <th>Hecho por</th>
+                                                <th>Fecha Vista</th>
+                                                <th>Hora Vista</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="/Images/Templates/Post_16-9.png" alt="Imagen del Post"></img>
+                                                </td>
+                                                <td id={PerfilUsuarioCSS.id1stTD}>Título de la imagen</td>
+                                                <td id={PerfilUsuarioCSS.id2ndTD}>Nombre de Usuario</td>
+                                                <td>DD/MM/AAAA</td>
+                                                <td>00:00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         )}
