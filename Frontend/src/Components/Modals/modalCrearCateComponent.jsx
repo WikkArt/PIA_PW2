@@ -17,6 +17,7 @@ function ModalCrearCateComponent(props) {
                                     <label>X</label>
                                 </button>
                             </div>
+                            
                             <div className={`modal-body ${PerfilAdminCSS["crear-body"]}`}>
                                 <div className={`${PerfilAdminCSS["input-rb"]} row`}>
                                     <div className='col'>
@@ -45,9 +46,9 @@ function ModalCrearCateComponent(props) {
                                 </div>
                                 
                                 <label htmlFor="">Descripción</label>
-                                <textarea id="categoriaDescripcion" rows="3" className={PerfilAdminCSS["cuadro-txt"]}
-                                    placeholder="Breve descripción..."></textarea>
+                                <textarea id="categoriaDescripcion" rows="3" className={PerfilAdminCSS["cuadro-txt"]}placeholder="Breve descripción..."></textarea>
                             </div>
+
                             <div className={`modal-footer ${PerfilAdminCSS["crear-footer"]}`}>
                                 <button type="button" className={`btn ${PerfilAdminCSS["pixel-corners"]} ${PerfilAdminCSS["btn-secondary"]}`}
                                     data-bs-dismiss="modal">

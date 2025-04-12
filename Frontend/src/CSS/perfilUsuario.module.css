@@ -1257,6 +1257,87 @@ button.close label{
 
 /* Listas */
 
+/* Crear Listas */
+.lista-header{
+  border-bottom: 2px solid var(--verde-pixplore);
+  background-color: var(--negro-pixplore);
+  color: var(--verde-pixplore);
+  font-family: "Pixelify-Sans";
+}
+
+.lista-header button{
+  margin-top: 0;
+}
+
+.lista-body{
+  background-color: var(--gris-oscuro-pixplore);
+}
+
+.fotos-container{
+  justify-content: center;
+}
+
+.fotos-container img{
+  width: 100%;
+  display: block;
+  /* height: 214px; */
+  object-fit: cover;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.fotos-container input.form-control,
+.fotos-container input.form-control:focus{
+  background-color: var(--verde-pixplore);
+}
+
+.form-control{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.texto-container{
+  background-color: var(--gris-pixplore);
+  display: flex;
+  flex-direction: column;
+  margin-block: -16px;
+  margin-right: -5px;
+  padding-block: 18px;
+  padding-inline: 15px;
+}
+
+input.cuadro-txt,
+textarea.cuadro-txt{
+  font-family: "Handjet";
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border: none;
+  margin-bottom: 5px;
+  outline: none;
+  width: 100%;
+}
+
+textarea.cuadro-txt{
+  margin-bottom: 20px;
+}
+
+.texto-container button{
+  background-color: var(--gris-darkmode);
+  border: none;
+  color: white;
+  font-family: "Pixelify-Sans";
+  padding: 3px;
+  transition: 150ms ease-in;
+}
+
+.texto-container button:hover{
+  background-color: var(--verde-pixplore);
+  color: black;
+}
+
+/* Lista Grande */
 .lista-grande button{
   display: flex;
   align-items: center;

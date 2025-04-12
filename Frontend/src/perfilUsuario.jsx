@@ -4,6 +4,7 @@ import './CSS/bootstrap.min.css';
 import PerfilUsuarioCSS from './CSS/perfilUsuario.module.css'
 import './JS/bootstrap.bundle.min.js';
 import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
+import ModalCrearListaComponent from './Components/Modals/modalCrearListaComponent.jsx';
 import ModalListaComponent from './Components/Modals/modalListaComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
 import ListaGComponent from './Components/listaGComponent.jsx';
@@ -46,6 +47,15 @@ function PerfilUsuario() {
                 role="dialog"
                 aria-hidden="true"
             ></ModalPostComponent>
+
+            {/* Modal para Crear Listas */}
+            <ModalCrearListaComponent
+                className="modal fade"
+                id="idModalCrearLista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalCrearListaComponent>
 
             {/* Modal de Listas */}
             <ModalListaComponent
@@ -162,10 +172,12 @@ function PerfilUsuario() {
                             <div className={`${PerfilUsuarioCSS["tab-pane"]} fade ${activeTab === 'listas' ? 'show active' : ''}`} id="idListas" role="tabpanel" aria-labelledby="listas-tab">
                                 <div className={PerfilUsuarioCSS["tab-subtitulo"]}>
                                     <h2>Tus Listas</h2>
-                                    <a href="#" className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
+                                    <label className={`${PerfilUsuarioCSS["agregar-elemento"]} ${PerfilUsuarioCSS["boton-pixel-corners"]}`}>
                                         +
-                                        <button> Nueva Lista</button>
-                                    </a>
+                                        <button data-bs-toggle="modal" data-bs-target="#idModalCrearLista">
+                                            Nueva Lista
+                                        </button>
+                                    </label>
                                 </div>
 
                                 <div id={PerfilUsuarioCSS.idTabListas}>
