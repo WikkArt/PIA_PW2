@@ -132,7 +132,7 @@ function PerfilAdmin() {
                                                 <td>
                                                     <button className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger"]} ${PerfilAdminCSS["pixel-corners"]}`} data-bs-toggle="modal"
                                                     data-bs-target="#idModalDesacUser">
-                                                        Inactivar
+                                                        Desactivar
                                                     </button>
                                                 </td>
                                             </tr>

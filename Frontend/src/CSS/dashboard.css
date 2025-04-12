@@ -91,6 +91,7 @@ body{
   font-family: "Handjet";
   font-size: 23px;
   font-weight: 500;
+  padding-inline: 10px;
 }
 
 #idNavBuscar{
@@ -115,6 +116,26 @@ body{
 #idNavPixplore .active{
   background-color: var(--verde-pixplore);
   color: var(--negro-pixplore);
+}
+
+/* Historial de Busqueda */
+#idHistorialBusqueda{
+  visibility: hidden;
+  background-color: white;
+  border-top: 3px solid var(--gris-lightmode);
+  position: absolute;
+  z-index: 10;
+  margin-top: 36px;
+  width: 45vw;
+  margin-right: 55px;
+}
+
+#idHistorialBusqueda li{
+  list-style: none;
+  padding-block: 5px;
+  font-family: "VT323";
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
 /* Cuerpo */
@@ -259,6 +280,16 @@ body{
 }
 
 /* Filtros */
+.filtro-likes{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-inline: 10px;
+  margin-bottom: 5px;
+  font-family: "VT323";
+  font-size: 19px;
+}
+
 .filtro-fechas{
   display: flex;
   flex-direction: column;
@@ -1111,8 +1142,34 @@ button.close label{
   flex-direction: row;
 }
 
-#idModalPost .comentarios div{
+#idModalPost .comentarios .comentarios-content{
   margin-left: 10px;
+}
+
+.nombre-eliminar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eliminar-comentario-icono{
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: max-content;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+
+.eliminar-comentario-icono img{
+  height: 20px !important;
+  width: 20px !important;
+  filter: brightness(5);
+  transition: 150ms all ease-in-out;
+}
+
+.eliminar-comentario-icono img:hover{
+  filter: brightness(10);
 }
 
 #idModalPost .comentarios h6{
@@ -1277,26 +1334,45 @@ button.close label{
   filter: brightness(1);
 }
 
-/* Modales para Eliminar Elementos */ 
+/* Modales para Agregar y Eliminar Elementos */ 
+#idModalAgregarGuardado .modal-header,
+#idModalAgregarALista .modal-header,
+#idModalElimLista .modal-header,
+#idModalElimPostLista .modal-header,
 #idModalElimPost .modal-header,
-#idModalElimGuardado .modal-header{
+#idModalElimGuardado .modal-header,
+#idModalElimComentario .modal-header{
   border-bottom: 1px solid var(--verde-pixplore);
   background-color: var(--gris-oscuro-pixplore);
 }
 
+#idModalAgregarGuardado button.close,
+#idModalElimLista button.close,
+#idModalElimPostLista button.close,
 #idModalElimPost button.close,
-#idModalElimGuardado button.close{
+#idModalElimGuardado button.close,
+#idModalElimComentario button.close{
   margin-top: 0;
 }
 
+#idModalAgregarGuardado .modal-content,
+#idModalAgregarALista .modal-content,
+#idModalElimLista .modal-content,
+#idModalElimPostLista .modal-content,
 #idModalElimPost .modal-content,
-#idModalElimGuardado .modal-content{
+#idModalElimGuardado .modal-content,
+#idModalElimComentario .modal-content{
   background-color: var(--gris-pixplore);
   color: white;
 }
 
+#idModalAgregarGuardado h5,
+#idModalAgregarALista h5,
+#idModalElimLista h5,
+#idModalElimPostLista h5,
 #idModalElimPost h5,
-#idModalElimGuardado h5{
+#idModalElimGuardado h5,
+#idModalElimComentario h5{
   font-family: "Pixelify-Sans";
 }
 
@@ -1307,29 +1383,45 @@ button.close label{
   font-size: 16px;
 }
 
+#idModalAgregarGuardado .modal-body,
+#idModalElimLista .modal-body,
+#idModalElimPostLista .modal-body,
 #idModalElimPost .modal-body,
-#idModalElimGuardado .modal-body{
+#idModalElimGuardado .modal-body,
+#idModalElimComentario .modal-body{
   font-size: 18px;
   font-family: "Handjet";
 }
 
+#idModalAgregarGuardado .modal-footer,
+#idModalElimLista .modal-footer,
+#idModalElimPostLista .modal-footer,
 #idModalElimPost .modal-footer,
-#idModalElimGuardado .modal-footer{
+#idModalElimGuardado .modal-footer,
+#idModalElimComentario .modal-footer{
   font-family: "VT323";
   font-size: 20px;
   border-top: 1px solid var(--verde-pixplore);
   gap: 5px;
 }
 
+#idModalAgregarGuardado .modal-footer button,
+#idModalElimLista .modal-footer button,
+#idModalElimPostLista .modal-footer button,
 #idModalElimPost .modal-footer button,
-#idModalElimGuardado .modal-footer button{
+#idModalElimGuardado .modal-footer button,
+#idModalElimComentario .modal-footer button{
   padding-inline: 12px;
   border: none;
   transition: 0.3s all ease;
 }
 
+#idModalAgregarGuardado .modal-footer button:hover,
+#idModalElimLista .modal-footer button:hover,
+#idModalElimPostLista .modal-footer button:hover,
 #idModalElimPost .modal-footer button:hover,
-#idModalElimGuardado .modal-footer button:hover{
+#idModalElimGuardado .modal-footer button:hover,
+#idModalElimComentario .modal-footer button:hover{
   background-color: var(--verde-pixplore);
 }
 
@@ -1423,4 +1515,138 @@ button.close label{
 .lista-body .post-contenedor:hover .post-imagen img {
   min-width: 100px; 
   max-width: 220px;
+}
+
+/* Botones de Eliminar del Modal de la Lista */
+.lista-header .eliminar-icono,
+.lista-body .eliminar-post-icono{
+  position: absolute;
+  width: min-content;
+  z-index: 10;
+  border: none;
+  background-color: var(--gris-lightmode);
+  transition: 150ms all ease-in-out;
+}
+
+.lista-header .eliminar-icono:hover,
+.lista-body .eliminar-post-icono:hover{
+  background-color: var(--negro-pixplore);
+  img{
+    filter: brightness(10);
+  }
+}
+
+.lista-header .eliminar-icono{
+  right: 0;
+  top: 0;
+  margin-top: 25px;
+  margin-right: 25px;
+  padding: 7px;
+}
+
+.eliminar-icono img{
+  height: 35px;
+}
+
+.lista-body .lista-post{
+  position: relative;
+}
+
+.lista-post .eliminar-post-icono{
+  bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+.eliminar-post-icono img{
+  height: 25px;
+}
+
+/* Modal para Agregar Posts a Listas */
+
+#idModalAgregarALista .modal-header{
+  width: 1000px;
+}
+
+#idModalAgregarALista .modal-header button{
+  margin-right: 10px;
+  border: none;
+  padding-block: 5px;
+  transition: 150ms all ease-in-out;
+}
+
+#idModalAgregarALista .modal-header button:hover{
+  background-color: var(--verde-pixplore);
+}
+
+#idModalAgregarALista .modal-header img{
+  width: 35px;
+}
+
+#idModalAgregarALista .modal-body{
+  overflow-y: auto;
+  max-height: 44vh;
+  padding-top: 5px;
+}
+
+#idModalAgregarALista li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 22px;
+}
+
+#idModalAgregarALista .list-group-item{
+  background-color: transparent;
+  margin-inline: -16px;
+  border-color: var(--gris-darkmode);
+}
+
+#idModalAgregarALista .list-group-item div{
+  display: flex;
+  align-items: center;
+}
+
+#idModalAgregarALista .modal-body img{
+  width: 90px;
+  object-fit: cover;
+}
+
+#idModalAgregarALista .list-group-item h6{
+  margin-left: 10px;
+  color: white;
+  font-family: "VT323";
+  font-size: 22px;
+}
+
+#idModalAgregarALista .list-group-item input{
+  border: none;
+  border-radius: 0;
+  width: 30px;
+  height: 30px;
+}
+
+#idModalAgregarALista .list-group-item input:checked{
+  background-color: var(--verde-pixplore);
+}
+
+#idModalAgregarALista .modal-footer{
+  border-top: 1px solid var(--verde-pixplore);
+}
+
+#idModalAgregarALista .modal-footer button{
+  width: 100%;
+  border: none;
+  padding-block: 5px;
+  font-size: 20px;
+  background-color: var(--gris-darkmode);
+  font-family: "Pixelify-Sans";
+  color: white;
+  transition: 150ms all ease-in-out;
+}
+
+#idModalAgregarALista .modal-footer button:hover{
+  background-color: var(--verde-pixplore);
+  color: black;
 }

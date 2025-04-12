@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import ComentarioComponent from "../comentarioComponent"
+import ModalAgregarGuardadoComponent from './modalAgregarGuardado';
 import ModalElimGuardadoComponent from "./modalElimGuardadoComponent"
+import ModalAgregarAListaComponent from './modalAgregarAListaComponent';
 import ModalElimPostComponent from "./modalElimPostComponent"
+import ModalElimComentarioComponent from './modalElimComentarioComponent';
 
 function ModalPostComponent(props) {
     
@@ -9,6 +12,15 @@ function ModalPostComponent(props) {
     
     return(
         <>
+            {/* Modal para Agregar un Elemento Guardado */}
+            <ModalAgregarGuardadoComponent
+                className="modal fade"
+                id="idModalAgregarGuardado"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalAgregarGuardadoComponent>
+
             {/* Modal para Eliminar un Elemento Guardado */}
             <ModalElimGuardadoComponent
                 className="modal fade"
@@ -18,6 +30,15 @@ function ModalPostComponent(props) {
                 aria-hidden="true"
             ></ModalElimGuardadoComponent>
 
+            {/* Modal para Agregar el Post a una Lista */}
+            <ModalAgregarAListaComponent
+                className="modal fade"
+                id="idModalAgregarALista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalAgregarAListaComponent>
+
             {/* Modal para Eliminar el Post */}
             <ModalElimPostComponent
                 className="modal fade"
@@ -26,6 +47,15 @@ function ModalPostComponent(props) {
                 role="dialog"
                 aria-hidden="true"
             ></ModalElimPostComponent>
+
+            {/* Modal para Eliminar un Comentario */}
+            <ModalElimComentarioComponent
+                className="modal fade"
+                id="idModalElimComentario"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimComentarioComponent>
 
             <div className={className} id={id} tabIndex={tabIndex} role={role} aria-hidden={ariaHidden}>
                 <button type="button" className="close dropdown-pixel-corners" data-bs-dismiss="modal" aria-label="Close">
@@ -52,15 +82,15 @@ function ModalPostComponent(props) {
                                         <Link className="dropdown-item" to="/editarPost" onClick={"data-bs-dismiss=modal"}>
                                             Editar Post
                                         </Link>
-                                        <a className="dropdown-item" href="#">
+                                        <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalAgregarGuardado">
                                             Guardar
-                                        </a>
+                                        </button>
                                         <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimGuardado">
                                             Quitar Elemento Guardado
                                         </button>
-                                        <a className="dropdown-item" href="#">
+                                        <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalAgregarALista">
                                             Agregar a Lista
-                                        </a>
+                                        </button>
                                         <button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#idModalElimPost">
                                             Eliminar Post
                                         </button>

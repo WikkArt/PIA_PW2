@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
 import PerfilUsuarioCSS from './CSS/perfilUsuario.module.css'
 import './JS/bootstrap.bundle.min.js';
+import ModalDesacUserComponent from './Components/Modals/modalDesacUserComponent.jsx';
 import ModalPostComponent from './Components/Modals/modalPostComponent.jsx';
 import ModalCrearListaComponent from './Components/Modals/modalCrearListaComponent.jsx';
 import ModalListaComponent from './Components/Modals/modalListaComponent.jsx';
@@ -38,6 +39,15 @@ function PerfilUsuario() {
                     <Link className="nav-link" to="/login">Cerrar Sesión</Link>
                 </li>
             </ul>
+
+            {/* Modal para Desactivar Usuario */}
+            <ModalDesacUserComponent
+                className={`modal fade ${PerfilUsuarioCSS["modal-editar-cate"]}`}
+                id="idModalDesacUser"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalDesacUserComponent>
 
             {/* Modal de Posts */}
             <ModalPostComponent
@@ -78,6 +88,9 @@ function PerfilUsuario() {
                     <Link to="/editarPerfil">
                         <button className={PerfilUsuarioCSS["boton-pixel-corners"]}>Editar Perfil</button>
                     </Link>
+                    <button className={`${PerfilUsuarioCSS["dropdown-pixel-corners"]} ${PerfilUsuarioCSS["btn-eliminar"]}`} data-bs-toggle="modal" data-bs-target="#idModalDesacUser">
+                        Desactivar cuenta
+                    </button>
                 </div>
 
                 <div className={`col ${PerfilUsuarioCSS["col-der"]}`}>

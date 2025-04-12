@@ -13,6 +13,8 @@ import ListasSComponent from './Components/listaSComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
 
 function Dashboard() {
+    // Barra de Busqueda
+
 
     // Checkboxes
     const [checkedState, setCheckedState] = useState({
@@ -159,10 +161,28 @@ function Dashboard() {
                     <Link className="nav-link active" to="/">Inicio</Link>
                 </li>
                 <li className="nav-item nav-buscador">
-                    <input type="text"></input>
+                    <input type="text" placeholder='Buscar...'></input>
                     <button id="idNavBuscar">
                         <img src="/Images/Icons/Buscar.png" alt="Buscador"></img>
                     </button>
+
+                    <ul id='idHistorialBusqueda' className='list-group list-group-flush'>
+                        <li className='list-group-item'>
+                            Búsqueda 1
+                        </li>
+                        <li className='list-group-item'>
+                            Búsqueda 2
+                        </li>
+                        <li className='list-group-item'>
+                            Búsqueda 3
+                        </li>
+                        <li className='list-group-item'>
+                            Búsqueda 4
+                        </li>
+                        <li className='list-group-item'>
+                            Búsqueda 4
+                        </li>
+                    </ul>
                 </li>
                 <li className="nav-item nav-right">
                     <Link className="nav-link" to="/login">Iniciar Sesión</Link>
@@ -275,6 +295,11 @@ function Dashboard() {
                     </ul>
 
                     <h1>FILTROS</h1>
+
+                    <div className='filtro-likes'>
+                        <input className="form-check-input" type="checkbox" id="chbLikes" name='chbLikes'></input>
+                        <label className="form-check-label" htmlFor="chbLikes">Favoritos de la Comunidad</label>
+                    </div>
 
                     <h3>Fechas</h3>
                     <div className="filtro-fechas">

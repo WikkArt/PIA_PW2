@@ -1,3 +1,5 @@
+import ModalElimListaComponent from "./modalElimListaComponent"
+import ModalElimPostListaComponent from "./modalElimPostListaComponent"
 import PostComponent from "../postComponent"
 
 function ModalListaComponent(props) {
@@ -6,11 +8,33 @@ function ModalListaComponent(props) {
     
     return(
         <>
+            {/* Modal para Eliminar Listas */}
+            <ModalElimListaComponent
+                className="modal fade"
+                id="idModalElimLista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimListaComponent>
+
+            {/* Modal para Eliminar Posts de una Lista */}
+            <ModalElimPostListaComponent
+                className="modal fade"
+                id="idModalElimPostLista"
+                tabIndex="-1"
+                role="dialog"
+                aria-hidden="true"
+            ></ModalElimPostListaComponent>
+
             <div className={className} id={id} tabIndex={tabIndex} role={role} aria-hidden={ariaHidden}>
                 <div className="modal-dialog modal-lg modal-dialog-centered">
                     <div className="post-pixel-corners">
                         <div className="modal-content">
                             <div className="modal-header lista-header row">
+                                <button data-bs-toggle="modal" data-bs-target="#idModalElimLista" className="eliminar-icono circular-pixel-corners">
+                                    <img src="/Images/Icons/Eliminar.png" alt="Icono de Eliminación"></img>
+                                </button>
+                                
                                 <div className="col fotos-container">
                                     <img id="idPortadaLista" src="/Images/Templates/Camara_GO_21-9.png"
                                         className="dropdown-pixel-corners" alt="Imagen de la Lista"></img>
@@ -28,12 +52,18 @@ function ModalListaComponent(props) {
                                     </p>
                                 </div>
                             </div>
+
                             <div className="modal-body lista-body">
-                                <PostComponent
-                                    id="idPost"
-                                    dataBsToggle="modal"
-                                    dataBsTarget="#idModalPost"
-                                ></PostComponent>
+                                <div className="lista-post">
+                                    <button data-bs-toggle="modal" data-bs-target="#idModalElimPostLista" className="eliminar-post-icono circular-pixel-corners">
+                                        <img src="/Images/Icons/Eliminar.png" alt="Icono de Eliminación"></img>
+                                    </button>
+                                    <PostComponent
+                                        id="idPost"
+                                        dataBsToggle="modal"
+                                        dataBsTarget="#idModalPost"
+                                    ></PostComponent>
+                                </div>
                             </div>
                         </div>
                     </div>
