@@ -19,7 +19,9 @@
   "homepage": "https://github.com/WikkArt/PIA_PW2#readme",
   "description": "",
   "dependencies": {
-    "@prisma/client": "^6.5.0",
-    "prisma": "^6.5.0"
+    "@prisma/client": "^6.7.0",
+    "express": "^5.1.0",
+    "multer": "^1.4.5-lts.2",
+    "prisma": "^6.7.0"
   }
 }
