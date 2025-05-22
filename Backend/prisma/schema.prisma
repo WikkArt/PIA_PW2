@@ -20,7 +20,7 @@ model Usuario {
   id_usuario      Int       @id @default(autoincrement())
   nombre          String
   email           String    @unique
-  contraseña      String
+  password        String
   avatar          String?
   fecha_registro  DateTime  @default(now())
   posts           Post[]

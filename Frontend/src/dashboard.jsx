@@ -11,7 +11,7 @@ import ModalListaComponent from './Components/Modals/modalListaComponent.jsx';
 import ListaCateComponent from './Components/listaCateComponent.jsx';
 import ListasSComponent from './Components/listaSComponent.jsx';
 import PostComponent from './Components/postComponent.jsx';
-
+import Navbar from "./Components/Navbar";
 function Dashboard() {
     // Barra de Busqueda
 
@@ -150,47 +150,8 @@ function Dashboard() {
 
     return (
         <>
-            {/* Navegador */}
-            <ul id="idNavPixplore" className="nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                        <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link active" to="/">Inicio</Link>
-                </li>
-                <li className="nav-item nav-buscador">
-                    <input type="text" placeholder='Buscar...'></input>
-                    <button id="idNavBuscar">
-                        <img src="/Images/Icons/Buscar.png" alt="Buscador"></img>
-                    </button>
-
-                    <ul id='idHistorialBusqueda' className='list-group list-group-flush'>
-                        <li className='list-group-item'>
-                            Búsqueda 1
-                        </li>
-                        <li className='list-group-item'>
-                            Búsqueda 2
-                        </li>
-                        <li className='list-group-item'>
-                            Búsqueda 3
-                        </li>
-                        <li className='list-group-item'>
-                            Búsqueda 4
-                        </li>
-                        <li className='list-group-item'>
-                            Búsqueda 4
-                        </li>
-                    </ul>
-                </li>
-                <li className="nav-item nav-right">
-                    <Link className="nav-link" to="/login">Iniciar Sesión</Link>
-                </li>
-                <li className="nav-item nav-right">
-                    <Link className="nav-link" to="/registro">Registro</Link>
-                </li>
-            </ul>
+              <Navbar />
+           
             
             {/* Modal de la Informacion de las Categorias */}
             <ModalCateComponent

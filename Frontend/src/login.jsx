@@ -1,10 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
 import LoginCSS from './CSS/login.module.css';
-import InputComponent from './Components/inputComponent'
+import InputComponent from './Components/inputComponent';
 
 function Login() {
+    const [nombre, setNombre] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:3001/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, password })
+            });
+            const data = await response.json();
+            if (data.success) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+                navigate('/'); // Redirige al inicio o donde prefieras
+            } else {
+                alert(data.error);
+            }
+        } catch (err) {
+            alert('Error de conexión');
+        }
+    };
 
     return (
         <>
@@ -28,21 +51,25 @@ function Login() {
 
             {/* Login */}
             <div className={LoginCSS.cuerpo}>
-                <form action="" id="idLogin" className={LoginCSS.login}>
+                <form id="idLogin" className={LoginCSS.login} onSubmit={handleSubmit}>
                     <h1>Inicio de sesión</h1>
                     <div>
                         <InputComponent 
                             label="Nombre de Usuario" 
                             type="text"
-                            name="txtUsername"
+                            name="nombre"
                             id="txtUsername"
+                            value={nombre}
+                            onChange={e => setNombre(e.target.value)}
                         />
 
                         <InputComponent 
                             label="Contraseña" 
                             type="password"
-                            name="txtPassword"
+                            name="password"
                             id="txtPassword"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
                         />
                     </div>
 
@@ -53,4 +80,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;
