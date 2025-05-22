@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./CSS/bootstrap.min.css";
 import PerfilUsuarioCSS from "./CSS/perfilUsuario.module.css";
@@ -20,6 +20,15 @@ function PerfilUsuario() {
   }
 
   const [activeTab, setActiveTab] = useState("posts");
+  const [posts, setPosts] = useState([]);
+  const [postSeleccionado, setPostSeleccionado] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/posts/usuario/${user.id_usuario}`)
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch(() => setPosts([]));
+  }, [user.id_usuario]);
 
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
@@ -73,6 +82,7 @@ function PerfilUsuario() {
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
+         post={postSeleccionado}
       ></ModalPostComponent>
 
       {/* Modal para Crear Listas */}
@@ -242,11 +252,20 @@ function PerfilUsuario() {
                 </div>
 
                 <div id={PerfilUsuarioCSS.idTabPost}>
-                  <PostComponent
-                    id="idPost"
-                    dataBsToggle="modal"
-                    dataBsTarget="#idModalPost"
-                  ></PostComponent>
+                  {posts.length === 0 ? (
+                    <p>No tienes publicaciones aún.</p>
+                  ) : (
+                    posts.map((post) => (
+                      <PostComponent
+                        key={post.id_post}
+                        id={`post-${post.id_post}`}
+                        dataBsToggle="modal"
+                        dataBsTarget="#idModalPost"
+                        post={post}
+                        onClick={() => setPostSeleccionado(post)}
+                      />
+                    ))
+                  )}
                 </div>
               </div>
             )}

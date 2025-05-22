@@ -12,6 +12,7 @@ function PerfilAdmin() {
   const [activeTab, setActiveTab] = useState("usuarios");
   const [categorias, setCategorias] = useState([]);
   const [categoriaEditar, setCategoriaEditar] = useState(null);
+  const [usuarios, setUsuarios] = useState([]);
 
   // Traer categorías del backend
   useEffect(() => {
@@ -20,6 +21,16 @@ function PerfilAdmin() {
         .then((res) => res.json())
         .then((data) => setCategorias(data))
         .catch(() => setCategorias([]));
+    }
+  }, [activeTab]);
+
+  // Traer usuarios del backend
+  useEffect(() => {
+    if (activeTab === "usuarios") {
+      fetch('http://localhost:3001/usuarios')
+        .then((res) => res.json())
+        .then((data) => setUsuarios(data))
+        .catch(() => setUsuarios([]));
     }
   }, [activeTab]);
 

@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import './CSS/bootstrap.min.css';
 import LoginCSS from './CSS/login.module.css';
 import InputComponent from './Components/inputComponent';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
     const [nombre, setNombre] = useState('');
@@ -22,10 +24,10 @@ function Login() {
                 localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/'); // Redirige al inicio o donde prefieras
             } else {
-                alert(data.error);
+                toast.error(data.error);
             }
         } catch (err) {
-            alert('Error de conexión');
+            toast.error('Error de conexión');
         }
     };
 
