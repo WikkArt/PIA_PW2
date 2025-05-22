@@ -57,7 +57,6 @@ function Registro() {
   return (
     <>
       {" "}
-      <ToastContainer />
       {/* Navegador */}
       <ul id="idNavPixplore" className="nav">
         <li className="nav-item">
