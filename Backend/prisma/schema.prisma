@@ -17,7 +17,7 @@ model Usuario {
   password        String
   avatar          String?
   fecha_registro  DateTime  @default(now())
-  activo          Boolean   @default(true) // <- Campo añadido
+  activo          Boolean   @default(true)
   posts           Post[]
   puntuaciones    Puntuacion[]
   comentarios     Comentario[]
@@ -34,7 +34,7 @@ model Categoria {
   descripcion     String?
   tipo_categoria  String
   fecha_creacion  DateTime  @default(now())
-  activo          Boolean   @default(true) // <- Campo añadido
+  activo          Boolean   @default(true)
   posts           Post[]
  
   @@index([nombre], name: "idx_categoria_nombre")
@@ -46,7 +46,7 @@ model Comentario {
   id_post         Int
   contenido       String
   fecha_comentario DateTime @default(now())
-  activo          Boolean   @default(true) // <- Campo añadido
+  activo          Boolean   @default(true)
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   post            Post      @relation(fields: [id_post], references: [id_post])
  
@@ -58,7 +58,7 @@ model Favoritos {
   id_usuario      Int
   id_post         Int
   fecha_guardado  DateTime  @default(now())
-  activo          Boolean   @default(true) // <- Campo añadido
+  activo          Boolean   @default(true)
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   post            Post      @relation(fields: [id_post], references: [id_post])
  
@@ -72,14 +72,13 @@ model Lista {
   nombre          String
   descripcion     String?
   fecha_creacion  DateTime  @default(now())
-  activo          Boolean   @default(true) // <- Campo añadido
+  activo          Boolean   @default(true)
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   posts           Lista_Post[]
  
   @@index([id_usuario], name: "idx_lista_usuario")
 }
 
-/* Los demás modelos permanecen exactamente igual */
 model Post {
   id_post         Int       @id @default(autoincrement())
   id_usuario      Int
@@ -89,6 +88,7 @@ model Post {
   url_archivo     String
   tipo            String
   fecha_subida    DateTime  @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido a Post
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   categoria       Categoria? @relation(fields: [id_categoria], references: [id_categoria])
   puntuaciones    Puntuacion[]
