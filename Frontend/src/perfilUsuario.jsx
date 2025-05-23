@@ -11,18 +11,20 @@ import PostComponent from "./Components/postComponent.jsx";
 import ListaGComponent from "./Components/listaGComponent.jsx";
 
 function PerfilUsuario() {
-  //Llenar info de usuario
+  //Llenar info de usuario y si no hay usuario regresa al login
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   if (!user) {
     navigate("/login");
     return null;
   }
-
+  //Variables
   const [activeTab, setActiveTab] = useState("posts");
   const [posts, setPosts] = useState([]);
   const [postSeleccionado, setPostSeleccionado] = useState(null);
+  const [likesPosts, setLikesPosts] = useState([]);
 
+  //Posts
   useEffect(() => {
     fetch(`http://localhost:3001/posts/usuario/${user.id_usuario}`)
       .then((res) => res.json())
@@ -30,6 +32,18 @@ function PerfilUsuario() {
       .catch(() => setPosts([]));
   }, [user.id_usuario]);
 
+  //Likes
+  useEffect(() => {
+    if (activeTab === "likes") {
+      fetch(`http://localhost:3001/puntuaciones/likes/${user.id_usuario}`)
+        .then((res) => res.json())
+        .then((data) => setLikesPosts(data))
+        .catch(() => setLikesPosts([]));
+    }
+  }, [activeTab, user.id_usuario]);
+
+  
+  //Cambiar pestania
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
   };
@@ -82,7 +96,7 @@ function PerfilUsuario() {
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
-         post={postSeleccionado}
+        post={postSeleccionado}
       ></ModalPostComponent>
 
       {/* Modal para Crear Listas */}
@@ -316,13 +330,21 @@ function PerfilUsuario() {
                 aria-labelledby="like-tab"
               >
                 <h2>Tus likes</h2>
-
                 <div id={PerfilUsuarioCSS.idTabLike}>
-                  <PostComponent
-                    id="idLike"
-                    dataBsToggle="modal"
-                    dataBsTarget="#idModalPost"
-                  ></PostComponent>
+                  {likesPosts.length === 0 ? (
+                    <p>No tienes likes aún.</p>
+                  ) : (
+                    likesPosts.map((post) => (
+                      <PostComponent
+                        key={post.id_post}
+                        id={`like-${post.id_post}`}
+                        dataBsToggle="modal"
+                        dataBsTarget="#idModalPost"
+                        post={post}
+                        onClick={() => setPostSeleccionado(post)}
+                      />
+                    ))
+                  )}
                 </div>
               </div>
             )}

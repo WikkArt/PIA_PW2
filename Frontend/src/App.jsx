@@ -24,7 +24,7 @@ function App() {
                 <Route path="/perfilUsuario" element={<PerfilUsuario />} />
                 <Route path="/editarPerfil" element={<EditarPerfil />} />
                 <Route path="/crearPost" element={<CrearPost />} />
-                <Route path="/editarPost" element={<EditarPost />} />
+                <Route path="/editarPost/:id" element={<EditarPost />} />
             </Routes>
         </>
     );

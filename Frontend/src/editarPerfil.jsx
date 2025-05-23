@@ -68,7 +68,7 @@ function EditarPerfil() {
 
     return (
         <>
-            <ToastContainer position="bottom-right" />
+           
             {/* Navegador */}
             <ul id="idNavPixplore" className="nav">
                 <li className="nav-item">

@@ -48,10 +48,67 @@ router.get("/usuario/:id", async (req, res) => {
   try {
     const posts = await prisma.post.findMany({
       where: { id_usuario: Number(id) },
-      include: { usuario: true },
+      include: {
+        usuario: true,
+        categoria: true,
+        comentarios: {
+          include: {
+            usuario: true
+          }
+        }
+      },
       orderBy: { fecha_subida: "desc" },
     });
     res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Editar un post
+router.put('/editar/:id', upload.single('archivo'), async (req, res) => {
+  const { id } = req.params;
+  const { titulo, descripcion, tipo, id_categoria } = req.body;
+  let data = {
+    titulo,
+    descripcion,
+    tipo,
+    id_categoria: id_categoria ? Number(id_categoria) : null,
+  };
+  if (req.file) {
+    data.url_archivo = `/uploads/posts/${req.file.filename}`;
+  }
+  try {
+    const post = await prisma.post.update({
+      where: { id_post: Number(id) },
+      data,
+    });
+    res.json(post);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Obtener un post por id
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await prisma.post.findUnique({
+      where: { id_post: Number(id) },
+      include: {
+        usuario: true,
+        categoria: true,
+        comentarios: {
+          include: {
+            usuario: true
+          }
+        }
+      }
+    });
+    if (!post) {
+      return res.status(404).json({ error: 'Post no encontrado' });
+    }
+    res.json(post);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
