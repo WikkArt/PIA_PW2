@@ -25,6 +25,8 @@ function PerfilUsuario() {
   const [postSeleccionado, setPostSeleccionado] = useState(null);
   const [likesPosts, setLikesPosts] = useState([]);
   const [guardados, setGuardados] = useState([]);
+  const [listas, setListas] = useState([]);
+  const [listaSeleccionada, setListaSeleccionada] = useState(null);
 
   //Posts
   useEffect(() => {
@@ -51,6 +53,16 @@ function PerfilUsuario() {
         .then((res) => res.json())
         .then((data) => setGuardados(data))
         .catch(() => setGuardados([]));
+    }
+  }, [activeTab, user.id_usuario]);
+
+  // Listas
+  useEffect(() => {
+    if (activeTab === "listas") {
+      fetch(`http://localhost:3001/listas/usuario/${user.id_usuario}`)
+        .then((res) => res.json())
+        .then((data) => setListas(data))
+        .catch(() => setListas([]));
     }
   }, [activeTab, user.id_usuario]);
 
@@ -126,6 +138,7 @@ function PerfilUsuario() {
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
+        lista={listaSeleccionada}
       ></ModalListaComponent>
 
       {/* Perfil del Usuario */}
@@ -146,7 +159,7 @@ function PerfilUsuario() {
           <label id="idCorreo">
             {user?.email || "ejemploCorreo@gmail.com"}
           </label>
-          
+
           <label>{posts.length} publicacion(es)</label>
 
           <Link to="/editarPerfil">
@@ -319,11 +332,16 @@ function PerfilUsuario() {
                 </div>
 
                 <div id={PerfilUsuarioCSS.idTabListas}>
-                  <ListaGComponent
-                    id="idListaG"
-                    dataBsToggle="modal"
-                    dataBsTarget="#idModalLista"
-                  ></ListaGComponent>
+                  {listas.map((lista) => (
+                    <ListaGComponent
+                      key={lista.id_lista}
+                      id={`lista-${lista.id_lista}`}
+                      dataBsToggle="modal"
+                      dataBsTarget="#idModalLista"
+                      lista={lista}
+                      onClick={() => setListaSeleccionada(lista)}
+                    />
+                  ))}
                 </div>
               </div>
             )}

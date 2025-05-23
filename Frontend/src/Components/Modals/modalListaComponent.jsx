@@ -3,10 +3,11 @@ import ModalElimPostListaComponent from "./modalElimPostListaComponent"
 import PostComponent from "../postComponent"
 
 function ModalListaComponent(props) {
-    
-    const { className, id, tabIndex, role, ariaHidden } = props
-    
-    return(
+    const { className, id, tabIndex, role, ariaHidden, lista } = props;
+
+    if (!lista) return null; // No mostrar nada si no hay lista seleccionada
+
+    return (
         <>
             {/* Modal para Eliminar Listas */}
             <ModalElimListaComponent
@@ -36,41 +37,49 @@ function ModalListaComponent(props) {
                                 </button>
                                 
                                 <div className="col fotos-container">
-                                    <img id="idPortadaLista" src="/Images/Templates/Camara_GO_21-9.png"
-                                        className="dropdown-pixel-corners" alt="Imagen de la Lista"></img>
-                                    <img id="idFotoPerfilL" src="/Images/Templates/Usuario_blanco.png"
-                                        className="circular-pixel-corners" alt="Foto de Perfil"></img>
+                                    <img
+                                        id="idPortadaLista"
+                                        src={lista.portada ? `http://localhost:3001${lista.portada}` : "/Images/Templates/Camara_GO_21-9.png"}
+                                        className="dropdown-pixel-corners"
+                                        alt="Imagen de la Lista"
+                                    />
+                                    <img
+                                        id="idFotoPerfilL"
+                                        src={lista.usuario?.avatar ? `http://localhost:3001${lista.usuario.avatar}` : "/Images/Templates/Usuario_blanco.png"}
+                                        className="circular-pixel-corners"
+                                        alt="Foto de Perfil"
+                                    />
                                 </div>
                                 
                                 <div className="texto-container">
-                                    <h3>Título de la Lista</h3>
-                                    <h6>Creado por Nombre de Usuario</h6>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rhoncus finibus tempor. 
-                                        Vivamus nec nunc dui. Sed vulputate, erat rhoncus tincidunt commodo, sem nisi accumsan purus, tincidunt maximus est ligula id magna. 
-                                        Nam at convallis nibh, in tincidunt velit. Vestibulum non scelerisque ipsum, q
-                                    </p>
+                                    <h3>{lista.nombre}</h3>
+                                    <h6>Creado por {lista.usuario?.nombre || "Usuario"}</h6>
+                                    <p>{lista.descripcion}</p>
                                 </div>
                             </div>
 
                             <div className="modal-body lista-body">
-                                <div className="lista-post">
-                                    <button data-bs-toggle="modal" data-bs-target="#idModalElimPostLista" className="eliminar-post-icono circular-pixel-corners">
-                                        <img src="/Images/Icons/Eliminar.png" alt="Icono de Eliminación"></img>
-                                    </button>
-                                    <PostComponent
-                                        id="idPost"
-                                        dataBsToggle="modal"
-                                        dataBsTarget="#idModalPost"
-                                    ></PostComponent>
-                                </div>
+                                {lista.posts && lista.posts.length > 0 ? (
+                                    lista.posts.map((lp) => (
+                                        <div className="lista-post" key={lp.id_lista_post}>
+                                            <PostComponent
+                                                post={lp.post}
+                                                id={`post-${lp.post.id_post}`}
+                                                dataBsToggle="modal"
+                                                dataBsTarget="#idModalPost"
+                                            />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <p>No hay posts en esta lista.</p>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default ModalListaComponent

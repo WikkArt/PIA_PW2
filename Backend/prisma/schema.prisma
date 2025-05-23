@@ -73,6 +73,7 @@ model Lista {
   descripcion     String?
   fecha_creacion  DateTime  @default(now())
   activo          Boolean   @default(true)
+  portada         String?
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   posts           Lista_Post[]
  

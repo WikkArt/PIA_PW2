@@ -145,6 +145,7 @@ function ModalPostComponent(props) {
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
+        id_post={post?.id_post}
       ></ModalAgregarAListaComponent>
 
       {/* Modal para Eliminar el Post */}
