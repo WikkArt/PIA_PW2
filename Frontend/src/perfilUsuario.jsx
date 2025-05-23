@@ -11,18 +11,20 @@ import PostComponent from "./Components/postComponent.jsx";
 import ListaGComponent from "./Components/listaGComponent.jsx";
 
 function PerfilUsuario() {
-  //Llenar info de usuario y si no hay usuario regresa al login
+  //Llenar info de usuario
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   if (!user) {
     navigate("/login");
     return null;
   }
-  //Variables
+
+  //VARIABLES
   const [activeTab, setActiveTab] = useState("posts");
   const [posts, setPosts] = useState([]);
   const [postSeleccionado, setPostSeleccionado] = useState(null);
   const [likesPosts, setLikesPosts] = useState([]);
+  const [guardados, setGuardados] = useState([]);
 
   //Posts
   useEffect(() => {
@@ -42,7 +44,16 @@ function PerfilUsuario() {
     }
   }, [activeTab, user.id_usuario]);
 
-  
+  //Guardados
+  useEffect(() => {
+    if (activeTab === "guardados") {
+      fetch(`http://localhost:3001/favoritos/usuario/${user.id_usuario}`)
+        .then((res) => res.json())
+        .then((data) => setGuardados(data))
+        .catch(() => setGuardados([]));
+    }
+  }, [activeTab, user.id_usuario]);
+
   //Cambiar pestania
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
@@ -135,11 +146,9 @@ function PerfilUsuario() {
           <label id="idCorreo">
             {user?.email || "ejemploCorreo@gmail.com"}
           </label>
-          <label>
-            {user?.posts?.length
-              ? `${user.posts.length} publicacion(es)`
-              : "0 publicacion(es)"}
-          </label>
+          
+          <label>{posts.length} publicacion(es)</label>
+
           <Link to="/editarPerfil">
             <button className={PerfilUsuarioCSS["boton-pixel-corners"]}>
               Editar Perfil
@@ -360,13 +369,21 @@ function PerfilUsuario() {
                 aria-labelledby="guardados-tab"
               >
                 <h2>Elementos guardados</h2>
-
                 <div id={PerfilUsuarioCSS.idTabGuardado}>
-                  <PostComponent
-                    id="idGuardado"
-                    dataBsToggle="modal"
-                    dataBsTarget="#idModalPost"
-                  ></PostComponent>
+                  {guardados.length === 0 ? (
+                    <p>No tienes elementos guardados aún.</p>
+                  ) : (
+                    guardados.map((post) => (
+                      <PostComponent
+                        key={post.id_post}
+                        id={`guardado-${post.id_post}`}
+                        dataBsToggle="modal"
+                        dataBsTarget="#idModalPost"
+                        post={post}
+                        onClick={() => setPostSeleccionado(post)}
+                      />
+                    ))
+                  )}
                 </div>
               </div>
             )}

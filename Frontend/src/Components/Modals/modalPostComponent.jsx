@@ -8,17 +8,22 @@ import ModalElimPostComponent from "./modalElimPostComponent";
 import ModalElimComentarioComponent from "./modalElimComentarioComponent";
 
 function ModalPostComponent(props) {
+  //VARIABLES
+
   const { className, id, tabIndex, role, ariaHidden, post } = props;
   const [nuevoComentario, setNuevoComentario] = useState("");
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [userScore, setUserScore] = useState(0);
+  const [isGuardado, setIsGuardado] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  //VISTAS o LLAMADAS
+
   useEffect(() => {
     if (post?.id_post) {
-      // Obtener conteo de likes/dislikes
+      // Obtener conteo de likes
       fetch(`http://localhost:3001/puntuaciones/post/${post.id_post}`)
         .then((res) => res.json())
         .then((data) => {
@@ -26,7 +31,7 @@ function ModalPostComponent(props) {
           setDislikes(data.dislikes);
         });
 
-      // Obtener puntuación del usuario
+      // Obtener like del usuario
       if (user) {
         fetch(
           `http://localhost:3001/puntuaciones/user/${user.id_usuario}/post/${post.id_post}`
@@ -34,10 +39,20 @@ function ModalPostComponent(props) {
           .then((res) => res.json())
           .then((data) => setUserScore(data?.valor || 0));
       }
+
+      // Verifica si el post está guardado
+      if (user) {
+        fetch(
+          `http://localhost:3001/favoritos/usuario/${user.id_usuario}/post/${post.id_post}`
+        )
+          .then((res) => res.json())
+          .then((data) => setIsGuardado(data?.activo === true));
+      }
     }
   }, [post, user]);
 
-  // Enviar comentario
+  //ACCIONES
+
   const handleEnviarComentario = async () => {
     if (!nuevoComentario.trim() || !user) return;
     const res = await fetch("http://localhost:3001/comentarios", {
@@ -50,7 +65,7 @@ function ModalPostComponent(props) {
       }),
     });
     const data = await res.json();
-    // Agrega el nuevo comentario al post 
+
     if (post.comentarios) post.comentarios.unshift(data);
     setNuevoComentario("");
   };
@@ -66,7 +81,7 @@ function ModalPostComponent(props) {
         valor,
       }),
     });
-    // Actualiza los contadores 
+    // Actualiza los contadores
     fetch(`http://localhost:3001/puntuaciones/post/${post.id_post}`)
       .then((res) => res.json())
       .then((data) => {
@@ -76,6 +91,29 @@ function ModalPostComponent(props) {
     setUserScore(valor);
   };
 
+  const handleGuardar = async () => {
+    await fetch("http://localhost:3001/favoritos", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_usuario: user.id_usuario,
+        id_post: post.id_post,
+      }),
+    });
+  };
+
+  const handleQuitarGuardado = async () => {
+    await fetch("http://localhost:3001/favoritos/eliminar", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_usuario: user.id_usuario,
+        id_post: post.id_post,
+      }),
+    });
+  };
+
+  //RENDERIZADO
   return (
     <>
       {/* Modal para Agregar un Elemento Guardado */}
@@ -94,6 +132,10 @@ function ModalPostComponent(props) {
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
+        onConfirm={async () => {
+          await handleQuitarGuardado();
+          setIsGuardado(false);
+        }}
       ></ModalElimGuardadoComponent>
 
       {/* Modal para Agregar el Post a una Lista */}
@@ -191,35 +233,83 @@ function ModalPostComponent(props) {
                         className="dropdown-menu dropdown-pixel-corners"
                         aria-labelledby="dropdownMenuButton"
                       >
-                        <Link
-                          className="dropdown-item"
-                          to={`/editarPost/${post.id_post}`}
-                          onClick={() => {
-                            const modal = document.getElementById(id);
-                            if (modal && window.bootstrap) {
-                              const modalInstance =
-                                window.bootstrap.Modal.getInstance(modal) ||
-                                new window.bootstrap.Modal(modal);
-                              modalInstance.hide();
-                            }
-                          }}
-                        >
-                          Editar Post
-                        </Link>
-                        <button
-                          className="dropdown-item"
-                          data-bs-toggle="modal"
-                          data-bs-target="#idModalAgregarGuardado"
-                        >
-                          Guardar
-                        </button>
-                        <button
-                          className="dropdown-item"
-                          data-bs-toggle="modal"
-                          data-bs-target="#idModalElimGuardado"
-                        >
-                          Quitar Elemento Guardado
-                        </button>
+                        {user &&
+                          post.usuario?.id_usuario === user.id_usuario && (
+                            <Link
+                              className="dropdown-item"
+                              to={`/editarPost/${post.id_post}`}
+                              onClick={() => {
+                                const modal = document.getElementById(id);
+                                if (modal && window.bootstrap) {
+                                  const modalInstance =
+                                    window.bootstrap.Modal.getInstance(modal) ||
+                                    new window.bootstrap.Modal(modal);
+                                  modalInstance.hide();
+                                }
+                              }}
+                            >
+                              Editar Post
+                            </Link>
+                          )}
+
+                        {isGuardado ? (
+                          <button
+                            className="dropdown-item"
+                            onClick={() => {
+                              const modalPost = document.getElementById(id);
+                              if (modalPost && window.bootstrap) {
+                                const modalInstance =
+                                  window.bootstrap.Modal.getInstance(
+                                    modalPost
+                                  ) || new window.bootstrap.Modal(modalPost);
+                                modalInstance.hide();
+                              }
+
+                              const modalElim = document.getElementById(
+                                "idModalElimGuardado"
+                              );
+                              if (modalElim && window.bootstrap) {
+                                const modalInstance =
+                                  window.bootstrap.Modal.getOrCreateInstance(
+                                    modalElim
+                                  );
+                                modalInstance.show();
+                              }
+                            }}
+                          >
+                            Quitar de Guardados
+                          </button>
+                        ) : (
+                          <button
+                            className="dropdown-item"
+                            onClick={async () => {
+                              await handleGuardar();
+
+                              const modalPost = document.getElementById(id);
+                              if (modalPost && window.bootstrap) {
+                                const modalInstance =
+                                  window.bootstrap.Modal.getInstance(
+                                    modalPost
+                                  ) || new window.bootstrap.Modal(modalPost);
+                                modalInstance.hide();
+                              }
+
+                              const modal = document.getElementById(
+                                "idModalAgregarGuardado"
+                              );
+                              if (modal && window.bootstrap) {
+                                const modalInstance =
+                                  window.bootstrap.Modal.getOrCreateInstance(
+                                    modal
+                                  );
+                                modalInstance.show();
+                              }
+                            }}
+                          >
+                            Guardar
+                          </button>
+                        )}
+
                         <button
                           className="dropdown-item"
                           data-bs-toggle="modal"
@@ -227,13 +317,14 @@ function ModalPostComponent(props) {
                         >
                           Agregar a Lista
                         </button>
-                        <button
+
+                        {/* <button
                           className="dropdown-item"
                           data-bs-toggle="modal"
                           data-bs-target="#idModalElimPost"
                         >
                           Eliminar Post
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>

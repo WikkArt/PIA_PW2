@@ -1,7 +1,7 @@
 function ModalElimGuardadoComponent(props) {
     
-    const { className, id, tabIndex, role, ariaHidden } = props
-    
+    const { className, id, tabIndex, role, ariaHidden, onConfirm } = props
+
     return(
         <>
             <div className={className} id={id} tabIndex={tabIndex} role={role} aria-hidden={ariaHidden}>
@@ -22,11 +22,26 @@ function ModalElimGuardadoComponent(props) {
                                 </p>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="dropdown-pixel-corners">
+                                <button
+                                    type="button"
+                                    className="dropdown-pixel-corners"
+                                    onClick={async () => {
+                                        if (onConfirm) await onConfirm();
+                                       
+                                        const modal = document.getElementById(id);
+                                        if (modal && window.bootstrap) {
+                                          const modalInstance = window.bootstrap.Modal.getInstance(modal);
+                                          modalInstance.hide();
+                                        }
+                                    }}
+                                >
                                     Sí
                                 </button>
-                                <button type="button" className="dropdown-pixel-corners"
-                                    data-bs-toggle="modal" data-bs-target="#idModalPost">
+                                <button
+                                    type="button"
+                                    className="dropdown-pixel-corners"
+                                    data-bs-dismiss="modal"
+                                >
                                     No
                                 </button>
                             </div>

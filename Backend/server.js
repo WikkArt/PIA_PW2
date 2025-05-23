@@ -10,6 +10,7 @@ const usuariosRoutes = require('./routes/usuarios');
 const postsRoutes = require('./routes/posts');
 const comentariosRouter = require('./routes/comentarios');
 const puntuacionesRouter = require('./routes/puntuaciones');
+const favoritosRouter = require('./routes/favoritos');
 
 app.use(cors()); 
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use('/usuarios', usuariosRoutes);
 app.use('/posts', postsRoutes);
 app.use('/comentarios', comentariosRouter);
 app.use('/puntuaciones', puntuacionesRouter);
+app.use('/favoritos', favoritosRouter);
 
 app.listen(3001, () => {
   console.log('Servidor corriendo en puerto 3001');
