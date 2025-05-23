@@ -1,21 +1,15 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-// 1. Configuración de la base de datos
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
  
-// 2. Configuración del generador del cliente de Prisma
 generator client {
   provider = "prisma-client-js"
 }
  
-// 3. Definición de los modelos (tablas)
 model Usuario {
   id_usuario      Int       @id @default(autoincrement())
   nombre          String
@@ -23,6 +17,7 @@ model Usuario {
   password        String
   avatar          String?
   fecha_registro  DateTime  @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido
   posts           Post[]
   puntuaciones    Puntuacion[]
   comentarios     Comentario[]
@@ -37,13 +32,54 @@ model Categoria {
   id_categoria    Int       @id @default(autoincrement())
   nombre          String    @unique
   descripcion     String?
-  tipo_categoria  String    // ENUM se maneja como String en Prisma
+  tipo_categoria  String
   fecha_creacion  DateTime  @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido
   posts           Post[]
  
   @@index([nombre], name: "idx_categoria_nombre")
 }
  
+model Comentario {
+  id_comentario   Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_post         Int
+  contenido       String
+  fecha_comentario DateTime @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+ 
+  @@index([id_post], name: "idx_comentario_post")
+}
+ 
+model Favoritos {
+  id_favorito     Int       @id @default(autoincrement())
+  id_usuario      Int
+  id_post         Int
+  fecha_guardado  DateTime  @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  post            Post      @relation(fields: [id_post], references: [id_post])
+ 
+  @@unique([id_usuario, id_post], name: "unique_favorito_usuario_post")
+  @@index([id_usuario], name: "idx_favorito_usuario")
+}
+ 
+model Lista {
+  id_lista        Int       @id @default(autoincrement())
+  id_usuario      Int
+  nombre          String
+  descripcion     String?
+  fecha_creacion  DateTime  @default(now())
+  activo          Boolean   @default(true) // <- Campo añadido
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  posts           Lista_Post[]
+ 
+  @@index([id_usuario], name: "idx_lista_usuario")
+}
+
+/* Los demás modelos permanecen exactamente igual */
 model Post {
   id_post         Int       @id @default(autoincrement())
   id_usuario      Int
@@ -51,7 +87,7 @@ model Post {
   titulo          String
   descripcion     String?
   url_archivo     String
-  tipo            String    // ENUM se maneja como String en Prisma
+  tipo            String
   fecha_subida    DateTime  @default(now())
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
   categoria       Categoria? @relation(fields: [id_categoria], references: [id_categoria])
@@ -77,30 +113,6 @@ model Puntuacion {
   @@index([id_post], name: "idx_puntuacion_post")
 }
  
-model Comentario {
-  id_comentario   Int       @id @default(autoincrement())
-  id_usuario      Int
-  id_post         Int
-  contenido       String
-  fecha_comentario DateTime @default(now())
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  post            Post      @relation(fields: [id_post], references: [id_post])
- 
-  @@index([id_post], name: "idx_comentario_post")
-}
- 
-model Favoritos {
-  id_favorito     Int       @id @default(autoincrement())
-  id_usuario      Int
-  id_post         Int
-  fecha_guardado  DateTime  @default(now())
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  post            Post      @relation(fields: [id_post], references: [id_post])
- 
-  @@unique([id_usuario, id_post], name: "unique_favorito_usuario_post")
-  @@index([id_usuario], name: "idx_favorito_usuario")
-}
- 
 model HistorialBusqueda {
   id_busqueda     Int       @id @default(autoincrement())
   id_usuario      Int
@@ -109,18 +121,6 @@ model HistorialBusqueda {
   usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
  
   @@index([id_usuario], name: "idx_busqueda_usuario")
-}
- 
-model Lista {
-  id_lista        Int       @id @default(autoincrement())
-  id_usuario      Int
-  nombre          String
-  descripcion     String?
-  fecha_creacion  DateTime  @default(now())
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  posts           Lista_Post[]
- 
-  @@index([id_usuario], name: "idx_lista_usuario")
 }
  
 model Lista_Post {
@@ -132,5 +132,3 @@ model Lista_Post {
   @@id([id_lista, id_post])
   @@index([id_lista, id_post], name: "idx_lista_post")
 }
-
-
