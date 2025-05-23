@@ -8,6 +8,7 @@ import { mostrarAvatar } from "./JS/mostrarAvatar.js";
 import InputComponent from "./Components/inputComponent";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./Components/Navbar";
 
 function Registro() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ function Registro() {
   const [fechaNacimiento, setFechaNacimiento] = useState("");
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
-  
+
   const handleAvatarChange = (event) => {
     mostrarAvatar(event, "idAvatarSample");
     setAvatar(event.target.files[0]);
@@ -34,13 +35,10 @@ function Registro() {
     }
 
     try {
-      const response = await fetch(
-        "http://localhost:3001/auth/registro",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("http://localhost:3001/auth/registro", {
+        method: "POST",
+        body: formData,
+      });
 
       if (response.ok) {
         toast.success("Usuario registrado correctamente");
@@ -57,29 +55,7 @@ function Registro() {
   return (
     <>
       {" "}
-      {/* Navegador */}
-      <ul id="idNavPixplore" className="nav">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            Inicio
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link" to="/login">
-            Iniciar Sesión
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link active" to="/registro">
-            Registro
-          </Link>
-        </li>
-      </ul>
+      <Navbar />
       {/* Registro */}
       <form
         id="idRegistro"

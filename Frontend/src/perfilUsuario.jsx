@@ -9,15 +9,12 @@ import ModalCrearListaComponent from "./Components/Modals/modalCrearListaCompone
 import ModalListaComponent from "./Components/Modals/modalListaComponent.jsx";
 import PostComponent from "./Components/postComponent.jsx";
 import ListaGComponent from "./Components/listaGComponent.jsx";
+import Navbar from "./Components/Navbar";
 
 function PerfilUsuario() {
   //Llenar info de usuario
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
-  if (!user) {
-    navigate("/login");
-    return null;
-  }
 
   //VARIABLES
   const [activeTab, setActiveTab] = useState("posts");
@@ -28,6 +25,12 @@ function PerfilUsuario() {
   const [listas, setListas] = useState([]);
   const [listaSeleccionada, setListaSeleccionada] = useState(null);
 
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+  if (!user) return null;
   //Posts
   useEffect(() => {
     fetch(`http://localhost:3001/posts/usuario/${user.id_usuario}`)
@@ -73,35 +76,7 @@ function PerfilUsuario() {
 
   return (
     <>
-      {/* Navegador */}
-      <ul id="idNavPixplore" className="nav">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            Inicio
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link active" to="/perfilUsuario">
-            Perfil
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link
-            className="nav-link"
-            onClick={() => {
-              localStorage.removeItem("user");
-              window.location.reload();
-            }}
-          >
-            Cerrar Sesión
-          </Link>
-        </li>
-      </ul>
+      <Navbar />
 
       {/* Modal para Desactivar Usuario */}
       <ModalDesacUserComponent

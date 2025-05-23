@@ -7,6 +7,7 @@ import ModalDesacUserComponent from "./Components/Modals/modalDesacUserComponent
 import ModalCrearCateComponent from "./Components/Modals/modalCrearCateComponent.jsx";
 import ModalEditarCateComponent from "./Components/Modals/modalEditarCateComponent.jsx";
 import ModalElimCateComponent from "./Components/Modals/modalElimCateComponent.jsx";
+import Navbar from "./Components/Navbar";
 
 function PerfilAdmin() {
   const [activeTab, setActiveTab] = useState("usuarios");
@@ -42,29 +43,7 @@ function PerfilAdmin() {
   return (
     <>
       {/* Navegador */}
-      <ul id="idNavPixplore" className="nav">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            Inicio
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link active" to="/perfilAdmin">
-            Perfil
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link" to="/login">
-            Cerrar Sesión
-          </Link>
-        </li>
-      </ul>
-
+      <Navbar />
       {/* Modal para Desactivar Usuario */}
       <ModalCrearCateComponent
         className={`modal fade ${PerfilAdminCSS["modal-crear-cate"]}`}

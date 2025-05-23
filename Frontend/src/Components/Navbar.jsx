@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const user = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
 
   return (
     <ul id="idNavPixplore" className="nav">
@@ -12,54 +13,56 @@ function Navbar() {
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/">
+        <Link
+          className={`nav-link${location.pathname === "/" ? " active" : ""}`}
+          to="/"
+        >
           Inicio
         </Link>
       </li>
       {user ? (
         <>
           <li className="nav-item nav-right">
-            <span
-              className="nav-link"
-              style={{ display: "flex", alignItems: "center", gap: 8 }}
+            <Link
+              className={`nav-link${
+                location.pathname === "/perfilUsuario" ? " active" : ""
+              }`}
+              to="/perfilUsuario"
             >
-              {user.avatar && (
-                <img
-                  src={`http://localhost:3001${user.avatar}`}
-                  alt="Avatar"
-                  style={{ width: 32, height: 32, borderRadius: "50%" }}
-                />
-              )}
-              <Link
-                className="nav-link"
-                to="/perfilUsuario"
-                style={{ display: "flex", alignItems: "center", gap: 8 }}
-              >
-                {user.nombre}
-              </Link>
-            </span>
+              Perfil
+            </Link>
           </li>
           <li className="nav-item nav-right">
             <Link
               className="nav-link"
               onClick={() => {
                 localStorage.removeItem("user");
-                window.location.reload();
+                navigate("/login");
               }}
             >
-              Cerrar Sesiòn
+              Cerrar Sesión
             </Link>
           </li>
         </>
       ) : (
         <>
           <li className="nav-item nav-right">
-            <Link className="nav-link" to="/login">
+            <Link
+              className={`nav-link${
+                location.pathname === "/login" ? " active" : ""
+              }`}
+              to="/login"
+            >
               Iniciar Sesión
             </Link>
           </li>
           <li className="nav-item nav-right">
-            <Link className="nav-link" to="/registro">
+            <Link
+              className={`nav-link${
+                location.pathname === "/registro" ? " active" : ""
+              }`}
+              to="/registro"
+            >
               Registro
             </Link>
           </li>

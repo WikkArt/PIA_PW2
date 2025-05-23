@@ -7,6 +7,7 @@ import { mostrarAvatar } from "./JS/mostrarAvatar.js";
 import InputComponent from "./Components/inputComponent.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./Components/Navbar";
 
 function EditarPost() {
   const { id } = useParams();
@@ -74,29 +75,7 @@ function EditarPost() {
 
   return (
     <>
-      {/* Navegador */}
-      <ul id="idNavPixplore" className="nav">
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            <img src="/Images/Logo_DarkMode.png" alt="Logo de PIXPLORE"></img>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/">
-            Inicio
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link" to="/perfilUsuario">
-            Perfil
-          </Link>
-        </li>
-        <li className="nav-item nav-right">
-          <Link className="nav-link" to="/login">
-            Cerrar Sesión
-          </Link>
-        </li>
-      </ul>
+     <Navbar />
 
       {/* Editar Post */}
       <form
