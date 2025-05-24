@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./CSS/bootstrap.min.css";
 import "./CSS/dashboard.css";
@@ -13,7 +13,13 @@ import ListasSComponent from "./Components/listaSComponent.jsx";
 import PostComponent from "./Components/postComponent.jsx";
 import Navbar from "./Components/Navbar";
 function Dashboard() {
-  // Barra de Busqueda
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   // Checkboxes
   const [checkedState, setCheckedState] = useState({
@@ -39,6 +45,12 @@ function Dashboard() {
   const [listaSeleccionada, setListaSeleccionada] = useState(null);
   const [categorias, setCategorias] = useState([]);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);
+  const [tempCheckedState, setTempCheckedState] = useState(checkedState);
+  const [tempFechaDesde, setTempFechaDesde] = useState("");
+  const [tempFechaHasta, setTempFechaHasta] = useState("");
+  const [fechaDesde, setFechaDesde] = useState("");
+  const [fechaHasta, setFechaHasta] = useState("");
+  const [filtrosAplicados, setFiltrosAplicados] = useState(false);
   const fandomCategorias = categorias.filter(
     (cat) => cat.tipo_categoria === "Fandom"
   );
@@ -186,6 +198,49 @@ function Dashboard() {
       .catch(() => setCategorias([]));
   }, []);
 
+  const aplicarFiltros = (e) => {
+    e.preventDefault();
+    setCheckedState(tempCheckedState);
+    setFechaDesde(tempFechaDesde);
+    setFechaHasta(tempFechaHasta);
+    setFiltrosAplicados(true);
+  };
+
+  const selectedFandomIds = Object.entries(checkedState.fandom || {})
+    .filter(([_, checked]) => checked)
+    .map(([name]) => {
+      const cat = fandomCategorias.find((c) => c.nombre === name);
+      return cat ? cat.id_categoria : null;
+    })
+    .filter((id) => id !== null);
+
+  const selectedOriginalIds = Object.entries(checkedState.original || {})
+    .filter(([_, checked]) => checked)
+    .map(([name]) => {
+      const cat = originalCategorias.find((c) => c.nombre === name);
+      return cat ? cat.id_categoria : null;
+    })
+    .filter((id) => id !== null);
+
+  const selectedCategoryIds = [...selectedFandomIds, ...selectedOriginalIds];
+
+  const filteredPosts = posts.filter((post) => {
+    const inCategoria =
+      selectedCategoryIds.length === 0
+        ? true
+        : selectedCategoryIds.includes(post.id_categoria);
+
+    const postDate = new Date(post.fecha_subida); // Ajusta si tu campo es diferente
+    const desde = fechaDesde ? new Date(fechaDesde) : null;
+    const hasta = fechaHasta ? new Date(fechaHasta) : null;
+
+    let inFecha = true;
+    if (desde && postDate < desde) inFecha = false;
+    if (hasta && postDate > hasta) inFecha = false;
+
+    return inCategoria && inFecha;
+  });
+
   return (
     <>
       <Navbar />
@@ -313,8 +368,16 @@ function Dashboard() {
                 label={cat.nombre}
                 name={cat.nombre}
                 value={cat.id_categoria}
-                checked={checkedState.fandom[cat.nombre] || false}
-                onChange={handleChange}
+                checked={!!tempCheckedState.fandom[cat.nombre]}
+                onChange={(e) =>
+                  setTempCheckedState((prev) => ({
+                    ...prev,
+                    fandom: {
+                      ...prev.fandom,
+                      [cat.nombre]: e.target.checked,
+                    },
+                  }))
+                }
                 dataBsToggle="modal"
                 dataBsTarget="#idCategoriaModal"
                 onInfoClick={() => setCategoriaSeleccionada(cat)}
@@ -365,7 +428,7 @@ function Dashboard() {
 
           <h1>FILTROS</h1>
 
-          <div className="filtro-likes">
+          {/* <div className="filtro-likes">
             <input
               className="form-check-input"
               type="checkbox"
@@ -375,7 +438,7 @@ function Dashboard() {
             <label className="form-check-label" htmlFor="chbLikes">
               Favoritos de la Comunidad
             </label>
-          </div>
+          </div> */}
 
           <h3>Fechas</h3>
           <div className="filtro-fechas">
@@ -383,20 +446,25 @@ function Dashboard() {
             <input
               className="input-fecha comentario-pixel-corners"
               type="date"
-              name="TXTDate"
+              name="fechaDesde"
+              value={tempFechaDesde}
+              onChange={(e) => setTempFechaDesde(e.target.value)}
             ></input>
             <label className="filtro-subtitulo">Hasta:</label>
             <input
               className="input-fecha comentario-pixel-corners"
               type="date"
-              name="TXTDate"
+              name="fechaHasta"
+              value={tempFechaHasta}
+              onChange={(e) => setTempFechaHasta(e.target.value)}
             ></input>
           </div>
 
           <button
             id="btnFiltros"
-            type="submit"
+            type="button"
             className="comentario-pixel-corners"
+            onClick={aplicarFiltros}
           >
             Aplicar filtros
           </button>
@@ -433,10 +501,10 @@ function Dashboard() {
 
           {/* Posts */}
           <div id="idDashboard">
-            {posts.length === 0 ? (
+            {(filtrosAplicados ? filteredPosts : posts).length === 0 ? (
               <p id="idNoContent">No tienes publicaciones aún.</p>
             ) : (
-              posts.map((post) => (
+              (filtrosAplicados ? filteredPosts : posts).map((post) => (
                 <PostComponent
                   key={post.id_post}
                   post={post}

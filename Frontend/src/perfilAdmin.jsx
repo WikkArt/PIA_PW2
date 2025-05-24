@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CSS/bootstrap.min.css";
 import PerfilAdminCSS from "./CSS/perfilAdmin.module.css";
 import "./JS/bootstrap.bundle.min.js";
@@ -10,6 +10,14 @@ import ModalElimCateComponent from "./Components/Modals/modalElimCateComponent.j
 import Navbar from "./Components/Navbar";
 
 function PerfilAdmin() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   const [activeTab, setActiveTab] = useState("usuarios");
   const [categorias, setCategorias] = useState([]);
   const [categoriaEditar, setCategoriaEditar] = useState(null);
@@ -18,7 +26,7 @@ function PerfilAdmin() {
   // Traer categorías del backend
   useEffect(() => {
     if (activeTab === "categorias") {
-      fetch('http://localhost:3001/categorias')
+      fetch("http://localhost:3001/categorias")
         .then((res) => res.json())
         .then((data) => setCategorias(data))
         .catch(() => setCategorias([]));
@@ -28,7 +36,7 @@ function PerfilAdmin() {
   // Traer usuarios del backend
   useEffect(() => {
     if (activeTab === "usuarios") {
-      fetch('http://localhost:3001/usuarios')
+      fetch("http://localhost:3001/usuarios")
         .then((res) => res.json())
         .then((data) => setUsuarios(data))
         .catch(() => setUsuarios([]));
@@ -73,9 +81,13 @@ function PerfilAdmin() {
         role="dialog"
         aria-hidden="true"
         categoria={categoriaEditar}
-        onCategoriaEditada={catActualizada => {
-          setCategorias(prev =>
-            prev.map(cat => cat.id_categoria === catActualizada.id_categoria ? catActualizada : cat)
+        onCategoriaEditada={(catActualizada) => {
+          setCategorias((prev) =>
+            prev.map((cat) =>
+              cat.id_categoria === catActualizada.id_categoria
+                ? catActualizada
+                : cat
+            )
           );
         }}
       ></ModalEditarCateComponent>

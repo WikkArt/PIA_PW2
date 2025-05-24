@@ -79,17 +79,7 @@ function Registro() {
             accept="image/*"
           ></input>
 
-          <div className={RegistroCSS.datos}>
-            <InputComponent
-              label="Fecha de nacimiento"
-              type="date"
-              name="dateBirth"
-              id="dateBirth"
-              className={RegistroCSS["date-birth"]}
-              value={fechaNacimiento}
-              onChange={(e) => setFechaNacimiento(e.target.value)}
-            />
-          </div>
+         
         </div>
 
         <div className={`${RegistroCSS.col} ${RegistroCSS["col-der"]}`}>

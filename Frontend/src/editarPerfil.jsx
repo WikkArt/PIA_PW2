@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./CSS/bootstrap.min.css";
 import RegistroCSS from "./CSS/registro.module.css";
@@ -73,6 +73,12 @@ function EditarPerfil() {
     }
   };
 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate("/login");
+    }
+  }, [navigate]);
   return (
     <>
       <Navbar />

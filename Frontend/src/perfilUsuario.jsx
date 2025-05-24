@@ -12,7 +12,7 @@ import ListaGComponent from "./Components/listaGComponent.jsx";
 import Navbar from "./Components/Navbar";
 
 function PerfilUsuario() {
-  //Llenar info de usuario
+ 
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
@@ -143,13 +143,7 @@ function PerfilUsuario() {
               Editar Perfil
             </button>
           </Link>
-          <button
-            className={`${PerfilUsuarioCSS["dropdown-pixel-corners"]} ${PerfilUsuarioCSS["btn-eliminar"]}`}
-            data-bs-toggle="modal"
-            data-bs-target="#idModalDesacUser"
-          >
-            Desactivar cuenta
-          </button>
+         
         </div>
 
         <div className={`col ${PerfilUsuarioCSS["col-der"]}`}>
