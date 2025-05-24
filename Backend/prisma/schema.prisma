@@ -47,8 +47,8 @@ model Comentario {
   contenido       String
   fecha_comentario DateTime @default(now())
   activo          Boolean   @default(true)
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  post            Post      @relation(fields: [id_post], references: [id_post])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
+  post            Post      @relation(fields: [id_post], references: [id_post], onDelete: Cascade)
  
   @@index([id_post], name: "idx_comentario_post")
 }
@@ -59,8 +59,8 @@ model Favoritos {
   id_post         Int
   fecha_guardado  DateTime  @default(now())
   activo          Boolean   @default(true)
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  post            Post      @relation(fields: [id_post], references: [id_post])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
+  post            Post      @relation(fields: [id_post], references: [id_post], onDelete: Cascade)
  
   @@unique([id_usuario, id_post], name: "unique_favorito_usuario_post")
   @@index([id_usuario], name: "idx_favorito_usuario")
@@ -74,7 +74,7 @@ model Lista {
   fecha_creacion  DateTime  @default(now())
   activo          Boolean   @default(true)
   portada         String?
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
   posts           Lista_Post[]
  
   @@index([id_usuario], name: "idx_lista_usuario")
@@ -90,8 +90,8 @@ model Post {
   tipo            String
   fecha_subida    DateTime  @default(now())
   activo          Boolean   @default(true) // <- Campo añadido a Post
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  categoria       Categoria? @relation(fields: [id_categoria], references: [id_categoria])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
+  categoria       Categoria? @relation(fields: [id_categoria], references: [id_categoria], onDelete: Cascade)
   puntuaciones    Puntuacion[]
   comentarios     Comentario[]
   favoritos       Favoritos[]
@@ -107,8 +107,8 @@ model Puntuacion {
   id_post         Int
   valor           Int
   fecha_puntuacion DateTime @default(now())
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
-  post            Post      @relation(fields: [id_post], references: [id_post])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
+  post            Post      @relation(fields: [id_post], references: [id_post], onDelete: Cascade)
  
   @@unique([id_usuario, id_post], name: "unique_puntuacion_usuario_post")
   @@index([id_post], name: "idx_puntuacion_post")
@@ -119,7 +119,7 @@ model HistorialBusqueda {
   id_usuario      Int
   termino_busqueda String
   fecha_busqueda  DateTime  @default(now())
-  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario])
+  usuario         Usuario   @relation(fields: [id_usuario], references: [id_usuario], onDelete: Cascade)
  
   @@index([id_usuario], name: "idx_busqueda_usuario")
 }
@@ -127,8 +127,8 @@ model HistorialBusqueda {
 model Lista_Post {
   id_lista        Int
   id_post         Int
-  lista           Lista     @relation(fields: [id_lista], references: [id_lista])
-  post            Post      @relation(fields: [id_post], references: [id_post])
+  lista           Lista     @relation(fields: [id_lista], references: [id_lista], onDelete: Cascade)
+  post            Post      @relation(fields: [id_post], references: [id_post], onDelete: Cascade)
  
   @@id([id_lista, id_post])
   @@index([id_lista, id_post], name: "idx_lista_post")

@@ -48,6 +48,20 @@ function PerfilAdmin() {
     setActiveTab(tabName);
   };
 
+  const borrarUsuario = async (id_usuario) => {
+    if (
+      window.confirm(
+        "¿Seguro que deseas borrar este usuario y todos sus datos?"
+      )
+    ) {
+      await fetch(`http://localhost:3001/admi/usuario/${id_usuario}`, {
+        method: "DELETE",
+      });
+     
+      //setUsuarios((prev) => prev.filter((u) => u.id_usuario !== id_usuario));
+    }
+  };
+
   return (
     <>
       {/* Navegador */}
@@ -171,20 +185,30 @@ function PerfilAdmin() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Juan Pérez</td>
-                        <td>juan@example.com</td>
-                        <td>
-                          <button
-                            className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger"]} ${PerfilAdminCSS["pixel-corners"]}`}
-                            data-bs-toggle="modal"
-                            data-bs-target="#idModalDesacUser"
-                          >
-                            Desactivar
-                          </button>
-                        </td>
-                      </tr>
+                      {usuarios.length === 0 ? (
+                        <tr>
+                          <td id="idNoContent">No hay usuarios registrados.</td>
+                        </tr>
+                      ) : (
+                        usuarios.map((usuario) => (
+                          <tr key={usuario.id_usuario}>
+                            <td>{usuario.id_usuario}</td>
+                            <td>{usuario.nombre}</td>
+                            <td>{usuario.email}</td>
+                            <td>
+                              <button
+                                className={`${PerfilAdminCSS.btn} ${PerfilAdminCSS["btn-danger"]} ${PerfilAdminCSS["pixel-corners"]}`}
+                                onClick={() =>
+                                  borrarUsuario(usuario.id_usuario)
+                                }
+                              
+                              >
+                                Borrar
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      )}
                     </tbody>
                   </table>
                 </div>
