@@ -1022,6 +1022,10 @@ button.close label{
   font-style: italic;
 }
 
+#idModalPost .modal-categorias label{
+  font-size: 17px;
+}
+
 #idModalPost .modal-categorias label:first-child::before{
   content: "Categorías: ";
   font-weight: 600;
@@ -1029,7 +1033,7 @@ button.close label{
 }
 
 #idModalPost .modal-categorias label:first-child::after{
-  content: ", ";
+  content: ",\00a0";
 }
 
 #idModalPost .modal-botones{
@@ -1037,6 +1041,7 @@ button.close label{
   padding-block: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #idModalPost .modal-botones label{
@@ -1052,13 +1057,14 @@ button.close label{
 #idModalPost .modal-botones div{
   display: flex;
   gap: 4px;
+  font-size: 14px;
 }
 
 #idModalPost .modal-botones div:last-child{
   font-family: "VT323";
-  font-size: 18px;
+  font-size: 16px;
   justify-content: end;
-  gap: 8px;
+  gap: 5px;
 }
 
 #idModalPost .modal-botones a{
@@ -1072,9 +1078,8 @@ button.close label{
 }
 
 #idModalPost .modal-botones a img{
-  height: 21px;
-  width: 21px;
-  margin-right: 5px;
+  height: 20px;
+  width: 20px;
 }
 
 #idModalPost .modal-botones button{
@@ -1083,7 +1088,7 @@ button.close label{
   background-color: var(--gris-darkmode);
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 5px 12px;
   transition: 0.15s ease;
 }
 
@@ -1123,8 +1128,8 @@ button.close label{
 }
 
 #idModalPost .modal-botones button img{
-  height: 18px;
-  width: 18px;
+  height: 14px;
+  width: 14px;
   margin-right: 5px;
 }
 
@@ -1449,6 +1454,7 @@ button.close label{
 .fotos-container{
   position: relative;
   width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
 }
@@ -1659,4 +1665,11 @@ button.close label{
 #idModalAgregarALista .modal-footer button:hover{
   background-color: var(--verde-pixplore);
   color: black;
+}
+
+/* Mensaje cuando no hay contenido */
+#idNoContent{
+  color: var(--gris-lightmode);
+  font-family: "VT323";
+  font-size: 20px;
 }

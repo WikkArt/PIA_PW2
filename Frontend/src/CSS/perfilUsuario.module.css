@@ -1263,7 +1263,12 @@ button.close label{
 /* Listas */
 
 /* Crear Listas */
+.lista-content{
+  width: 100vw;
+}
+
 .lista-header{
+  width: 100vw;
   border-bottom: 2px solid var(--verde-pixplore);
   background-color: var(--negro-pixplore);
   color: var(--verde-pixplore);
@@ -1283,7 +1288,6 @@ button.close label{
 }
 
 .fotos-container img{
-  width: 100%;
   display: block;
   /* height: 214px; */
   object-fit: cover;
@@ -1299,6 +1303,9 @@ button.close label{
 .form-control{
   width: 100%;
   margin-bottom: 10px;
+  font-family: "Handjet";
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .texto-container{
@@ -1309,6 +1316,12 @@ button.close label{
   margin-right: -5px;
   padding-block: 18px;
   padding-inline: 15px;
+}
+
+.texto-container label{
+  color: white;
+  font-family: "Pixelify-Sans";
+  font-size: 18px;
 }
 
 input.cuadro-txt,
@@ -1358,7 +1371,7 @@ textarea.cuadro-txt{
 
 .lista-grande button:hover{
   background-color: var(--verde-pixplore);
-  p, h3{
+  p, h3, small{
     color: var(--negro-pixplore);
   }
 }
@@ -1455,6 +1468,11 @@ textarea.cuadro-txt{
     3px 12px,
     0px 12px
   );
+}
+
+.lista-grande small{
+  color: var(--gris-lightmode);
+  font-family: "Handjet";
 }
 
 /* Likes */

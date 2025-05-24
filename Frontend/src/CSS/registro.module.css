@@ -152,7 +152,6 @@ html, body{
 }
 
 .form-control,
-#idRol,
 .date-birth{
   font-family: "Handjet";
   font-weight: 600;
@@ -184,7 +183,7 @@ html, body{
   font-size: 60px;
 }
 
-.registro label[for=""]{
+.registro label{
   color: white;
   font-family: "Pixelify-Sans";
   font-size: 24px;

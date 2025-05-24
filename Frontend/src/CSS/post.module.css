@@ -228,7 +228,8 @@ html, body{
 }
 
 .categorias select,
-.crear-post input.cuadro-txt{
+.crear-post input.cuadro-txt,
+textarea.cuadro-txt{
   font-family: "Handjet";
   font-weight: 550;
   letter-spacing: 1px;
@@ -238,7 +239,8 @@ html, body{
   outline: none;
 }
 
-.crear-post input.cuadro-txt{
+.crear-post input.cuadro-txt,
+textarea.cuadro-txt{
   font-size: 20px;
 }
 

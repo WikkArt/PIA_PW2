@@ -264,7 +264,7 @@ function PerfilUsuario() {
 
                 <div id={PerfilUsuarioCSS.idTabPost}>
                   {posts.length === 0 ? (
-                    <p>No tienes publicaciones aún.</p>
+                    <p id="idNoContent">No tienes publicaciones aún.</p>
                   ) : (
                     posts.map((post) => (
                       <PostComponent
@@ -334,7 +334,7 @@ function PerfilUsuario() {
                 <h2>Tus likes</h2>
                 <div id={PerfilUsuarioCSS.idTabLike}>
                   {likesPosts.length === 0 ? (
-                    <p>No tienes likes aún.</p>
+                    <p id="idNoContent">No tienes likes aún.</p>
                   ) : (
                     likesPosts.map((post) => (
                       <PostComponent
@@ -364,7 +364,7 @@ function PerfilUsuario() {
                 <h2>Elementos guardados</h2>
                 <div id={PerfilUsuarioCSS.idTabGuardado}>
                   {guardados.length === 0 ? (
-                    <p>No tienes elementos guardados aún.</p>
+                    <p id="idNoContent">No tienes elementos guardados aún.</p>
                   ) : (
                     guardados.map((post) => (
                       <PostComponent

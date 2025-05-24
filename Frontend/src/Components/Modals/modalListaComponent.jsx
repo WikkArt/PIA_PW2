@@ -71,7 +71,7 @@ function ModalListaComponent(props) {
                                         </div>
                                     ))
                                 ) : (
-                                    <p>No hay posts en esta lista.</p>
+                                    <p id="idNoContent">No hay posts en esta lista.</p>
                                 )}
                             </div>
                         </div>

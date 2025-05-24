@@ -428,7 +428,7 @@ function ModalPostComponent(props) {
                           />
                         ))
                       ) : (
-                        <p>No hay comentarios aún.</p>
+                        <p id="idNoContent">No hay comentarios aún.</p>
                       )}
                     </div>
                   </div>
