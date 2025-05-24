@@ -20,12 +20,14 @@ function Navbar() {
           Inicio
         </Link>
       </li>
-      <li className="nav-item nav-buscador">
-        <input type="text" placeholder='Buscar...'></input>
-        <button id="idNavBuscar">
+      {/* {location.pathname === "/" && (
+        <li className="nav-item nav-buscador">
+          <input type="text" placeholder="Buscar..."></input>
+          <button id="idNavBuscar">
             <img src="/Images/Icons/Buscar.png" alt="Buscador"></img>
-        </button>
-      </li>
+          </button>
+        </li>
+      )} */}
       {user ? (
         <>
           <li className="nav-item nav-right">

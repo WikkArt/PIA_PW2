@@ -114,6 +114,7 @@ function PerfilUsuario() {
         role="dialog"
         aria-hidden="true"
         lista={listaSeleccionada}
+        onPostClick={setPostSeleccionado}
       ></ModalListaComponent>
 
       {/* Perfil del Usuario */}
@@ -222,7 +223,7 @@ function PerfilUsuario() {
                 Guardados
               </button>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <button
                 className={`${PerfilUsuarioCSS["nav-link"]} ${
                   activeTab === "historial" ? PerfilUsuarioCSS.active : ""
@@ -238,7 +239,7 @@ function PerfilUsuario() {
               >
                 Historial
               </button>
-            </li>
+            </li> */}
           </ul>
 
           <div className={PerfilUsuarioCSS["tab-content"]}>

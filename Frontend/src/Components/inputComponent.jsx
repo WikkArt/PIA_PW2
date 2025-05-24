@@ -9,8 +9,8 @@ function InputComponent(props) {
                 name={name}
                 id={id}
                 className={className}
-                value={value} // Propaga el valor
-                onChange={onChange} // Propaga el evento onChange
+                value={value} 
+                onChange={onChange} 
             />
         </>
     );

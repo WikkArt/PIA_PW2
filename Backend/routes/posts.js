@@ -53,9 +53,9 @@ router.get("/usuario/:id", async (req, res) => {
         categoria: true,
         comentarios: {
           include: {
-            usuario: true
-          }
-        }
+            usuario: true,
+          },
+        },
       },
       orderBy: { fecha_subida: "desc" },
     });
@@ -66,7 +66,7 @@ router.get("/usuario/:id", async (req, res) => {
 });
 
 // Editar un post
-router.put('/editar/:id', upload.single('archivo'), async (req, res) => {
+router.put("/editar/:id", upload.single("archivo"), async (req, res) => {
   const { id } = req.params;
   const { titulo, descripcion, tipo, id_categoria } = req.body;
   let data = {
@@ -90,7 +90,7 @@ router.put('/editar/:id', upload.single('archivo'), async (req, res) => {
 });
 
 // Obtener un post por id
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const post = await prisma.post.findUnique({
@@ -100,15 +100,67 @@ router.get('/:id', async (req, res) => {
         categoria: true,
         comentarios: {
           include: {
-            usuario: true
-          }
-        }
-      }
+            usuario: true,
+          },
+        },
+      },
     });
     if (!post) {
-      return res.status(404).json({ error: 'Post no encontrado' });
+      return res.status(404).json({ error: "Post no encontrado" });
     }
     res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Obtener todos los posts
+router.get("/", async (req, res) => {
+  try {
+    const posts = await prisma.post.findMany({
+      include: {
+        usuario: true,
+        categoria: true,
+        comentarios: {
+          include: {
+            usuario: true,
+          },
+        },
+      },
+      orderBy: { fecha_subida: "desc" },
+    });
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Buscar posts por palabra y guardar en historial
+router.post("/buscar", async (req, res) => {
+  const { palabra, id_usuario } = req.body;
+  try {
+    // Buscar posts que contengan la palabra en el título o descripción
+    const posts = await prisma.post.findMany({
+      where: {
+        OR: [
+          { titulo: { contains: palabra, mode: "insensitive" } },
+          { descripcion: { contains: palabra, mode: "insensitive" } },
+        ],
+        activo: true,
+      },
+    });
+
+    // Guardar en historial
+    if (palabra && id_usuario) {
+      await prisma.historialBusqueda.create({
+        data: {
+          id_usuario,
+          termino_busqueda: palabra,
+        },
+      });
+    }
+
+    res.json(posts);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

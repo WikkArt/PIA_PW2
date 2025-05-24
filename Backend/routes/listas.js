@@ -114,4 +114,33 @@ router.delete("/quitarPost", async (req, res) => {
   }
 });
 
+// Obtener todas las listas activas
+router.get("/all", async (req, res) => {
+  try {
+    const listas = await prisma.lista.findMany({
+      where: { activo: true },
+      include: {
+        usuario: true,
+        posts: {
+          include: {
+            post: {
+              include: {
+                usuario: true,
+                categoria: true,
+                comentarios: {
+                  include: { usuario: true }
+                }
+              }
+            }
+          }
+        }
+      },
+      orderBy: { fecha_creacion: "desc" },
+    });
+    res.json(listas);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 module.exports = router;
